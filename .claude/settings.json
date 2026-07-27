@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(echo \"=== lint exit: $? ===\")",
+      "Bash(npm test *)",
+      "Bash(ls -la && echo \"=== busca ampla ===\" && find /Users/augustogaluppo/development /Users/augustogaluppo/Downloads /Users/augustogaluppo/Desktop -maxdepth 3 \\\\\\( -iname \"*UI_ref*\" -o -iname \"*tattoo_playlist*\" \\\\\\) 2>/dev/null | head -20)",
+      "Read(//Users/augustogaluppo/development/**)",
+      "Bash(python3 -)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)"
+    ]
+  }
+}
