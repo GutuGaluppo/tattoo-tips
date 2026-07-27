@@ -1,0 +1,179 @@
+/**
+ * Fonte única de verdade do design system.
+ *
+ * A referência de UI trabalha em faixas: banda escura (cabeçalho, hero,
+ * rodapé) e corpo em papel claro. Por isso os tokens são declarados duas
+ * vezes com os mesmos nomes — no :root para o papel e em .band-dark para as
+ * faixas escuras. Assim qualquer componente funciona nos dois contextos sem
+ * precisar de variante própria.
+ */
+:root {
+  color-scheme: light;
+
+  /* --- marca -------------------------------------------------------- */
+  --ink: #1e1e1e;
+  --ink-soft: #2e2b2c;
+  --paper: #eaeaea;
+  --paper-raised: #f2f2f2;
+  --coral: #ea7060;
+  --coral-strong: #d85a49;
+  --coral-light: #f28a7a;
+  --coral-soft: rgba(234, 112, 96, 0.14);
+  /* O coral da referência é cor de preenchimento. Como texto sobre o papel ele
+     fica em 2,5:1, então existe uma variante escurecida só para tipografia e
+     para o anel de foco. */
+  --coral-text: #a83420;
+
+  /* --- superfícies (papel) ------------------------------------------ */
+  --color-bg: var(--paper);
+  /* No layout de referência o card não é preenchido: ele se separa do fundo
+     pela borda, não pelo tom. */
+  --color-surface: var(--paper);
+  --color-surface-raised: var(--paper-raised);
+  --color-surface-2: #dedede;
+  --color-surface-overlay: rgba(30, 30, 30, 0.96);
+
+  /* --- texto -------------------------------------------------------- */
+  --color-text: var(--ink);
+  --color-muted: #55514f;
+  --color-subtle: #5f5a58;
+
+  /* --- ação --------------------------------------------------------- */
+  --color-accent: var(--coral);
+  --color-accent-strong: var(--coral-strong);
+  --color-highlight: var(--coral);
+  --color-highlight-soft: var(--coral-soft);
+  --color-accent-text: var(--coral-text);
+
+  /* --- bordas ------------------------------------------------------- */
+  --color-border: rgba(30, 30, 30, 0.18);
+  --color-border-strong: rgba(30, 30, 30, 0.42);
+
+  /* --- semântica de alerta -----------------------------------------
+     Calibrada para o papel. O coral é cor de ação, então a urgência usa um
+     vermelho mais fechado para não competir com os botões. Cor nunca é o
+     único sinal: cada nível tem rótulo textual e ícone próprios. */
+  --alert-info: #1f5f8b;
+  --alert-info-bg: rgba(31, 95, 139, 0.09);
+  --alert-info-border: rgba(31, 95, 139, 0.34);
+
+  --alert-warning: #7a4f00;
+  --alert-warning-bg: rgba(138, 90, 0, 0.1);
+  --alert-warning-border: rgba(138, 90, 0, 0.32);
+
+  --alert-danger: #a8241a;
+  --alert-danger-bg: rgba(168, 36, 26, 0.09);
+  --alert-danger-border: rgba(168, 36, 26, 0.34);
+
+  --alert-safe: #175435;
+  --alert-safe-bg: rgba(31, 107, 69, 0.09);
+  --alert-safe-border: rgba(31, 107, 69, 0.3);
+
+  /* --- sombras ------------------------------------------------------
+     O papel é plano: quase nenhuma elevação, a separação vem da borda. */
+  --shadow-sm: none;
+  --shadow-md: 0 8px 24px rgba(30, 30, 30, 0.1);
+  --shadow-lg: 0 20px 50px rgba(30, 30, 30, 0.16);
+
+  /* --- raios -------------------------------------------------------- */
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  /* --- espaçamento -------------------------------------------------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: 6rem;
+
+  /* --- tipografia --------------------------------------------------- */
+  --font-heading: 'Sora Variable', 'Sora', 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter Variable', 'Inter', 'Manrope', system-ui, sans-serif;
+
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.9375rem;
+  --fs-base: clamp(1rem, 0.98rem + 0.1vw, 1.0625rem);
+  --fs-md: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
+  --fs-lg: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  --fs-xl: clamp(1.625rem, 1.3rem + 1.4vw, 2.5rem);
+  --fs-2xl: clamp(2rem, 1.5rem + 2.4vw, 3.25rem);
+  --fs-3xl: clamp(2.5rem, 1.6rem + 4vw, 4.5rem);
+  /* Wordmark da referência: ocupa a largura da página. */
+  --fs-wordmark: clamp(2.75rem, 11.5vw, 9.5rem);
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.25;
+  --lh-base: 1.6;
+
+  /* --- movimento ---------------------------------------------------- */
+  --dur-fast: 160ms;
+  --dur-base: 280ms;
+  --dur-slow: 620ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* --- layout ------------------------------------------------------- */
+  --content-width: 1160px;
+  --prose-width: 68ch;
+  --header-height: 4.25rem;
+
+  /* --- camadas ------------------------------------------------------ */
+  --z-parallax: 0;
+  --z-content: 1;
+  --z-sticky: 20;
+  --z-header: 30;
+  --z-drawer: 40;
+  --z-skiplink: 50;
+}
+
+/**
+ * Faixa escura. Redeclara os mesmos tokens, então componentes internos
+ * (cards, botões, pills, alertas) se adaptam sozinhos.
+ */
+.band-dark {
+  color-scheme: dark;
+
+  --color-bg: var(--ink);
+  --color-surface: var(--ink-soft);
+  --color-surface-raised: #383435;
+  --color-surface-2: #3d3839;
+  --color-surface-overlay: rgba(30, 30, 30, 0.96);
+
+  --color-text: #f4f2f0;
+  --color-muted: #b4aeab;
+  --color-subtle: #a49d9a;
+  --color-accent-text: #f2907f;
+
+  --color-border: rgba(244, 242, 240, 0.16);
+  --color-border-strong: rgba(244, 242, 240, 0.34);
+
+  --alert-info: #8dc0e0;
+  --alert-info-bg: rgba(141, 192, 224, 0.12);
+  --alert-info-border: rgba(141, 192, 224, 0.36);
+
+  --alert-warning: #e6b45f;
+  --alert-warning-bg: rgba(230, 180, 95, 0.12);
+  --alert-warning-border: rgba(230, 180, 95, 0.36);
+
+  --alert-danger: #f2907f;
+  --alert-danger-bg: rgba(242, 144, 127, 0.14);
+  --alert-danger-border: rgba(242, 144, 127, 0.4);
+
+  --alert-safe: #86c9a0;
+  --alert-safe-bg: rgba(134, 201, 160, 0.12);
+  --alert-safe-border: rgba(134, 201, 160, 0.34);
+
+  --shadow-sm: none;
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5);
+
+  background: var(--color-bg);
+  color: var(--color-text);
+}

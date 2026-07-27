@@ -1,0 +1,155 @@
+/**
+ * Impressão: o usuário precisa levar o checklist e as instruções para o estúdio
+ * ou para a consulta médica. Navegação, parallax e vídeos saem; instruções,
+ * fontes e data de revisão ficam.
+ */
+@media print {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.45;
+  }
+
+  .app-header,
+  .emergency-bar,
+  .app-footer,
+  .skip-link,
+  .mobile-nav,
+  .mobile-nav-toggle,
+  .video-embed,
+  .parallax-layer,
+  .no-print,
+  /* Fotografia é ambientação: no papel gasta tinta e não instrui.
+     As ilustrações técnicas (.illustration) continuam, porque informam. */
+  .picture,
+  .playlist,
+  .carousel-controls {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: none !important;
+  }
+
+  /* Superfícies escuras viram papel */
+  .card,
+  .surface,
+  .alert-box,
+  .checklist,
+  .step-flow,
+  .data-table-wrapper,
+  .comparison-table,
+  .source-list {
+    background: #fff !important;
+    border: 1px solid #999 !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    break-inside: avoid;
+  }
+
+  /* Tudo que no escuro vive de cor precisa virar preto no papel — inclusive
+     rótulos, marcadores e citações, que têm cor própria e ganhariam do
+     seletor de elemento por especificidade. */
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  li,
+  td,
+  th,
+  strong,
+  .text-muted,
+  .eyebrow,
+  .alert-heading,
+  .alert-label,
+  .alert-title,
+  .alert-body,
+  .checklist-detail,
+  .checklist-text,
+  .timeline-period,
+  .timeline-watch,
+  .timeline-watch strong,
+  .step-number,
+  .source-ref,
+  .source-meta,
+  .source-note,
+  .last-reviewed,
+  .guide-intro,
+  .guide-section-summary,
+  .content-paragraph,
+  caption {
+    color: #000 !important;
+  }
+
+  /* Exceção: o quadrado do checklist mantém o "visto" invisível quando o
+     item não está marcado. Sem isso, todo item sairia marcado no papel. */
+  .checklist-box {
+    color: transparent !important;
+    border: 1.5px solid #333 !important;
+    background: #fff !important;
+  }
+
+  .checklist-item[data-checked] .checklist-box {
+    color: #000 !important;
+  }
+
+  .checklist-item[data-checked] .checklist-text {
+    text-decoration: none;
+  }
+
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* URLs das fontes precisam ser legíveis no papel */
+  .source-list a::after {
+    content: ' (' attr(href) ')';
+    font-size: 9pt;
+    word-break: break-all;
+  }
+
+  /* Checklists impressos viram caixas para marcar à caneta */
+  .checklist-item input[type='checkbox'] {
+    appearance: auto;
+    -webkit-appearance: checkbox;
+  }
+
+  .checklist-progress {
+    display: none !important;
+  }
+
+  /* Nada revelado por scroll pode ficar invisível no papel */
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .deferred-section {
+    content-visibility: visible !important;
+  }
+
+  .print-note {
+    display: block !important;
+    margin-top: 1rem;
+    font-size: 9pt;
+    border-top: 1px solid #999;
+    padding-top: 0.5rem;
+  }
+}

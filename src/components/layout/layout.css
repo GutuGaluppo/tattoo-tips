@@ -1,0 +1,344 @@
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================== skip link */
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100px;
+  z-index: var(--z-skiplink);
+  padding: var(--space-3) var(--space-5);
+  background: var(--coral);
+  color: var(--ink);
+  font-weight: 700;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  text-decoration: none;
+  transition: top var(--dur-fast) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: 0;
+  color: var(--ink);
+}
+
+/* ================================================================ header */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: var(--ink);
+}
+
+.app-header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-height: var(--header-height);
+}
+
+/**
+ * Assinatura discreta no topo, como na referência: o nome em caixa alta e
+ * espaçado, sem símbolo. O nome em tamanho grande fica reservado ao hero.
+ */
+.brand {
+  margin-right: auto;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.brand:hover .brand-name {
+  color: var(--color-accent-text);
+}
+
+.nav-desktop {
+  display: none;
+}
+
+.nav-desktop ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-desktop a {
+  display: inline-block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-pill);
+  color: var(--color-muted);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.nav-desktop a:hover {
+  color: var(--color-text);
+  background: rgba(244, 242, 240, 0.08);
+}
+
+.nav-desktop a.active {
+  color: var(--color-text);
+  background: rgba(244, 242, 240, 0.12);
+}
+
+/* Sinais de alerta precisa ser encontrável de imediato, em qualquer página. */
+.nav-desktop a.nav-alert {
+  color: var(--alert-warning);
+}
+
+.nav-desktop a.nav-alert.active {
+  color: var(--alert-warning);
+  background: var(--alert-warning-bg);
+}
+
+/* Escopado no header de propósito: `.btn` tem a mesma especificidade e é
+   carregado depois, então uma regra solta perderia e o botão apareceria no
+   mobile, estourando a largura da barra. */
+.app-header .header-emergency {
+  display: none;
+  min-height: 38px;
+  padding: 0.45rem 1.1rem;
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ------------------------------------------------------------ menu móvel */
+
+.mobile-nav-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text);
+}
+
+.burger {
+  display: grid;
+  gap: 5px;
+  width: 18px;
+}
+
+.burger span {
+  display: block;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    opacity var(--dur-fast) var(--ease-out);
+}
+
+.burger[data-open] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger[data-open] span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger[data-open] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/**
+ * Posicionamento absoluto e não fixo: um `position: fixed` aqui seria medido
+ * contra a barra de ~68px caso o cabeçalho ganhe filtro ou transform, e o
+ * drawer colapsaria.
+ */
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: var(--z-drawer);
+  max-height: calc(100vh - var(--header-height));
+  background: var(--ink);
+  border-top: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  padding: var(--space-5) var(--space-4) var(--space-7);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  animation: drawer-in var(--dur-base) var(--ease-out);
+}
+
+@keyframes drawer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+.mobile-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+}
+
+.mobile-nav a {
+  display: block;
+  padding: var(--space-3) var(--space-4);
+  min-height: 44px;
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+  background: rgba(244, 242, 240, 0.08);
+  color: var(--color-accent-text);
+}
+
+.mobile-subnav {
+  margin: var(--space-1) 0 var(--space-3) var(--space-4);
+  border-left: 1px solid var(--color-border);
+}
+
+.mobile-subnav a {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+.mobile-nav-emergency {
+  margin-top: var(--space-3);
+  background: var(--coral) !important;
+  color: var(--ink) !important;
+  text-align: center;
+}
+
+/* ================================================================== main */
+
+main {
+  flex: 1;
+  outline: none;
+}
+
+/* ================================================================ footer */
+
+.app-footer {
+  padding-block: var(--space-8) var(--space-4);
+}
+
+.footer-signature {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-6);
+}
+
+.footer-tagline {
+  margin: 0 0 0.6em;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  line-height: 1.2;
+  color: var(--color-muted);
+}
+
+.footer-bar {
+  display: grid;
+  gap: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
+.app-footer ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--space-5);
+}
+
+/* Links do rodapé são alvos de toque, não texto corrido. */
+.app-footer a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  color: var(--color-accent-text);
+}
+
+.footer-legal {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--color-subtle);
+  max-width: 78ch;
+}
+
+/* ============================================================== wordmark */
+
+/**
+ * O nome em escala de cartaz — abertura e fechamento da página, como na
+ * referência. Não é um heading: é assinatura visual, então em contextos
+ * decorativos vai com aria-hidden e o heading real fica ao lado.
+ */
+.wordmark {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: var(--fs-wordmark);
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.wordmark-muted {
+  color: rgba(244, 242, 240, 0.46);
+}
+
+/* =============================================================== larguras */
+
+@media (min-width: 940px) {
+  .nav-desktop {
+    display: block;
+  }
+
+  .app-header .header-emergency {
+    display: inline-flex;
+  }
+
+  .mobile-nav-toggle {
+    display: none;
+  }
+
+  .footer-bar {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,767 @@
+/**
+ * Folha de jornal antigo para o guia de estilos.
+ *
+ * É a única página do manual que sai do papel neutro do design system: o
+ * assunto começa no tradicional americano, então a página adota o clichê da
+ * época — papel envelhecido, filete duplo, serifa, capitular e vermelho de
+ * tinta. O que não muda é a régua: contraste AA, escala de espaçamento do
+ * sistema e nenhuma dependência nova.
+ *
+ * Os tokens do sistema são redeclarados no escopo da página, como em
+ * `.band-dark`, para que componentes reaproveitados (o aviso de escopo, os
+ * links) se adaptem sem precisar de variante própria.
+ */
+
+.gazette {
+  /* --- tinta e papel ------------------------------------------------- */
+  --news-paper: #e6dcc4;
+  --news-ink: #1f1a15;
+  --news-ink-2: #453b31;
+  --news-red: #a5231b;
+  --news-line: rgba(31, 26, 21, 0.34);
+
+  /* Três vozes, como na página impressa da época: fraktur só no cabeçalho,
+     didone (alto contraste) nos títulos e uma serifa de leitura no corpo. */
+  --font-fraktur: 'UnifrakturMaguntia', 'Playfair Display', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', Times, serif;
+  --font-news: Georgia, 'Iowan Old Style', 'Palatino Linotype', 'Times New Roman', Times, serif;
+  --font-typewriter: 'Courier New', Courier, ui-monospace, monospace;
+
+  /* Tokens do sistema, reescritos para o papel envelhecido. */
+  --color-text: var(--news-ink);
+  --color-muted: var(--news-ink-2);
+  --color-subtle: var(--news-ink-2);
+  --color-accent: var(--news-red);
+  --color-accent-text: var(--news-red);
+  --color-border: var(--news-line);
+  --color-border-strong: rgba(31, 26, 21, 0.62);
+  --color-surface: transparent;
+
+  padding-block: var(--space-6) var(--space-8);
+  color: var(--news-ink);
+  font-family: var(--font-news);
+  /* Papel amarelado com manchas de guarda e a trama do impresso. */
+  background-color: var(--news-paper);
+  background-image:
+    radial-gradient(ellipse 55% 35% at 10% 6%, rgba(139, 106, 52, 0.13), transparent 72%),
+    radial-gradient(ellipse 45% 30% at 92% 26%, rgba(126, 95, 48, 0.12), transparent 72%),
+    radial-gradient(ellipse 65% 35% at 45% 96%, rgba(133, 101, 51, 0.11), transparent 72%),
+    repeating-linear-gradient(0deg, rgba(94, 72, 38, 0.045) 0 1px, transparent 1px 4px);
+}
+
+.gazette :is(h1, h2, h3, h4) {
+  font-family: var(--font-display);
+  letter-spacing: normal;
+}
+
+/* Moldura dupla da folha, como o fio de guarda das primeiras páginas. */
+.gazette-sheet {
+  position: relative;
+  border: 3px solid var(--news-ink);
+  padding: clamp(var(--space-4), 3.5vw, var(--space-7));
+}
+
+.gazette-sheet::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 1px solid var(--news-ink);
+  pointer-events: none;
+}
+
+/* ==================================================== cabeçalho do jornal */
+
+.gazette-masthead {
+  text-align: center;
+}
+
+.gazette-overline,
+.gazette-dateline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6em;
+  margin: 0;
+  font-size: clamp(0.625rem, 0.55rem + 0.3vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--news-ink-2);
+}
+
+/* Fraktur em caixa alta e baixa: a versina do blackletter é ornamental
+   demais para ser lida se tudo virar maiúscula. */
+.gazette-nameplate {
+  margin: 0.15em 0 0.1em;
+  font-family: var(--font-fraktur);
+  font-size: clamp(2.5rem, 11vw, 6.5rem);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.005em;
+  text-wrap: balance;
+}
+
+.gazette-dateline {
+  padding-block: 0.5em;
+  border-top: 2px solid var(--news-ink);
+  border-bottom: 1px solid var(--news-ink);
+  letter-spacing: 0.14em;
+}
+
+.gazette-headline {
+  max-width: 46ch;
+  margin: var(--space-6) auto var(--space-5);
+}
+
+.gazette-kicker {
+  margin: 0 0 0.5em;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--news-red);
+}
+
+.gazette-headline h1 {
+  font-size: clamp(1.875rem, 1.1rem + 3.6vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.005em;
+}
+
+/* Segundo decote, separado por fio — a manchete antiga empilha títulos. */
+.gazette-deck {
+  margin: var(--space-4) auto 0;
+  max-width: 40ch;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--news-line);
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--news-ink-2);
+}
+
+/* ================================================= abertura e legenda */
+
+.gazette-lede {
+  display: grid;
+  gap: var(--space-5);
+  padding-top: var(--space-5);
+  border-top: 3px double var(--news-ink);
+}
+
+.gazette-lede-text p {
+  margin: 0 0 var(--space-4);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* Capitular: a inicial ocupa três linhas, como na abertura de coluna. */
+.has-dropcap::first-letter {
+  float: left;
+  margin: 0.06em 0.08em 0 0;
+  font-size: 3.5em;
+  line-height: 0.76;
+  font-weight: 700;
+  color: var(--news-red);
+}
+
+.gazette-legend {
+  padding: var(--space-4);
+  border: 1px solid var(--news-ink);
+  box-shadow:
+    0 0 0 3px var(--news-paper),
+    0 0 0 4px var(--news-ink);
+}
+
+.gazette-legend h2 {
+  margin-bottom: var(--space-3);
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid var(--news-line);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.gazette-legend dl {
+  margin: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+
+.gazette-legend dt {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5em;
+}
+
+.legend-code {
+  font-family: var(--font-typewriter);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  padding: 0.05em 0.4em;
+  border: 1px solid var(--news-ink);
+}
+
+.legend-label {
+  font-size: 0.875rem;
+  font-style: italic;
+}
+
+.gazette-legend dd {
+  margin: 0.15em 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--news-ink-2);
+}
+
+/* ============================================================= filetes */
+
+.gazette-rule {
+  display: block;
+  width: 100%;
+  height: 16px;
+  margin-block: var(--space-6);
+  color: var(--news-ink);
+}
+
+/* ============================================================== índice */
+
+.gazette-index h2 {
+  margin-bottom: var(--space-3);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+
+.gazette-index ol {
+  columns: 2;
+  column-gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--news-line);
+  border-bottom: 1px solid var(--news-line);
+  padding-block: var(--space-3);
+}
+
+.gazette-index li {
+  break-inside: avoid;
+}
+
+.gazette-index a {
+  display: flex;
+  gap: 0.6em;
+  padding: 0.15em 0;
+  font-size: 0.9375rem;
+  text-decoration: none;
+}
+
+.gazette-index a:hover .index-name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.index-number {
+  font-family: var(--font-typewriter);
+  font-size: 0.8125rem;
+  color: var(--news-red);
+}
+
+/* ============================================================== aviso */
+
+.gazette-notice {
+  margin: var(--space-5) auto 0;
+  max-width: 78ch;
+  padding: var(--space-3) var(--space-4);
+  border-block: 1px solid var(--news-ink);
+  font-size: 0.9375rem;
+  font-style: italic;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--news-ink-2);
+}
+
+.gazette-notice strong {
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8125rem;
+  color: var(--news-ink);
+}
+
+/* ====================================================== verbetes/flash */
+
+.gazette-entries {
+  margin-top: var(--space-6);
+}
+
+/**
+ * Malha de classificados: seis colunas, módulos de 2, 3 e 4, fluxo denso e
+ * itens alinhados ao topo. Como a altura de cada anúncio é a do seu próprio
+ * conteúdo, a mancha fica irregular de propósito — é a página de anúncios,
+ * não uma galeria de cards iguais.
+ */
+.entry-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+
+.entry {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border: 2px solid var(--news-ink);
+  background: rgba(255, 252, 244, 0.28);
+  break-inside: avoid;
+}
+
+.entry-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------------------------------------------------------- o clichê */
+
+.entry-cut {
+  position: relative;
+  margin: 0 0 var(--space-4);
+  /* Canto arredondado do gate de Super 8; o resto da página é reto. */
+  border-radius: 10px;
+  overflow: hidden;
+  background: #2b2118;
+}
+
+/* Sépia de arquivo: satura menos, esquenta e fecha um pouco o preto. */
+.entry-cut-picture img {
+  filter: sepia(0.78) saturate(0.72) contrast(1.14) brightness(0.93);
+}
+
+/* Vinheta + halo quente + granulação, na ordem em que a projeção soma. */
+.entry-cut-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 74% 66% at 50% 46%, rgba(0, 0, 0, 0) 42%, rgba(28, 16, 4, 0.62) 100%),
+    radial-gradient(ellipse 40% 34% at 46% 40%, rgba(255, 214, 150, 0.16), transparent 70%),
+    repeating-linear-gradient(12deg, rgba(120, 88, 40, 0.05) 0 1px, transparent 1px 3px);
+  mix-blend-mode: multiply;
+}
+
+/* ------------------------------------------------------- cabeçalho */
+
+.entry-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+  padding-bottom: 0.45em;
+  border-bottom: 3px double var(--news-ink);
+}
+
+.entry-flash {
+  width: 2rem;
+  height: 2rem;
+  color: var(--news-ink);
+}
+
+.entry-folio {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25em;
+  margin: 0;
+  line-height: 1.2;
+  font-family: var(--font-typewriter);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--news-red);
+}
+
+.entry-number {
+  font-weight: 700;
+}
+
+.entry-name {
+  min-width: 0;
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: 900;
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+}
+
+.entry-altname {
+  display: block;
+  margin-top: 0.3em;
+  font-family: var(--font-news);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--news-ink-2);
+}
+
+.entry-techniques {
+  margin: 0 0 var(--space-4);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.entry-specs {
+  display: grid;
+  gap: var(--space-3);
+  margin: 0 0 var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--news-line);
+}
+
+.spec dt {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--news-red);
+}
+
+.spec dd {
+  margin: 0.3em 0 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--news-ink-2);
+}
+
+.spec-needles ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.spec-needles li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35em;
+}
+
+.needle-code {
+  padding: 0.1em 0.4em;
+  border: 1px solid var(--news-ink);
+  font-family: var(--font-typewriter);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--news-ink);
+  white-space: nowrap;
+}
+
+.needle-use {
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.entry-note {
+  margin: 0 0 var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--news-line);
+  font-size: 0.875rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.entry-note::before {
+  content: '✶ ';
+  font-style: normal;
+  color: var(--news-red);
+}
+
+/* Empurra o link para a base do card, alinhando o rodapé de todos. */
+.entry-reference {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding-top: var(--space-2);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--news-red);
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.3em;
+}
+
+.entry-reference:hover {
+  color: var(--news-ink);
+}
+
+.entry-reference-arrow {
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.entry-reference:hover .entry-reference-arrow {
+  transform: translateX(3px);
+}
+
+/* ======================================================= coluna final */
+
+.gazette-editorial {
+  max-width: 82ch;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.gazette-editorial h2 {
+  margin-bottom: var(--space-5);
+  font-size: clamp(1.5rem, 1.1rem + 1.6vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.editorial-columns {
+  text-align: justify;
+  hyphens: auto;
+}
+
+.editorial-columns p {
+  margin: 0 0 var(--space-4);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.gazette-pullquote {
+  margin: var(--space-6) 0 0;
+  padding-block: var(--space-4);
+  border-top: 3px double var(--news-ink);
+  border-bottom: 3px double var(--news-ink);
+}
+
+.gazette-pullquote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 1.75rem);
+  font-style: italic;
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+.gazette-pullquote footer {
+  margin-top: var(--space-3);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--news-ink-2);
+}
+
+/* =========================================================== colofão */
+
+.gazette-colophon {
+  margin-top: var(--space-7);
+  padding-top: var(--space-5);
+  border-top: 3px double var(--news-ink);
+  text-align: center;
+}
+
+/* O aviso de escopo é o componente compartilhado: aqui ele veste o papel. */
+.gazette-colophon .disclaimer {
+  max-width: 78ch;
+  margin: 0 auto var(--space-5);
+  padding: var(--space-4);
+  border: 1px solid var(--news-ink);
+  border-radius: 0;
+  background: transparent;
+  font-family: var(--font-news);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--news-ink-2);
+}
+
+.gazette-colophon .disclaimer strong {
+  color: var(--news-ink);
+}
+
+.colophon-line {
+  margin: 0 auto var(--space-4);
+  max-width: 70ch;
+  font-size: 0.875rem;
+  color: var(--news-ink-2);
+}
+
+.colophon-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75em;
+  margin: 0;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.colophon-links span {
+  color: var(--news-red);
+  padding-block: 0.4rem;
+}
+
+/* Alvo de toque: o link do rodapé é controle, não link inline de texto. */
+.colophon-links a {
+  padding-block: 0.4rem;
+}
+
+/* ======================================================== larguras */
+
+@media (min-width: 48rem) {
+  .gazette-lede {
+    grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
+    gap: var(--space-6);
+  }
+
+  .gazette-lede-text {
+    columns: 2;
+    column-gap: var(--space-5);
+    column-rule: 1px solid var(--news-line);
+  }
+
+  .gazette-index ol {
+    columns: 3;
+  }
+
+  .editorial-columns {
+    columns: 2;
+    column-gap: var(--space-6);
+    column-rule: 1px solid var(--news-line);
+    text-align: left;
+  }
+
+  /* Quatro colunas: só a manchete ocupa a linha inteira. */
+  /* `stretch` (padrão) de propósito: com `start` os anúncios mais curtos
+     deixavam buracos de papel dentro da linha, o que lê como defeito, não
+     como diagramação. A variação de altura vem da composição de cada linha
+     e da proporção do clichê; o link de referência é empurrado para a base
+     pelo `margin-top: auto`, então a folga vira respiro do anúncio. */
+  .entry-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-flow: row dense;
+  }
+
+  .entry {
+    grid-column: span 2;
+  }
+
+  .entry[data-span='4'] {
+    grid-column: span 4;
+  }
+}
+
+@media (min-width: 64rem) {
+  .gazette-index ol {
+    columns: 4;
+  }
+
+  .entry-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .entry[data-span='2'] {
+    grid-column: span 2;
+  }
+
+  .entry[data-span='3'] {
+    grid-column: span 3;
+  }
+
+  .entry[data-span='4'] {
+    grid-column: span 4;
+  }
+
+  /* Manchete: clichê à esquerda, texto à direita, título em corpo maior. */
+  .entry[data-span='4'] {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: var(--space-5);
+  }
+
+  /* Na manchete o clichê acompanha a altura da coluna de texto, como o
+     "cut" grande da primeira página. A proporção vem inline do componente
+     Picture, então precisa ser desligada com !important. */
+  .entry[data-span='4'] .entry-cut {
+    margin-bottom: 0;
+    align-self: stretch;
+  }
+
+  .entry[data-span='4'] .entry-cut-picture {
+    height: 100%;
+    aspect-ratio: auto !important;
+  }
+
+  .entry[data-span='4'] .entry-name {
+    font-size: 1.875rem;
+  }
+
+  .entry[data-span='4'] .entry-techniques {
+    font-size: 1.0625rem;
+  }
+
+  .entry[data-span='3'] .entry-name {
+    font-size: 1.4375rem;
+  }
+}
+
+/* ========================================================= impressão */
+
+@media print {
+  .gazette {
+    background: #fff !important;
+    padding: 0 !important;
+  }
+
+  .gazette-sheet {
+    border-width: 2px;
+    padding: 0.5cm;
+  }
+
+  .entry-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .entry,
+  .gazette-legend,
+  .gazette-pullquote {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* A foto já sai da impressão (.picture some); sem isso ficaria a moldura
+     vazia do clichê ocupando a coluna. */
+  .entry-cut {
+    display: none !important;
+  }
+
+  .entry[data-span='4'] {
+    display: block;
+  }
+
+  .gazette-index {
+    break-after: page;
+  }
+
+  .gazette-editorial,
+  .gazette-colophon {
+    break-before: page;
+  }
+}
