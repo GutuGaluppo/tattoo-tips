@@ -68,3 +68,6 @@ desktop.ini
 # --- ferramentas de IA -------------------------------------------------
 # settings.json do projeto é versionado; o .local é de cada máquina.
 .claude/settings.local.json
+
+# --- arquivos de revisão de código --------------------------------------
+review

@@ -72,26 +72,12 @@ export const images = {
     source: 'https://unsplash.com/photos/Visezp_DeTU',
     position: 'center 30%',
   },
-  lining: {
-    id: 'ta-focando-k-vbjak6rok',
-    alt: 'Traço de contorno sendo feito com máquina de cartucho e luvas pretas, sobre pele esticada.',
-    credit: 'Tá Focando',
-    source: 'https://unsplash.com/photos/k_VbjAk6rok',
-    position: 'center 40%',
-  },
   detail: {
     id: 'collins-lesulie-pwk6cecjtjw',
     alt: 'Trabalho de detalhe com máquina de cartucho, com as duas mãos enluvadas esticando a pele.',
     credit: 'Collins Lesulie',
     source: 'https://unsplash.com/photos/PWK6CeCJtJw',
     position: 'center 45%',
-  },
-  ink: {
-    id: 'jose-pinto-rebc6ee8jns',
-    alt: 'Tatuadora de máscara segurando um frasco de tinta durante o preparo.',
-    credit: 'José Pinto',
-    source: 'https://unsplash.com/photos/rEbc6EE8JNs',
-    position: 'center 30%',
   },
   machine: {
     id: 'andrej-lisakov-ll1tdo-aqym',
@@ -106,13 +92,6 @@ export const images = {
     credit: 'Agathe Lov',
     source: 'https://unsplash.com/photos/JPl0GPNoeoM',
     position: 'center',
-  },
-  linework: {
-    id: 'benjamin-lehman-5t4qcgtalgu',
-    alt: 'Contorno em andamento sobre pele já tatuada, com luvas pretas e máquina apoiada.',
-    credit: 'Benjamin Lehman',
-    source: 'https://unsplash.com/photos/5t4qCgtaLGU',
-    position: 'center 55%',
   },
   studio: {
     id: 'sherman-yang-zoyowsanhxo',
