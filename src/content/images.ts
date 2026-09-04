@@ -42,7 +42,7 @@ export const images = {
     alt: 'Bandeja de trabalho forrada com barreira descartável, com tintas, copinhos e papel-toalha separados.',
     credit: 'Fallon Michael',
     source: 'https://unsplash.com/photos/EQucs66pts0',
-    position: 'center',
+    position: 'center bottom',
   },
   supplies: {
     id: 'inks-machines',
