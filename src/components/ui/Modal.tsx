@@ -21,18 +21,30 @@ export function Modal({ open, onClose, titleId, children }: ModalProps) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const triggerRef = useRef<Element | null>(null);
 
+  // `onClose` costuma ser recriado a cada render de quem chama o Modal (um
+  // handler comum, sem useCallback) — em formulários controlados isso é toda
+  // tecla digitada. Guardar a versão mais recente numa ref, em vez de listar
+  // `onClose` nas dependências abaixo, evita que o efeito de abertura rode de
+  // novo (e refoque o primeiro elemento) a cada tecla.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  }, [onClose]);
+
   useEffect(() => {
     if (!open) return;
 
     triggerRef.current = document.activeElement;
     document.body.style.overflow = 'hidden';
     dialogRef.current
-      ?.querySelector<HTMLElement>('input, textarea, select, button, a[href]')
+      ?.querySelector<HTMLElement>(
+        'input, textarea, select, a[href], button:not(.modal-close)',
+      )
       ?.focus();
 
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === 'Escape') {
-        onClose();
+        onCloseRef.current();
         return;
       }
 
@@ -62,7 +74,7 @@ export function Modal({ open, onClose, titleId, children }: ModalProps) {
       document.removeEventListener('keydown', onKeyDown);
       if (triggerRef.current instanceof HTMLElement) triggerRef.current.focus();
     };
-  }, [open, onClose]);
+  }, [open]);
 
   if (!open) return null;
 
