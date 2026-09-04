@@ -1,5 +1,6 @@
 import { categoryLabels, type Product } from '@/content/products';
 import { ProductIcon } from '@/components/illustrations/ProductIcons';
+import { Picture } from '@/components/ui/Picture';
 import { Badge } from '@/components/ui/Meta';
 import './content.css';
 
@@ -12,7 +13,11 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="card product-card">
-      <ProductIcon category={product.category} className="product-card-icon" />
+      {product.imageKey ? (
+        <Picture name={product.imageKey} ratio="1/1" sizes="(min-width: 720px) 260px, 45vw" />
+      ) : (
+        <ProductIcon category={product.category} className="product-card-icon" />
+      )}
 
       <div className="product-card-body">
         <span className="product-card-category">{categoryLabels[product.category]}</span>

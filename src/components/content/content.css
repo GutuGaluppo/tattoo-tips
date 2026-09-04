@@ -85,6 +85,18 @@
   color: var(--color-subtle);
 }
 
+/* Foto real de produto: fundo neutro (a maioria vem em fundo branco de
+   catálogo) e moldura pequena para não competir com o papel do card. */
+.product-card .picture {
+  border-radius: var(--radius-sm);
+  background: #fff;
+}
+
+.product-card .picture img {
+  object-fit: contain;
+  padding: var(--space-2);
+}
+
 .product-card-body {
   display: grid;
   gap: var(--space-2);

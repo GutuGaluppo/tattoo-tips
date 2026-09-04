@@ -1,3 +1,5 @@
+import type { ImageKey } from './images';
+
 export type ProductCategory =
   | 'stencil'
   | 'aftercare'
@@ -41,6 +43,8 @@ export interface Product {
   tier: ProductTier;
   /** Só para tinta: existe versão explicitamente compatível com o REACH da UE. */
   euReach?: boolean;
+  /** Foto real do produto, baixada do site oficial — ausente vira ícone de categoria. */
+  imageKey?: ImageKey;
   /** Por que está na lista — 1–2 frases, sem hipérbole. */
   editorialNote: string;
   /** Citação real, com URL — nunca inventada. Ausente quando a pesquisa não achou menção confiável. */
@@ -65,6 +69,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://tattoostuff.com/products/stencil-stuff-4-oz',
     tier: 'pro',
+    imageKey: 'productStencilStuff',
     editorialNote:
       'Referência de mercado para solução de stencil, usada há anos por tatuadores profissionais. Nos fóruns, a opinião não é unânime: parte considera o resultado mais fraco/aguado que soluções concorrentes, especialmente em pele oleosa.',
     forumSources: [
@@ -85,6 +90,7 @@ export const products: Product[] = [
     officialUrl:
       'https://electrumsupply.com/products/electrum-premium-tattoo-stencil-primer-green-8-oz',
     tier: 'pro',
+    imageKey: 'productElectrumStencilPrimer',
     editorialNote:
       'Primer verde de aplicação fina — uma camada pequena costuma render muitas sessões, segundo o próprio fabricante.',
   },
@@ -97,6 +103,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://www.hustlebutter.com/products/hustle-butter-deluxe-tattoo-balm-5-fl-oz',
     tier: 'pro',
+    imageKey: 'productHustleButterDeluxe',
     editorialNote:
       'Balm vegano usado antes, durante e depois da sessão. Nos fóruns a opinião é dividida: parte gosta do resultado e do cheiro, parte considera caro para o ganho percebido frente a alternativas bem mais baratas como Aquaphor.',
     forumSources: [
@@ -121,6 +128,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://www.dermalizepro.com/protective-film/',
     tier: 'pro',
+    imageKey: 'productDermalizeProFilm',
     editorialNote:
       'Filme de segunda pele registrado como dispositivo médico classe I na Itália e nos EUA (FDA). Também vem em amostras pequenas (~€5) para quem quer experimentar antes de comprar um rolo inteiro. Discussão de fórum relata boa aceitação geral, com uma taxa de reação ao adesivo estimada em torno de 10% dos casos.',
     forumSources: [
@@ -157,6 +165,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://uk.unigloves.com/products/black-pearl',
     tier: 'pro',
+    imageKey: 'productUniglovesBlackPearl',
     editorialNote: 'Linha premium da Unigloves, mais reforçada que a nitrila básica de estúdio.',
   },
   {
@@ -192,6 +201,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://dynamiccolor.com/products/union-black',
     tier: 'pro',
+    imageKey: 'productDynamicUnionBlack',
     editorialNote:
       'Preto all-round citado com frequência como referência para lining e sombreado. Em discussão de fórum, artistas relatam que se manteve o mais escuro depois de cicatrizado entre várias marcas testadas lado a lado. Existe versão compatível com o REACH europeu — confirme com o fornecedor se é a versão Union Black/EU antes de comprar para uso na UE.',
     forumSources: [
@@ -229,6 +239,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://pantheraink.it/products/black-gold/',
     tier: 'pro',
+    imageKey: 'productPantheraBlackGold',
     editorialNote:
       'Preto italiano com ingredientes de origem vegetal, indicado pelo fabricante como resistente ao azulamento pós-cicatrização. Para uso na UE, confirme com o fornecedor se o lote específico é a variante compatível com o REACH europeu — nem toda variante é.',
   },
@@ -241,6 +252,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://spirittattooproducts.com/products/spirit-thermal-11',
     tier: 'pro',
+    imageKey: 'productSpiritClassicThermal',
     editorialNote: 'Papel térmico padrão da indústria para transferência de stencil via máquina térmica.',
   },
   {
@@ -318,6 +330,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://www.kwadron.pl/en/kwadron-cartridges',
     tier: 'pro',
+    imageKey: 'productKwadronCartridgeSystem',
     editorialNote:
       'Uma das marcas de cartucho mais citadas em fórum como "confiável" e de "bom fluxo de tinta"; a mesma discussão aponta folga (wobble) na ponta dos magnums como ponto fraco.',
     forumSources: [
@@ -348,6 +361,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://bishoptattoosupply.com/products/the-power-wand-rca-machine',
     tier: 'pro',
+    imageKey: 'productBishopPowerWand',
     editorialNote:
       'Máquina wireless bem avaliada em fórum por artistas experientes, descrita como estável para gradientes e textura; um ponto citado é que bateria de terceiros mais barata pode não sustentar o motor.',
     forumSources: [
@@ -367,6 +381,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://cheyennetattoo.com/en/tattoo-machines/sol-nova-unlimited',
     tier: 'pro',
+    imageKey: 'productCheyenneSolNova',
     editorialNote:
       'Descrita pela própria Cheyenne como "a caneta mais silenciosa"; discussão de fórum destaca o ajuste de "give" (folga) como diferencial frente a máquinas de drive direto.',
     forumSources: [
@@ -386,6 +401,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://www.fkirons.com/products/flux-max-wireless-tattoo-machine',
     tier: 'pro',
+    imageKey: 'productFkIronsFluxMax',
     editorialNote:
       'Máquina wireless com ajuste digital de pressão e stroke. Em fórum, o ponto mais citado como problema é duração de bateria abaixo do esperado em algumas unidades.',
     forumSources: [
@@ -405,6 +421,7 @@ export const products: Product[] = [
     priceCheckedAt: '2026-09-05',
     officialUrl: 'https://criticaltattoo.com/products/critical-torque',
     tier: 'pro',
+    imageKey: 'productCriticalTorque',
     editorialNote:
       'A Critical é citada em fórum como marca de equipamento consistente e durável ao longo dos anos — comentário sobre a marca em geral, não sobre o modelo Torque especificamente.',
     forumSources: [

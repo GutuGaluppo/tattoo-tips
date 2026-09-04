@@ -135,6 +135,103 @@ export const images = {
     position: 'center',
   },
 
+  /* --------------------------------------------- vitrine de equipamento
+     Fotos de produto para /equipamento — baixadas do site oficial de cada
+     marca (nunca de link de afiliado) e credenciadas a ela. `source` é a
+     página do produto, a mesma citada em `content/products.ts`. */
+  productStencilStuff: {
+    id: 'product-stencil-stuff',
+    alt: 'Frascos de Stencil Stuff em dois tamanhos, com o rótulo verde da marca.',
+    credit: 'Stencil Stuff',
+    source: 'https://tattoostuff.com/products/stencil-stuff-4-oz',
+    position: 'center',
+  },
+  productElectrumStencilPrimer: {
+    id: 'product-electrum-stencil-primer',
+    alt: 'Frasco verde do Electrum Premium Tattoo Stencil Primer, 8 fl oz.',
+    credit: 'Electrum',
+    source:
+      'https://electrumsupply.com/products/electrum-premium-tattoo-stencil-primer-green-8-oz',
+    position: 'center',
+  },
+  productHustleButterDeluxe: {
+    id: 'product-hustle-butter-deluxe',
+    alt: 'Pote de Hustle Butter Deluxe aberto, com uma porção do balm sobre um espátula de madeira.',
+    credit: 'Hustle Butter',
+    source: 'https://www.hustlebutter.com/products/hustle-butter-deluxe-tattoo-balm-5-fl-oz',
+    position: 'center',
+  },
+  productDermalizeProFilm: {
+    id: 'product-dermalize-pro-film',
+    alt: 'Rolo de Dermalize Pro Protective Film parcialmente desenrolado, ao lado da embalagem cilíndrica azul.',
+    credit: 'Dermalize',
+    source: 'https://www.dermalizepro.com/protective-film/',
+    position: 'center',
+  },
+  productUniglovesBlackPearl: {
+    id: 'product-unigloves-black-pearl',
+    alt: 'Caixa de luvas de nitrila Unigloves Black Pearl, 100 unidades.',
+    credit: 'Unigloves',
+    source: 'https://uk.unigloves.com/products/black-pearl',
+    position: 'center',
+  },
+  productSpiritClassicThermal: {
+    id: 'product-spirit-classic-thermal',
+    alt: 'Pacote de papel térmico Spirit Classic Thermal, com uma folha parcialmente destacada.',
+    credit: 'Spirit',
+    source: 'https://spirittattooproducts.com/products/spirit-thermal-11',
+    position: 'center',
+  },
+  productDynamicUnionBlack: {
+    id: 'product-dynamic-union-black',
+    alt: 'Frasco de tinta Dynamic Union Black, 8 fl oz.',
+    credit: 'Dynamic Color',
+    source: 'https://dynamiccolor.com/products/union-black',
+    position: 'center',
+  },
+  productPantheraBlackGold: {
+    id: 'product-panthera-black-gold',
+    alt: 'Frasco preto e dourado da tinta Panthera Black Gold.',
+    credit: 'Panthera',
+    source: 'https://pantheraink.it/products/black-gold/',
+    position: 'center',
+  },
+  productKwadronCartridgeSystem: {
+    id: 'product-kwadron-cartridge-system',
+    alt: 'Caixa de cartuchos Kwadron Cartridge System com unidades individuais embaladas ao redor.',
+    credit: 'Kwadron',
+    source: 'https://www.kwadron.pl/en/kwadron-cartridges',
+    position: 'center',
+  },
+  productBishopPowerWand: {
+    id: 'product-bishop-power-wand',
+    alt: 'Máquina Bishop Power Wand ao lado da embalagem e do estojo de transporte da marca.',
+    credit: 'Bishop',
+    source: 'https://bishoptattoosupply.com/products/the-power-wand-rca-machine',
+    position: 'center',
+  },
+  productCheyenneSolNova: {
+    id: 'product-cheyenne-sol-nova',
+    alt: 'Máquina wireless Cheyenne SOL Nova Unlimited, na cor preta.',
+    credit: 'Cheyenne',
+    source: 'https://cheyennetattoo.com/en/tattoo-machines/sol-nova-unlimited',
+    position: 'center',
+  },
+  productFkIronsFluxMax: {
+    id: 'product-fk-irons-flux-max',
+    alt: 'Máquina wireless FK Irons Flux Max, com tela digital de ajuste.',
+    credit: 'FK Irons',
+    source: 'https://www.fkirons.com/products/flux-max-wireless-tattoo-machine',
+    position: 'center',
+  },
+  productCriticalTorque: {
+    id: 'product-critical-torque',
+    alt: 'Máquina wireless Critical Torque, com tela digital e cartucho de bateria visível.',
+    credit: 'Critical',
+    source: 'https://criticaltattoo.com/products/critical-torque',
+    position: 'center',
+  },
+
   /* ------------------------------------------------ exemplos de estilo
      Clichês da página /estilos, um por verbete. Diferente das fotos acima,
      estas chegaram sem procedência: `credit` registra isso em vez de
