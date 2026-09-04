@@ -65,6 +65,79 @@
   margin-top: var(--space-2);
 }
 
+/* ==================================================== card de equipamento */
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
+  gap: var(--space-5);
+  margin-bottom: var(--space-7);
+}
+
+.product-card {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.product-card-icon {
+  width: 40px;
+  height: 40px;
+  color: var(--color-subtle);
+}
+
+.product-card-body {
+  display: grid;
+  gap: var(--space-2);
+  align-content: start;
+}
+
+.product-card-category {
+  font-size: var(--fs-xs);
+  color: var(--color-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.product-card h3 {
+  margin: 0;
+}
+
+.product-card-brand {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+.product-card-price {
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.product-card-price-date {
+  font-weight: 400;
+  font-size: var(--fs-xs);
+  color: var(--color-subtle);
+}
+
+.product-card-note {
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+.product-card-forums ul {
+  list-style: none;
+  margin: var(--space-2) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-1);
+  font-size: var(--fs-xs);
+}
+
+.product-card-link {
+  justify-self: start;
+  margin-top: var(--space-2);
+}
+
 /* ============================================================== alert box */
 
 .alert-box {

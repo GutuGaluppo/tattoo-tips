@@ -12,6 +12,7 @@ export interface Dictionary {
     artists: string;
     warningSigns: string;
     styles: string;
+    equipment: string;
     about: string;
   };
   emergency: string;
@@ -37,6 +38,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       artists: 'Para tatuadores',
       warningSigns: 'Sinais de alerta',
       styles: 'Estilos',
+      equipment: 'Equipamento',
       about: 'Sobre',
     },
     emergency: 'Emergências',
@@ -61,6 +63,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       artists: 'For tattoo artists',
       warningSigns: 'Warning signs',
       styles: 'Styles',
+      equipment: 'Gear',
       about: 'About',
     },
     emergency: 'Emergency',
@@ -86,6 +89,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       artists: 'Para tatuadores',
       warningSigns: 'Señales de alerta',
       styles: 'Estilos',
+      equipment: 'Equipo',
       about: 'Acerca de',
     },
     emergency: 'Emergencias',
@@ -111,6 +115,7 @@ export const dictionaries: Record<Locale, Dictionary> = {
       artists: 'Für Tätowierer:innen',
       warningSigns: 'Warnzeichen',
       styles: 'Stile',
+      equipment: 'Ausrüstung',
       about: 'Über uns',
     },
     emergency: 'Notfall',

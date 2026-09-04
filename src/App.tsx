@@ -21,6 +21,8 @@ const WarningSigns = lazy(() => import('@/pages/guides/WarningSigns'));
 const Emergency = lazy(() => import('@/pages/guides/Emergency'));
 const Screening = lazy(() => import('@/pages/guides/Screening'));
 const TattooStyles = lazy(() => import('@/pages/TattooStyles'));
+const Equipment = lazy(() => import('@/pages/Equipment'));
+const EquipmentPro = lazy(() => import('@/pages/EquipmentPro'));
 const Sources = lazy(() => import('@/pages/Sources'));
 const About = lazy(() => import('@/pages/About'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
@@ -48,6 +50,8 @@ const pageByRouteId: Record<RouteId, JSX.Element> = {
   artistHub: <ArtistHub />,
   artistScreening: <Screening />,
   styles: <TattooStyles />,
+  equipmentHub: <Equipment />,
+  equipmentPro: <EquipmentPro />,
   sources: <Sources />,
   about: <About />,
 };

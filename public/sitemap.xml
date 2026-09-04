@@ -441,6 +441,86 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/stile" />
   </url>
   <url>
+    <loc>https://tattoo-tips.example/equipamento</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/equipment</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/equipo</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/ausruestung</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/equipamento/pro</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento/pro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment/pro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo/pro" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung/pro" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/equipment/pro</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento/pro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment/pro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo/pro" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung/pro" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/equipo/pro</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento/pro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment/pro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo/pro" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung/pro" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/ausruestung/pro</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/equipamento/pro" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/equipment/pro" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/equipo/pro" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ausruestung/pro" />
+  </url>
+  <url>
     <loc>https://tattoo-tips.example/fontes</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>

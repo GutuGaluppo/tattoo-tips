@@ -77,6 +77,7 @@ export const primaryNav: NavItem[] = [
   { label: 'Para tatuadores', to: '/tatuador', children: artistJourney },
   { label: 'Sinais de alerta', to: '/sinais-de-alerta' },
   { label: 'Estilos', to: '/estilos' },
+  { label: 'Equipamento', to: '/equipamento' },
   { label: 'Sobre', to: '/sobre' },
 ];
 

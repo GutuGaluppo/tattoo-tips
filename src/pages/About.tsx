@@ -66,6 +66,16 @@ export default function About() {
           <li>Não recebe patrocínio de fabricante nem comissão por indicação.</li>
         </ul>
 
+        <h2>Sobre a vitrine de equipamento</h2>
+        <p>
+          A seção <Link to={localizeHref('/equipamento', locale)}>Equipamento e materiais</Link> é
+          separada do manual, de propósito: reúne marcas e produtos usados por tatuadores como
+          referência de mercado, com preço aproximado e link para o site oficial de cada um. Não é
+          indicação paga nem afiliação — nenhum produto ali entrou por patrocínio, e nenhum link é
+          de afiliado. Continua valendo o que está acima: o manual em si não indica marca, produto,
+          estúdio ou curso.
+        </p>
+
         <AlertBox level="atencao" title="Revisão profissional pendente">
           <p>
             O conteúdo foi construído a partir de fontes públicas de órgãos de saúde e sociedades
