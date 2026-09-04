@@ -1,6 +1,7 @@
 /**
  * Gera os derivados servidos ao usuário a partir dos originais em
- * `media/pictures/`. Os originais somam ~33 MB e nunca vão para o ar: aqui
+ * `public/images/source/`. Os originais somam ~33 MB e são removidos de
+ * `dist` pelo postbuild, portanto nunca vão para o ar. Aqui
  * saem AVIF e WebP em três larguras, mais as dimensões que o componente usa
  * para reservar espaço (e manter CLS em zero).
  *
@@ -11,8 +12,8 @@ import { existsSync } from 'node:fs';
 import { basename, extname, join } from 'node:path';
 import sharp from 'sharp';
 
-const SOURCE = 'media/pictures';
-const OUT = 'public/pictures';
+const SOURCE = 'public/images/source';
+const OUT = 'public/images/generated';
 const WIDTHS = [480, 960, 1600];
 
 /** Qualidades escolhidas por inspeção: acima disso o ganho visual some. */

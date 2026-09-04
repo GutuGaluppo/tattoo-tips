@@ -28,7 +28,9 @@ export function Picture({ name, ratio = '3/2', sizes, priority, className }: Pic
   const largest = widths[widths.length - 1];
 
   const srcset = (format: 'avif' | 'webp') =>
-    widths.map((width) => `/pictures/${image.id}-${width}.${format} ${width}w`).join(', ');
+    widths
+      .map((width) => `/images/generated/${image.id}-${width}.${format} ${width}w`)
+      .join(', ');
 
   return (
     <div
@@ -39,7 +41,7 @@ export function Picture({ name, ratio = '3/2', sizes, priority, className }: Pic
         <source type="image/avif" srcSet={srcset('avif')} sizes={sizes ?? '100vw'} />
         <source type="image/webp" srcSet={srcset('webp')} sizes={sizes ?? '100vw'} />
         <img
-          src={`/pictures/${image.id}-${largest}.webp`}
+          src={`/images/generated/${image.id}-${largest}.webp`}
           alt={image.alt}
           width={meta.width}
           height={meta.height}

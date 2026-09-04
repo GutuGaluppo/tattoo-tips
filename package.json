@@ -8,6 +8,7 @@
     "build:images": "node scripts/build-images.mjs",
     "prebuild": "npm run validate:content && npm run generate:sitemap",
     "build": "tsc --noEmit && vite build",
+    "postbuild": "node scripts/remove-image-sources.mjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --max-warnings 0",

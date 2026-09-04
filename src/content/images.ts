@@ -100,6 +100,13 @@ export const images = {
     source: 'https://unsplash.com/photos/zOyOWsANHXo',
     position: 'center',
   },
+  playlist: {
+    id: 'anh-tuan-thomas-w5m0e6sogmm',
+    alt: '',
+    credit: 'Anh Tuan Thomas',
+    source: 'https://unsplash.com/photos/w5m0E6SogmM',
+    position: 'center 35%',
+  },
 
   /* ------------------------------------------- geradas por IA
      Substituem fotos de estoque que não batiam com o texto ao lado (sessão

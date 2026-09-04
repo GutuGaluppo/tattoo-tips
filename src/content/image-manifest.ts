@@ -13,6 +13,7 @@ export const imageManifest = {
   'agathe-lov-jpl0gpnoeom': { width: 3024, height: 3022, aspectRatio: 1.0007, sizes: [480, 960, 1600] },
   'allef-vinicius-hxnixp498ui': { width: 3456, height: 5184, aspectRatio: 0.6667, sizes: [480, 960, 1600] },
   'andrej-lisakov-ll1tdo-aqym': { width: 3470, height: 5200, aspectRatio: 0.6673, sizes: [480, 960, 1600] },
+  'anh-tuan-thomas-w5m0e6sogmm': { width: 3706, height: 5564, aspectRatio: 0.6661, sizes: [480, 960, 1600] },
   'cloutier-benjamin-nhy4or4khxm': { width: 4000, height: 6000, aspectRatio: 0.6667, sizes: [480, 960, 1600] },
   'collins-lesulie-pwk6cecjtjw': { width: 3124, height: 3905, aspectRatio: 0.8, sizes: [480, 960, 1600] },
   'estilo-aquarela': { width: 720, height: 960, aspectRatio: 0.75, sizes: [480] },

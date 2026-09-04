@@ -174,7 +174,7 @@ export default function Home() {
       {/* ------------------------------------------------------- playlist */}
       <section className="container section playlist-section deferred-section">
         <Reveal className="playlist-player">
-          <PlaylistEmbed {...sessionPlaylist} image="studio" />
+          <PlaylistEmbed {...sessionPlaylist} image="playlist" />
         </Reveal>
 
         <Reveal delay={80} className="playlist-pitch">
