@@ -44,6 +44,7 @@ export const imageManifest = {
   'kristian-angelo-xyjzvul4-ty': { width: 3936, height: 2216, aspectRatio: 1.7762, sizes: [480, 960, 1600] },
   'sherman-yang-zoyowsanhxo': { width: 3573, height: 4466, aspectRatio: 0.8, sizes: [480, 960, 1600] },
   'ta-focando-k-vbjak6rok': { width: 4000, height: 6000, aspectRatio: 0.6667, sizes: [480, 960, 1600] },
+  'tattoo-aftercare': { width: 1122, height: 1402, aspectRatio: 0.8003, sizes: [480, 960] },
 } as const satisfies Record<string, ImageDerivative>;
 
 export type ImageId = keyof typeof imageManifest;

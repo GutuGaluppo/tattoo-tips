@@ -14,7 +14,7 @@ import { sessionPlaylist } from '@/content/playlist';
 import './pages.css';
 
 /** Uma foto por etapa, na mesma ordem de `navigation.ts`. */
-const CLIENT_IMAGES = ['ink', 'session', 'gloves', 'healed'] as const;
+const CLIENT_IMAGES = ['ink', 'session', 'aftercare', 'healed'] as const;
 const ARTIST_IMAGES = [
   'workstation',
   'supplies',

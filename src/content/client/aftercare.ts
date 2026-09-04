@@ -11,7 +11,7 @@ export const aftercareGuide: Guide = {
     'Não existe um único protocolo válido para toda tatuagem. Existem princípios que não mudam: mãos limpas, lavagem suave, camada fina, nada de arrancar casquinha e vigilância sobre o que sai do esperado.',
   jurisdiction: 'BR',
   lastReviewed: '2026-07-26',
-  image: 'gloves',
+  image: 'aftercare',
   sections: [
     {
       id: 'filme-ou-tradicional',

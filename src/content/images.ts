@@ -37,6 +37,13 @@ export const images = {
     source: 'https://unsplash.com/photos/hxNiXP498UI',
     position: 'center 40%',
   },
+  aftercare: {
+    id: 'tattoo-aftercare',
+    alt: 'Mão aplicando hidratante sobre uma tatuagem geométrica na canela, em ambiente doméstico.',
+    credit: 'Autoria não identificada',
+    source: '',
+    position: 'center',
+  },
   workstation: {
     id: 'fallon-michael-equcs66pts0',
     alt: 'Bandeja de trabalho forrada com barreira descartável, com tintas, copinhos e papel-toalha separados.',

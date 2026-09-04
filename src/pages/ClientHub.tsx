@@ -9,7 +9,7 @@ export default function ClientHub() {
       description="Da decisão de tatuar até a cicatrização completa, com o que fazer e o que observar em cada etapa."
       path="/cliente"
       steps={clientJourney}
-      stepImages={['ink', 'session', 'gloves', 'healed']}
+      stepImages={['ink', 'session', 'aftercare', 'healed']}
       highlight={{
         label: 'Algo parece errado agora?',
         title: 'Comparar com os sinais de alerta',
