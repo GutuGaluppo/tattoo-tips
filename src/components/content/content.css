@@ -1,3 +1,16 @@
+/* ==================================================== untranslated notice */
+
+.untranslated-notice {
+  border: 1px solid var(--alert-warning-border);
+  border-left-width: 4px;
+  border-radius: var(--radius-sm);
+  background: var(--alert-warning-bg);
+  color: var(--alert-warning);
+  padding: var(--space-3) var(--space-4);
+  margin-block-end: var(--space-5);
+  font-size: 0.9375rem;
+}
+
 /* ============================================================== alert box */
 
 .alert-box {

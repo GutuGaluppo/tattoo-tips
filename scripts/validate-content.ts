@@ -6,6 +6,58 @@
 import { guides, nonGuideSources } from '../src/content';
 import { references } from '../src/content/references';
 import type { Block, Guide, Section } from '../src/content/types';
+import type { Locale } from '../src/i18n/locale';
+
+import { beforeGuide as beforeEn } from '../src/content/client/before.en';
+import { beforeGuide as beforeEs } from '../src/content/client/before.es';
+import { beforeGuide as beforeDe } from '../src/content/client/before.de';
+import { sessionDayGuide as sessionDayEn } from '../src/content/client/session-day.en';
+import { sessionDayGuide as sessionDayEs } from '../src/content/client/session-day.es';
+import { sessionDayGuide as sessionDayDe } from '../src/content/client/session-day.de';
+import { aftercareGuide as aftercareEn } from '../src/content/client/aftercare.en';
+import { aftercareGuide as aftercareEs } from '../src/content/client/aftercare.es';
+import { aftercareGuide as aftercareDe } from '../src/content/client/aftercare.de';
+import { healingGuide as healingEn } from '../src/content/client/healing.en';
+import { healingGuide as healingEs } from '../src/content/client/healing.es';
+import { healingGuide as healingDe } from '../src/content/client/healing.de';
+import { warningSignsGuide as warningSignsEn } from '../src/content/client/warning-signs.en';
+import { warningSignsGuide as warningSignsEs } from '../src/content/client/warning-signs.es';
+import { warningSignsGuide as warningSignsDe } from '../src/content/client/warning-signs.de';
+import { emergencyGuide as emergencyEn } from '../src/content/client/emergency.en';
+import { emergencyGuide as emergencyEs } from '../src/content/client/emergency.es';
+import { emergencyGuide as emergencyDe } from '../src/content/client/emergency.de';
+import { screeningGuide as screeningEn } from '../src/content/artist/screening.en';
+import { screeningGuide as screeningEs } from '../src/content/artist/screening.es';
+import { screeningGuide as screeningDe } from '../src/content/artist/screening.de';
+
+/**
+ * Cada guia PT tem uma versão traduzida por idioma não padrão — mesma
+ * estrutura, mesmas fontes, só o texto muda. Validadas à parte porque
+ * `guide.slug` se repete entre idiomas (o rótulo de erro leva o idioma).
+ */
+const translatedGuides: { locale: Locale; guide: Guide }[] = [
+  { locale: 'en', guide: beforeEn },
+  { locale: 'es', guide: beforeEs },
+  { locale: 'de', guide: beforeDe },
+  { locale: 'en', guide: sessionDayEn },
+  { locale: 'es', guide: sessionDayEs },
+  { locale: 'de', guide: sessionDayDe },
+  { locale: 'en', guide: aftercareEn },
+  { locale: 'es', guide: aftercareEs },
+  { locale: 'de', guide: aftercareDe },
+  { locale: 'en', guide: healingEn },
+  { locale: 'es', guide: healingEs },
+  { locale: 'de', guide: healingDe },
+  { locale: 'en', guide: warningSignsEn },
+  { locale: 'es', guide: warningSignsEs },
+  { locale: 'de', guide: warningSignsDe },
+  { locale: 'en', guide: emergencyEn },
+  { locale: 'es', guide: emergencyEs },
+  { locale: 'de', guide: emergencyDe },
+  { locale: 'en', guide: screeningEn },
+  { locale: 'es', guide: screeningEs },
+  { locale: 'de', guide: screeningDe },
+];
 
 const errors: string[] = [];
 const warnings: string[] = [];
@@ -89,8 +141,8 @@ function checkSection(section: Section, where: string) {
   section.blocks.forEach((block, index) => checkBlock(block, `${where}.blocks[${index}]`));
 }
 
-function checkGuide(guide: Guide) {
-  const where = `guia "${guide.slug}"`;
+function checkGuide(guide: Guide, locale: Locale = 'pt') {
+  const where = locale === 'pt' ? `guia "${guide.slug}"` : `guia "${guide.slug}" [${locale}]`;
 
   if (!/^\d{4}-\d{2}-\d{2}$/.test(guide.lastReviewed)) {
     errors.push(`${where}: lastReviewed inválido ("${guide.lastReviewed}") — use AAAA-MM-DD`);
@@ -140,6 +192,10 @@ for (const guide of guides) {
   checkGuide(guide);
 }
 
+for (const { locale, guide } of translatedGuides) {
+  checkGuide(guide, locale);
+}
+
 // Fontes órfãs indicam registry inchado ou citação esquecida.
 const usedSources = new Set([
   ...guides.flatMap((guide) => guide.sources as string[]),
@@ -163,5 +219,5 @@ if (errors.length > 0) {
 }
 
 console.log(
-  `Conteúdo validado: ${guides.length} guias, ${knownSourceIds.size} fontes, ${warnings.length} aviso(s).`,
+  `Conteúdo validado: ${guides.length} guias PT + ${translatedGuides.length} traduções, ${knownSourceIds.size} fontes, ${warnings.length} aviso(s).`,
 );

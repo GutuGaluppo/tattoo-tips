@@ -1,7 +1,9 @@
 import { useEffect, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { site } from '@/config/site';
-import { primaryNav } from '@/navigation';
+import { useLocale } from '@/i18n/useLocale';
+import { dateFormatLocales } from '@/i18n/locale';
+import { pathFor, topNavItems } from '@/i18n/routes';
 import { Header } from './Header';
 import './layout.css';
 
@@ -26,11 +28,12 @@ function useRouteFocus() {
 
 export function AppShell({ children }: { children: ReactNode }) {
   useRouteFocus();
+  const { dict } = useLocale();
 
   return (
     <div className="app-shell">
       <a className="skip-link" href="#conteudo">
-        Pular para o conteúdo
+        {dict.skipToContent}
       </a>
 
       <Header />
@@ -45,6 +48,8 @@ export function AppShell({ children }: { children: ReactNode }) {
 }
 
 function Footer() {
+  const { locale, dict } = useLocale();
+
   return (
     <footer className="app-footer band-dark">
       <div className="container">
@@ -55,40 +60,40 @@ function Footer() {
             {site.name}
           </p>
           <p className="footer-tagline">
-            Manual de
+            {dict.footerTaglineLines[0]}
             <br />
-            segurança e
+            {dict.footerTaglineLines[1]}
             <br />
-            cuidados.
+            {dict.footerTaglineLines[2]}
           </p>
         </div>
 
         <div className="footer-bar">
-          <nav aria-label="Navegação do rodapé">
+          <nav aria-label={dict.footerNavLabel}>
             <ul>
-              {primaryNav.map((item) => (
-                <li key={item.to}>
-                  <Link to={item.to}>{item.label}</Link>
+              {topNavItems.map(({ id, navKey }) => (
+                <li key={id}>
+                  <Link to={pathFor(id, locale)}>{dict.nav[navKey]}</Link>
                 </li>
               ))}
               <li>
-                <Link to="/emergencias">Emergências</Link>
+                <Link to={pathFor('emergency', locale)}>{dict.emergency}</Link>
               </li>
               <li>
                 <a href={`mailto:${site.editorialContact}?subject=Feedback%20${site.name}`}>
-                  Enviar correção
+                  {dict.sendCorrection}
                 </a>
               </li>
             </ul>
           </nav>
 
           <p className="footer-legal">
-            Conteúdo educacional independente. Não substitui avaliação médica nem a legislação
-            sanitária local. Referência regulatória: {site.jurisdiction}. Última revisão:{' '}
-            <time dateTime={site.lastReviewed}>
-              {new Date(`${site.lastReviewed}T12:00:00`).toLocaleDateString('pt-BR')}
-            </time>
-            .
+            {dict.footerLegal(
+              site.jurisdiction,
+              new Date(`${site.lastReviewed}T12:00:00`).toLocaleDateString(
+                dateFormatLocales[locale],
+              ),
+            )}
           </p>
         </div>
       </div>

@@ -7,7 +7,6 @@ export default function ClientHub() {
       eyebrow="Para quem vai tatuar"
       title="Jornada do cliente"
       description="Da decisão de tatuar até a cicatrização completa, com o que fazer e o que observar em cada etapa."
-      path="/cliente"
       steps={clientJourney}
       stepImages={['ink', 'session', 'aftercare', 'healed']}
       highlight={{

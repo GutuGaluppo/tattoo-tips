@@ -7,7 +7,6 @@ export default function ArtistHub() {
       eyebrow="Para quem tatua"
       title="Jornada de biossegurança"
       description="O risco mais subestimado de quem está começando não é errar o desenho — é deixar a biossegurança cair. Esta jornada trata o posto de trabalho como parte do trabalho artístico."
-      path="/tatuador"
       steps={artistJourney}
       stepImages={['workstation']}
       highlight={{

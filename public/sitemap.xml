@@ -1,81 +1,523 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tattoo-tips.example</loc>
+    <loc>https://tattoo-tips.example/</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/cliente</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/client</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/cliente</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/kunde</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/cliente/antes</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/before" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/vorher" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/client/before</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/before" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/vorher" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/cliente/antes</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/before" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/vorher" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/kunde/vorher</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/before" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/antes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/vorher" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/cliente/dia-da-sessao</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/dia-da-sessao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/session-day" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/dia-de-la-sesion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/sitzungstag" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/client/session-day</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/dia-da-sessao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/session-day" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/dia-de-la-sesion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/sitzungstag" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/cliente/dia-de-la-sesion</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/dia-da-sessao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/session-day" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/dia-de-la-sesion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/sitzungstag" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/kunde/sitzungstag</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/dia-da-sessao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/session-day" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/dia-de-la-sesion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/sitzungstag" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/cliente/cuidados-depois</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cuidados-depois" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/aftercare" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cuidados-posteriores" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/nachsorge" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/client/aftercare</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cuidados-depois" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/aftercare" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cuidados-posteriores" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/nachsorge" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/cliente/cuidados-posteriores</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cuidados-depois" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/aftercare" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cuidados-posteriores" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/nachsorge" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/kunde/nachsorge</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cuidados-depois" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/aftercare" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cuidados-posteriores" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/nachsorge" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/cliente/cicatrizacao</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cicatrizacao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/healing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cicatrizacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/heilung" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/client/healing</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cicatrizacao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/healing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cicatrizacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/heilung" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/cliente/cicatrizacion</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cicatrizacao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/healing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cicatrizacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/heilung" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/kunde/heilung</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/cliente/cicatrizacao" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/client/healing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/cliente/cicatrizacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/kunde/heilung" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/sinais-de-alerta</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sinais-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/warning-signs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/senales-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/warnzeichen" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/warning-signs</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sinais-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/warning-signs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/senales-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/warnzeichen" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/senales-de-alerta</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sinais-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/warning-signs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/senales-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/warnzeichen" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/warnzeichen</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sinais-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/warning-signs" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/senales-de-alerta" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/warnzeichen" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/emergencias</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/emergencias" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/emergency" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/emergencias" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/notfall" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/emergency</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/emergencias" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/emergency" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/emergencias" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/notfall" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/emergencias</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/emergencias" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/emergency" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/emergencias" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/notfall" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/notfall</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/emergencias" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/emergency" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/emergencias" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/notfall" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/tatuador</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/artist</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/tatuador</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/taetowierer</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/tatuador/triagem</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador/triagem" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist/screening" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador/evaluacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer/erstgespraech" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/artist/screening</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador/triagem" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist/screening" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador/evaluacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer/erstgespraech" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/tatuador/evaluacion</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador/triagem" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist/screening" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador/evaluacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer/erstgespraech" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/taetowierer/erstgespraech</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/tatuador/triagem" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/artist/screening" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/tatuador/evaluacion" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/taetowierer/erstgespraech" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/estilos</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/estilos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/styles" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/estilos" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/stile" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/styles</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/estilos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/styles" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/estilos" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/stile" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/estilos</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/estilos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/styles" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/estilos" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/stile" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/stile</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/estilos" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/styles" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/estilos" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/stile" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/fontes</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/fontes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/sources" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/fuentes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/quellen" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/sources</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/fontes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/sources" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/fuentes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/quellen" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/fuentes</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/fontes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/sources" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/fuentes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/quellen" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/quellen</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/fontes" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/sources" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/fuentes" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/quellen" />
   </url>
   <url>
     <loc>https://tattoo-tips.example/sobre</loc>
     <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sobre" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/sobre" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ueber-uns" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/about</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sobre" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/sobre" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ueber-uns" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/sobre</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sobre" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/sobre" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ueber-uns" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/ueber-uns</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/sobre" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/about" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/sobre" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ueber-uns" />
   </url>
 </urlset>

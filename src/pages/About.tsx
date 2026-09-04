@@ -1,21 +1,26 @@
 import { Link } from 'react-router-dom';
 import { site } from '@/config/site';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { useLocale } from '@/i18n/useLocale';
+import { localizeHref } from '@/i18n/routes';
 import { AlertBox } from '@/components/content/AlertBox';
 import { Button } from '@/components/ui/Button';
 import { Eyebrow, LastReviewed } from '@/components/ui/Meta';
+import { UntranslatedNotice } from '@/components/content/UntranslatedNotice';
 import './pages.css';
 
 export default function About() {
+  const { locale } = useLocale();
+
   useDocumentMeta({
     title: 'Sobre e limites editoriais',
     description:
       'Para quem este manual é, para quem não é, o que ele não faz e como enviar uma correção.',
-    path: '/sobre',
   });
 
   return (
     <div className="container page">
+      <UntranslatedNotice />
       <header className="page-header">
         <Eyebrow>Sobre</Eyebrow>
         <h1>Um manual, não um estúdio</h1>
@@ -37,7 +42,7 @@ export default function About() {
         <ul>
           <li>
             Quem está com sintoma agudo agora. Nesse caso, o lugar certo é um serviço de saúde — a
-            página de <Link to="/emergencias">emergências</Link> existe para orientar a conduta, não
+            página de <Link to={localizeHref('/emergencias', locale)}>emergências</Link> existe para orientar a conduta, não
             para substituir atendimento.
           </li>
           <li>Quem procura protocolo clínico validado para uso profissional em saúde.</li>

@@ -11,6 +11,10 @@ import { Card, CardLink } from '@/components/ui/Card';
 import { Picture } from '@/components/ui/Picture';
 import { Eyebrow } from '@/components/ui/Meta';
 import { sessionPlaylist } from '@/content/playlist';
+import { useLocale } from '@/i18n/useLocale';
+import { htmlLangTags } from '@/i18n/locale';
+import { localizeHref } from '@/i18n/routes';
+import { UntranslatedNotice } from '@/components/content/UntranslatedNotice';
 import './pages.css';
 
 /** Uma foto por etapa, na mesma ordem de `navigation.ts`. */
@@ -25,22 +29,27 @@ const ARTIST_IMAGES = [
 ] as const;
 
 export default function Home() {
+  const { locale } = useLocale();
+
   useDocumentMeta({
     title: site.name,
     description: site.description,
-    path: '/',
     jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'WebSite',
       name: site.name,
       description: site.description,
-      inLanguage: site.locale,
+      inLanguage: htmlLangTags[locale],
       url: site.url,
     },
   });
 
   return (
     <>
+      <div className="container">
+        <UntranslatedNotice />
+      </div>
+
       {/* ---------------------------------------------- faixa de abertura */}
       <section className="hero band-dark">
         <Parallax className="hero-ink" speed={0.12} decorative>
@@ -98,10 +107,14 @@ export default function Home() {
 
         <div className="audience-grid">
           <Reveal delay={60}>
-            <Card tone="accent" className="audience-card" to="/cliente">
+            <Card
+              tone="accent"
+              className="audience-card"
+              to={localizeHref('/cliente', locale)}
+            >
               <Eyebrow>Sou cliente</Eyebrow>
               <h3>
-                <CardLink to="/cliente">Vou fazer uma tatuagem</CardLink>
+                <CardLink to={localizeHref('/cliente', locale)}>Vou fazer uma tatuagem</CardLink>
               </h3>
               <p>
                 Como se preparar, o que observar no estúdio, como cuidar depois e como saber se a
@@ -114,10 +127,10 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={120}>
-            <Card className="audience-card" to="/tatuador">
+            <Card className="audience-card" to={localizeHref('/tatuador', locale)}>
               <Eyebrow>Sou tatuador</Eyebrow>
               <h3>
-                <CardLink to="/tatuador">Estou aprendendo a tatuar</CardLink>
+                <CardLink to={localizeHref('/tatuador', locale)}>Estou aprendendo a tatuar</CardLink>
               </h3>
               <p>
                 Triagem honesta, higiene das mãos, bancada limpa, descarte correto e os limites
@@ -136,15 +149,21 @@ export default function Home() {
         <Reveal>
           <h2 className="visually-hidden">Acesso rápido</h2>
           <div className="quick-grid">
-            <Link to="/cliente/cuidados-depois" className="quick-card">
+            <Link to={localizeHref('/cliente/cuidados-depois', locale)} className="quick-card">
               <span className="quick-label">Acabei de tatuar</span>
               <span className="quick-title">Cuidados depois</span>
             </Link>
-            <Link to="/sinais-de-alerta" className="quick-card quick-card-warning">
+            <Link
+              to={localizeHref('/sinais-de-alerta', locale)}
+              className="quick-card quick-card-warning"
+            >
               <span className="quick-label">Está estranho</span>
               <span className="quick-title">Normal ou sinal de alerta</span>
             </Link>
-            <Link to="/emergencias" className="quick-card quick-card-danger">
+            <Link
+              to={localizeHref('/emergencias', locale)}
+              className="quick-card quick-card-danger"
+            >
               <span className="quick-label">Piorando agora</span>
               <span className="quick-title">Emergências</span>
             </Link>
@@ -188,24 +207,27 @@ export default function Home() {
             </div>
           }
         >
-          {clientJourney.map((step, index) => (
-            <Card as="div" key={step.to} to={step.to} className="journey-card media-card">
-              <Picture
-                name={CLIENT_IMAGES[index]}
-                ratio="4/3"
-                sizes="(min-width: 960px) 260px, 70vw"
-              />
-              <div className="media-card-body">
-                <span className="journey-index" aria-hidden="true">
-                  #{String(index + 1).padStart(2, '0')}
-                </span>
-                <h3>
-                  <CardLink to={step.to}>{step.label}</CardLink>
-                </h3>
-                <p>{step.description}</p>
-              </div>
-            </Card>
-          ))}
+          {clientJourney.map((step, index) => {
+            const href = localizeHref(step.to, locale);
+            return (
+              <Card as="div" key={step.to} to={href} className="journey-card media-card">
+                <Picture
+                  name={CLIENT_IMAGES[index]}
+                  ratio="4/3"
+                  sizes="(min-width: 960px) 260px, 70vw"
+                />
+                <div className="media-card-body">
+                  <span className="journey-index" aria-hidden="true">
+                    #{String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3>
+                    <CardLink to={href}>{step.label}</CardLink>
+                  </h3>
+                  <p>{step.description}</p>
+                </div>
+              </Card>
+            );
+          })}
         </Carousel>
       </section>
 
@@ -220,32 +242,35 @@ export default function Home() {
         </Reveal>
 
         <Carousel label="Jornada do tatuador">
-          {artistJourney.map((step, index) => (
-            <Card
-              as="div"
-              key={step.to}
-              to={step.upcoming ? undefined : step.to}
-              className={
-                step.upcoming ? 'journey-card media-card is-upcoming' : 'journey-card media-card'
-              }
-            >
-              <Picture
-                name={ARTIST_IMAGES[index]}
-                ratio="4/3"
-                sizes="(min-width: 960px) 260px, 70vw"
-              />
-              <div className="media-card-body">
-                <span className="journey-index" aria-hidden="true">
-                  #{String(index + 1).padStart(2, '0')}
-                </span>
-                <h3>
-                  {step.upcoming ? step.label : <CardLink to={step.to}>{step.label}</CardLink>}
-                </h3>
-                <p>{step.description}</p>
-                {step.upcoming && <span className="tag tag-quiet">Em produção</span>}
-              </div>
-            </Card>
-          ))}
+          {artistJourney.map((step, index) => {
+            const href = step.upcoming ? undefined : localizeHref(step.to, locale);
+            return (
+              <Card
+                as="div"
+                key={step.to}
+                to={href}
+                className={
+                  step.upcoming ? 'journey-card media-card is-upcoming' : 'journey-card media-card'
+                }
+              >
+                <Picture
+                  name={ARTIST_IMAGES[index]}
+                  ratio="4/3"
+                  sizes="(min-width: 960px) 260px, 70vw"
+                />
+                <div className="media-card-body">
+                  <span className="journey-index" aria-hidden="true">
+                    #{String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3>
+                    {step.upcoming ? step.label : <CardLink to={href!}>{step.label}</CardLink>}
+                  </h3>
+                  <p>{step.description}</p>
+                  {step.upcoming && <span className="tag tag-quiet">Em produção</span>}
+                </div>
+              </Card>
+            );
+          })}
         </Carousel>
       </section>
 
@@ -262,8 +287,8 @@ export default function Home() {
                 isso também está dito.
               </p>
               <div className="trust-actions">
-                <Button to="/fontes">Ver fontes e metodologia</Button>
-                <Button to="/sobre" variant="secondary">
+                <Button to={localizeHref('/fontes', locale)}>Ver fontes e metodologia</Button>
+                <Button to={localizeHref('/sobre', locale)} variant="secondary">
                   Limites deste manual
                 </Button>
               </div>

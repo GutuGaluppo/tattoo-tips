@@ -1,6 +1,10 @@
 import { Suspense, lazy } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import { AppShell } from '@/components/layout/AppShell';
+import { LocaleProvider } from '@/i18n/LocaleContext';
+import { useLocale } from '@/i18n/useLocale';
+import { locales } from '@/i18n/locale';
+import { detectLocale, pathFor, routeIds, type RouteId } from '@/i18n/routes';
 
 /**
  * Uma chunk por rota: quem abre a home não baixa o conteúdo dos guias, e quem
@@ -22,41 +26,53 @@ const About = lazy(() => import('@/pages/About'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 function RouteFallback() {
+  const { dict } = useLocale();
   return (
     <div className="container route-fallback" role="status" aria-live="polite">
-      <span className="visually-hidden">Carregando conteúdo</span>
+      <span className="visually-hidden">{dict.routeFallback}</span>
       <span className="route-fallback-bar" aria-hidden="true" />
     </div>
   );
 }
 
+/** Mesmo componente por rota, qualquer que seja o idioma — só o slug muda. */
+const pageByRouteId: Record<RouteId, JSX.Element> = {
+  home: <Home />,
+  clientHub: <ClientHub />,
+  clientBefore: <Before />,
+  clientSessionDay: <SessionDay />,
+  clientAftercare: <Aftercare />,
+  clientHealing: <Healing />,
+  warningSigns: <WarningSigns />,
+  emergency: <Emergency />,
+  artistHub: <ArtistHub />,
+  artistScreening: <Screening />,
+  styles: <TattooStyles />,
+  sources: <Sources />,
+  about: <About />,
+};
+
 export default function App() {
+  // A locale é lida direto da URL (não de um Route casado): assim o AppShell
+  // (cabeçalho, rodapé) monta uma única vez e só troca o texto ao navegar,
+  // em vez de remontar a cada rota.
+  const { pathname } = useLocation();
+  const locale = detectLocale(pathname);
+
   return (
-    <AppShell>
-      <Suspense fallback={<RouteFallback />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-
-          <Route path="/cliente" element={<ClientHub />} />
-          <Route path="/cliente/antes" element={<Before />} />
-          <Route path="/cliente/dia-da-sessao" element={<SessionDay />} />
-          <Route path="/cliente/cuidados-depois" element={<Aftercare />} />
-          <Route path="/cliente/cicatrizacao" element={<Healing />} />
-
-          <Route path="/sinais-de-alerta" element={<WarningSigns />} />
-          <Route path="/emergencias" element={<Emergency />} />
-
-          <Route path="/tatuador" element={<ArtistHub />} />
-          <Route path="/tatuador/triagem" element={<Screening />} />
-
-          <Route path="/estilos" element={<TattooStyles />} />
-
-          <Route path="/fontes" element={<Sources />} />
-          <Route path="/sobre" element={<About />} />
-
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </AppShell>
+    <LocaleProvider locale={locale}>
+      <AppShell>
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            {locales.flatMap((loc) =>
+              routeIds.map((id) => (
+                <Route key={`${loc}:${id}`} path={pathFor(id, loc)} element={pageByRouteId[id]} />
+              )),
+            )}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      </AppShell>
+    </LocaleProvider>
   );
 }

@@ -5,6 +5,7 @@ import { needleLegend, tattooStyles, type StyleSpan } from '@/content/tattoo-sty
 import { FlashOrnament, TypographicRule } from '@/components/illustrations/FlashOrnaments';
 import { Disclaimer } from '@/components/ui/Meta';
 import { Picture } from '@/components/ui/Picture';
+import { UntranslatedNotice } from '@/components/content/UntranslatedNotice';
 // Fontes só desta rota: entram na chunk de /estilos, não no bundle inicial.
 import '@fontsource/unifrakturmaguntia/400.css';
 import '@fontsource/playfair-display/700.css';
@@ -47,12 +48,12 @@ export default function TattooStyles() {
     title: 'Guia dos principais estilos de tatuagem',
     description:
       'Vinte e um estilos de tatuagem em formato de jornal: técnicas envolvidas, agulhas usadas como ponto de partida, paleta característica, onde cada um funciona melhor e o que observar antes de fechar o desenho.',
-    path: '/estilos',
   });
 
   return (
     <div className="gazette">
       <div className="container">
+        <UntranslatedNotice />
         <article className="gazette-sheet">
           <header className="gazette-masthead">
             <p className="gazette-overline">

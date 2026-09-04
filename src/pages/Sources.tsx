@@ -6,6 +6,7 @@ import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { SourceList } from '@/components/content/SourceRefs';
 import { Eyebrow, LastReviewed } from '@/components/ui/Meta';
 import { AlertBox } from '@/components/content/AlertBox';
+import { UntranslatedNotice } from '@/components/content/UntranslatedNotice';
 import './pages.css';
 
 export default function Sources() {
@@ -13,13 +14,13 @@ export default function Sources() {
     title: 'Fontes e metodologia',
     description:
       'Todas as referências usadas neste manual, com organização, jurisdição e data de verificação, além do método editorial adotado.',
-    path: '/fontes',
   });
 
   const ids = allSources.map((source) => source.id as SourceId);
 
   return (
     <div className="container page">
+      <UntranslatedNotice />
       <header className="page-header">
         <Eyebrow>Transparência</Eyebrow>
         <h1>Fontes e metodologia</h1>

@@ -2,10 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { primaryNav } from '@/navigation';
 import { site } from '@/config/site';
+import { useLocale } from '@/i18n/useLocale';
+import { pathFor, routeIdForPath, topNavItems } from '@/i18n/routes';
+import { LanguageSwitcher } from './LanguageSwitcher';
 import './layout.css';
 
 export function Header() {
   const { pathname } = useLocation();
+  const { locale, dict } = useLocale();
   const drawerRef = useRef<HTMLDivElement>(null);
   const toggleRef = useRef<HTMLButtonElement>(null);
 
@@ -56,30 +60,34 @@ export function Header() {
     };
   }, [open]);
 
+  const emergencyHref = pathFor('emergency', locale);
+
   return (
     <header className="app-header band-dark">
       <div className="app-header-inner container">
-        <Link to="/" className="brand">
+        <Link to={pathFor('home', locale)} className="brand">
           <span className="brand-name">{site.name}.</span>
         </Link>
 
-        <nav className="nav-desktop" aria-label="Navegação principal">
+        <nav className="nav-desktop" aria-label={dict.mainNavLabel}>
           <ul>
-            {primaryNav.map((item) => (
-              <li key={item.to}>
+            {topNavItems.map(({ id, navKey }) => (
+              <li key={id}>
                 <NavLink
-                  to={item.to}
-                  className={item.to === '/sinais-de-alerta' ? 'nav-alert' : undefined}
+                  to={pathFor(id, locale)}
+                  className={id === 'warningSigns' ? 'nav-alert' : undefined}
                 >
-                  {item.label}
+                  {dict.nav[navKey]}
                 </NavLink>
               </li>
             ))}
           </ul>
         </nav>
 
-        <Link to="/emergencias" className="btn btn-danger header-emergency">
-          Emergências
+        <LanguageSwitcher currentPathname={pathname} className="language-switcher-desktop" />
+
+        <Link to={emergencyHref} className="btn btn-danger header-emergency">
+          {dict.emergency}
         </Link>
 
         <button
@@ -90,7 +98,7 @@ export function Header() {
           aria-controls="menu-principal"
           onClick={() => setOpen(!open)}
         >
-          <span className="visually-hidden">{open ? 'Fechar menu' : 'Abrir menu'}</span>
+          <span className="visually-hidden">{open ? dict.closeMenu : dict.openMenu}</span>
           <span className="burger" data-open={open || undefined} aria-hidden="true">
             <span />
             <span />
@@ -101,31 +109,42 @@ export function Header() {
 
       {open && (
         <div className="mobile-nav" id="menu-principal" ref={drawerRef}>
-          <nav aria-label="Navegação principal (móvel)">
+          <nav aria-label={dict.mobileNavLabel}>
             <ul>
-              {primaryNav.map((item) => (
-                <li key={item.to}>
-                  <NavLink to={item.to}>{item.label}</NavLink>
-                  {item.children && (
-                    <ul className="mobile-subnav">
-                      {item.children
-                        .filter((child) => !child.upcoming)
-                        .map((child) => (
-                          <li key={child.to}>
-                            <NavLink to={child.to}>{child.label}</NavLink>
-                          </li>
-                        ))}
-                    </ul>
-                  )}
-                </li>
-              ))}
+              {topNavItems.map(({ id, navKey }, index) => {
+                const children = primaryNav[index]?.children;
+                return (
+                  <li key={id}>
+                    <NavLink to={pathFor(id, locale)}>{dict.nav[navKey]}</NavLink>
+                    {children && (
+                      <ul className="mobile-subnav">
+                        {children
+                          .filter((child) => !child.upcoming)
+                          .map((child) => {
+                            const childRouteId = routeIdForPath('pt', child.to);
+                            const childHref = childRouteId
+                              ? pathFor(childRouteId, locale)
+                              : child.to;
+                            return (
+                              <li key={child.to}>
+                                <NavLink to={childHref}>{child.label}</NavLink>
+                              </li>
+                            );
+                          })}
+                      </ul>
+                    )}
+                  </li>
+                );
+              })}
               <li>
-                <Link to="/emergencias" className="mobile-nav-emergency">
-                  Emergências
+                <Link to={emergencyHref} className="mobile-nav-emergency">
+                  {dict.emergency}
                 </Link>
               </li>
             </ul>
           </nav>
+
+          <LanguageSwitcher currentPathname={pathname} className="language-switcher-mobile" />
         </div>
       )}
     </header>

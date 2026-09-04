@@ -121,6 +121,54 @@
   letter-spacing: 0.1em;
 }
 
+/* ===================================================== seletor de idioma */
+
+.language-switcher ul {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.language-switcher a,
+.language-switcher span {
+  display: inline-block;
+  min-width: 2ch;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-align: center;
+}
+
+.language-switcher a {
+  color: var(--color-muted);
+}
+
+.language-switcher a:hover {
+  color: var(--color-text);
+  background: rgba(244, 242, 240, 0.08);
+}
+
+.language-switcher span[aria-current] {
+  color: var(--color-text);
+  background: rgba(244, 242, 240, 0.12);
+}
+
+.language-switcher-desktop {
+  display: none;
+}
+
+.language-switcher-mobile {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+}
+
 /* ------------------------------------------------------------ menu móvel */
 
 .mobile-nav-toggle {
@@ -327,6 +375,10 @@ main {
 
 @media (min-width: 940px) {
   .nav-desktop {
+    display: block;
+  }
+
+  .language-switcher-desktop {
     display: block;
   }
 

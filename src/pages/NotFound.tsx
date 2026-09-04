@@ -1,18 +1,20 @@
 import { Link, useLocation } from 'react-router-dom';
 import { clientJourney, primaryNav } from '@/navigation';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
+import { useLocale } from '@/i18n/useLocale';
+import { localizeHref } from '@/i18n/routes';
 import { Button } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Meta';
 import './pages.css';
 
 export default function NotFound() {
   const { pathname } = useLocation();
+  const { locale } = useLocale();
 
   useDocumentMeta({
     title: 'Página não encontrada',
     description:
       'A página que você procurou não existe neste manual. Veja os caminhos disponíveis.',
-    path: pathname,
     noIndex: true,
   });
 
@@ -49,8 +51,8 @@ export default function NotFound() {
       </nav>
 
       <div className="not-found-actions">
-        <Button to="/">Voltar ao início</Button>
-        <Button to="/emergencias" variant="danger">
+        <Button to={localizeHref('/', locale)}>Voltar ao início</Button>
+        <Button to={localizeHref('/emergencias', locale)} variant="danger">
           Ir para emergências
         </Button>
       </div>
