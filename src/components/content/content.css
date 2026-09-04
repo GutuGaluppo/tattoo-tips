@@ -11,6 +11,60 @@
   font-size: 0.9375rem;
 }
 
+/* ==================================================== formulário de correção */
+
+.correction-form {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.correction-form-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.correction-form-header h2 {
+  margin: 0;
+}
+
+.correction-field {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.correction-field label {
+  font-size: var(--fs-xs);
+  color: var(--color-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.correction-field-row {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 32rem) {
+  .correction-field-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.correction-textarea {
+  resize: vertical;
+  min-height: 8rem;
+  font-family: inherit;
+}
+
+.correction-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
 /* ============================================================== alert box */
 
 .alert-box {

@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { site } from '@/config/site';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { useLocale } from '@/i18n/useLocale';
 import { localizeHref } from '@/i18n/routes';
 import { AlertBox } from '@/components/content/AlertBox';
+import { CorrectionModal } from '@/components/content/CorrectionModal';
 import { Button } from '@/components/ui/Button';
 import { Eyebrow, LastReviewed } from '@/components/ui/Meta';
 import { UntranslatedNotice } from '@/components/content/UntranslatedNotice';
@@ -11,6 +13,7 @@ import './pages.css';
 
 export default function About() {
   const { locale } = useLocale();
+  const [correctionOpen, setCorrectionOpen] = useState(false);
 
   useDocumentMeta({
     title: 'Sobre e limites editoriais',
@@ -77,10 +80,10 @@ export default function About() {
           Correções são bem-vindas, especialmente as que vierem com fonte. Quanto mais específico o
           apontamento — página, trecho e referência —, mais rápido a correção entra.
         </p>
-        <Button href={`mailto:${site.editorialContact}?subject=Correção%20${site.name}`}>
-          Enviar correção por e-mail
-        </Button>
+        <Button onClick={() => setCorrectionOpen(true)}>Enviar correção por e-mail</Button>
       </div>
+
+      <CorrectionModal open={correctionOpen} onClose={() => setCorrectionOpen(false)} />
     </div>
   );
 }
