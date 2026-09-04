@@ -94,12 +94,10 @@ export default function TattooStyles() {
               <p className="has-dropcap">
                 As agulhas listadas em cada verbete são <strong>referência inicial</strong>, não
                 regra fixa. A escolha muda conforme o tamanho do desenho, a elasticidade da pele, a
-                máquina, o stroke, o pigmento e a técnica de quem tatua.
-              </p>
-              <p>
-                Dois artistas podem fechar o mesmo desenho com configurações diferentes e chegar aos
-                dois a um bom resultado. O que a tabela oferece é o ponto de partida mais comum de
-                cada estilo — e, principalmente, o que cada um cobra de quem executa.
+                máquina, o stroke, o pigmento e a técnica de quem tatua. Dois artistas podem fechar
+                o mesmo desenho com configurações diferentes e chegar aos dois a um bom resultado. O
+                que a tabela oferece é o ponto de partida mais comum de cada estilo — e,
+                principalmente, o que cada um cobra de quem executa.
               </p>
             </div>
 

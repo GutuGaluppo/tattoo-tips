@@ -158,14 +158,28 @@
   hyphens: auto;
 }
 
-/* Capitular: a inicial ocupa três linhas, como na abertura de coluna. */
+/**
+ * Capitular ornamentada, como a inicial iluminada de livro antigo: a letra
+ * em fraktur dentro de um bloco com moldura dupla e volutas nos quatro
+ * cantos, ocupando de três a quatro linhas do texto.
+ *
+ * O ornamento é `background-image` do `::first-letter`, não um elemento — o
+ * parágrafo continua sendo um parágrafo, com a letra no lugar dela para
+ * seleção, busca e leitor de tela. O SVG é inline (data URI), então continua
+ * valendo a regra de nenhuma requisição a terceiros.
+ */
 .has-dropcap::first-letter {
   float: left;
-  margin: 0.06em 0.08em 0 0;
-  font-size: 3.5em;
-  line-height: 0.76;
-  font-weight: 700;
-  color: var(--news-red);
+  margin: 0.08em 0.34em 0.06em 0;
+  padding: 0.2em 0.11em 0.06em 0.15em;
+  font-family: var(--font-fraktur);
+  font-size: 4em;
+  font-weight: 400;
+  line-height: 1.16;
+  color: var(--news-ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect x='1.6' y='1.6' width='96.8' height='96.8' fill='%23efe7d4' stroke='%231f1a15' stroke-width='3.2'/%3E%3Crect x='7.5' y='7.5' width='85' height='85' fill='none' stroke='%231f1a15' stroke-width='1'/%3E%3Cg fill='none' stroke='%23a5231b' stroke-width='1.7' stroke-linecap='round'%3E%3Cg%3E%3Cpath d='M11 27c0-9 7-16 16-16'/%3E%3Cpath d='M11 20c4 0 7 3 7 7'/%3E%3Cpath d='M20 11c0 4 3 7 7 7'/%3E%3Cpath d='M14 14c3-3 8-3 11 0-3 3-8 3-11 0z' fill='%23a5231b' stroke='none'/%3E%3C/g%3E%3Cg transform='rotate(90 50 50)'%3E%3Cpath d='M11 27c0-9 7-16 16-16'/%3E%3Cpath d='M11 20c4 0 7 3 7 7'/%3E%3Cpath d='M20 11c0 4 3 7 7 7'/%3E%3Cpath d='M14 14c3-3 8-3 11 0-3 3-8 3-11 0z' fill='%23a5231b' stroke='none'/%3E%3C/g%3E%3Cg transform='rotate(180 50 50)'%3E%3Cpath d='M11 27c0-9 7-16 16-16'/%3E%3Cpath d='M11 20c4 0 7 3 7 7'/%3E%3Cpath d='M20 11c0 4 3 7 7 7'/%3E%3Cpath d='M14 14c3-3 8-3 11 0-3 3-8 3-11 0z' fill='%23a5231b' stroke='none'/%3E%3C/g%3E%3Cg transform='rotate(270 50 50)'%3E%3Cpath d='M11 27c0-9 7-16 16-16'/%3E%3Cpath d='M11 20c4 0 7 3 7 7'/%3E%3Cpath d='M20 11c0 4 3 7 7 7'/%3E%3Cpath d='M14 14c3-3 8-3 11 0-3 3-8 3-11 0z' fill='%23a5231b' stroke='none'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .gazette-legend {
@@ -626,15 +640,18 @@
 /* ======================================================== larguras */
 
 @media (min-width: 48rem) {
-  .gazette-lede {
-    grid-template-columns: minmax(0, 1.9fr) minmax(0, 1fr);
-    gap: var(--space-6);
+  /* Coluna única: com a capitular ornamentada ocupando quatro linhas, duas
+     colunas estreitas deixariam a inicial maior que o texto ao lado dela. */
+  .gazette-lede-text {
+    max-width: 62ch;
   }
 
-  .gazette-lede-text {
-    columns: 2;
+  /* Com a abertura em uma coluna só, a legenda desce para uma faixa sob ela
+     e se abre em colunas — ao lado, sobrava um vão de papel do tamanho da
+     diferença de altura entre as duas. */
+  .gazette-legend dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--space-5);
-    column-rule: 1px solid var(--news-line);
   }
 
   .gazette-index ol {
@@ -671,6 +688,10 @@
 @media (min-width: 64rem) {
   .gazette-index ol {
     columns: 4;
+  }
+
+  .gazette-legend dl {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .entry-grid {
