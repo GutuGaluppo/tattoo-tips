@@ -18,14 +18,14 @@ import { UntranslatedNotice } from '@/components/content/UntranslatedNotice';
 import './pages.css';
 
 /** Uma foto por etapa, na mesma ordem de `navigation.ts`. */
-const CLIENT_IMAGES = ['ink', 'session', 'aftercare', 'healed'] as const;
+const CLIENT_IMAGES = ['consent', 'session', 'aftercare', 'healed'] as const;
 const ARTIST_IMAGES = [
   'workstation',
   'supplies',
   'detail',
-  'lining',
+  'sharpsDisposal',
   'machine',
-  'linework',
+  'practiceSkin',
 ] as const;
 
 export default function Home() {

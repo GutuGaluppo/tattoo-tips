@@ -122,12 +122,38 @@ export const images = {
     position: 'center',
   },
 
+  /* ------------------------------------------- geradas por IA
+     Substituem fotos de estoque que não batiam com o texto ao lado (sessão
+     em andamento onde o assunto era decisão do cliente, descarte ou
+     limites de iniciante). `source` fica vazio de propósito — não há
+     fotógrafo a creditar. */
+  consent: {
+    id: 'tattoo-studio-consent-form',
+    alt: 'Mãos assinando um formulário de consentimento e triagem de saúde sobre uma prancheta, em balcão de estúdio.',
+    credit: 'Imagem gerada por IA',
+    source: '',
+    position: 'center',
+  },
+  sharpsDisposal: {
+    id: 'tattoo-needle-disposal-in-studio',
+    alt: 'Mão enluvada descartando um cartucho de agulha em um coletor rígido de perfurocortantes.',
+    credit: 'Imagem gerada por IA',
+    source: '',
+    position: 'center',
+  },
+  practiceSkin: {
+    id: 'tattoo-artist-practicing-on-synthetic-skin',
+    alt: 'Mãos enluvadas praticando linhas retas e sombreado com máquina de tatuagem sobre pele sintética de treino.',
+    credit: 'Imagem gerada por IA',
+    source: '',
+    position: 'center',
+  },
+
   /* ------------------------------------------------ exemplos de estilo
      Clichês da página /estilos, um por verbete. Diferente das fotos acima,
      estas chegaram sem procedência: `credit` registra isso em vez de
      inventar autoria, e `source` vazio as mantém fora de /fontes até a
-     origem ser confirmada. Uma delas (minimalista) tem marca d'água de
-     site, então a verificação é obrigatória antes de publicar. */
+     origem ser confirmada. */
   'estilo-old-school': {
     id: 'estilo-old-school',
     alt: 'Folha de flash tradicional com pantera negra rosnando e dois retratos femininos em contorno grosso e cores chapadas.',
@@ -173,8 +199,8 @@ export const images = {
   },
   'estilo-minimalista': {
     id: 'estilo-minimalista',
-    alt: 'Pássaro reduzido a um único traço contínuo, de poucos centímetros, no braço.',
-    credit: 'Autoria não identificada',
+    alt: 'Ramo estilizado com duas folhas em traço único e fino, tatuado no antebraço.',
+    credit: 'Imagem gerada por IA',
     source: '',
     position: 'center',
   },
@@ -250,8 +276,8 @@ export const images = {
   },
   'estilo-sketch': {
     id: 'estilo-sketch',
-    alt: 'Retrato masculino com traços soltos de esboço, linhas de construção aparentes e respingos coloridos.',
-    credit: 'Autoria não identificada',
+    alt: 'Retrato masculino barbudo em estilo de esboço, com traços soltos, linhas de construção aparentes e respingos vermelhos, no antebraço.',
+    credit: 'Imagem gerada por IA',
     source: '',
     position: 'center 30%',
   },
@@ -271,8 +297,8 @@ export const images = {
   },
   'estilo-handpoke': {
     id: 'estilo-handpoke',
-    alt: 'Olho pequeno com íris colorida tatuado no braço, construído ponto a ponto.',
-    credit: 'Autoria não identificada',
+    alt: 'Ramo com folhas construído em pontilhismo, com elementos geométricos em pontos ao redor, no antebraço.',
+    credit: 'Imagem gerada por IA',
     source: '',
     position: 'center',
   },

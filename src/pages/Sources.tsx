@@ -92,9 +92,10 @@ export default function Sources() {
       <section className="source-list" aria-label="Créditos das fotografias">
         <h2>Fotografias</h2>
         <p className="text-muted">
-          As ilustrações técnicas do site são autorais, em SVG. As fotografias vêm do Unsplash e são
-          de terceiros — nenhuma delas documenta caso clínico, e nenhuma serve de referência para
-          autodiagnóstico.
+          As ilustrações técnicas do site são autorais, em SVG. A maioria das fotografias vêm do
+          Unsplash e são de terceiros, creditadas abaixo; algumas são geradas por IA, sem
+          fotógrafo a creditar. Nenhuma delas documenta caso clínico, e nenhuma serve de referência
+          para autodiagnóstico.
         </p>
         <ul>
           {imageCredits.map((image) => (
