@@ -15,7 +15,9 @@
       "Bash(git commit -m ' *)",
       "Bash(git rm *)",
       "Bash(git status *)",
-      "Bash(ls -la ~/development/ | grep -iE \"gutu|tattoo\")"
+      "Bash(ls -la ~/development/ | grep -iE \"gutu|tattoo\")",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"vite\")"
     ]
   }
 }
