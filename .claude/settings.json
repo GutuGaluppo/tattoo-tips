@@ -10,7 +10,11 @@
       "Read(//Users/augustogaluppo/development/**)",
       "Bash(python3 -)",
       "Read(//tmp/**)",
-      "Read(//private/tmp/**)"
+      "Read(//private/tmp/**)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git rm *)",
+      "Bash(git status *)"
     ]
   }
 }
