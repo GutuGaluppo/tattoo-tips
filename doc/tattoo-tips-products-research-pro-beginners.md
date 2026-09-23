@@ -394,7 +394,7 @@ Para treino exclusivamente em **pele sintética**, a prioridade é criar um setu
 
 ### TattooMed After Tattoo
 
-<img src="https://tattoo-supply.cz/29699-large_default/tattoomed-after-tattoo-25-ml.jpg" alt="TattooMed After Tattoo" width="180" />
+<img src="https://images.openai.com/thumbnails/url/POiUUnicDclLDoIwFADAEyn4iQQTYxApiAQlVaLsoKVQjFB8bUVP5XW8jc52vp9aSgFLwyhb8ngJWdKRLNrZuAKZS07GpLsbUHdC8LZa96v_LZ2Y2j7BWINKX-h2Ci4ZnPtRSMGDbTwc2A1q1aOrfniziA_hbtJWwz1jbHeMgLIG8aSfJ1ma2JF92lrvPQyO44q0CWxV6k3uYtdymSZSxb408dnLr6ZGfPGePo9F8gM4fUAq" alt="TattooMed After Tattoo" width="180" />
 
 | Campo               | Informação                                              |
 | ------------------- | ------------------------------------------------------- |
@@ -458,7 +458,7 @@ Para treino exclusivamente em **pele sintética**, a prioridade é criar um setu
 
 ### SKINZ Practice Skin
 
-<img src="https://skinztattoo.com/cdn/shop/files/Fitzpatrick_Skin_Tone_Range.jpg" alt="SKINZ Practice Skin" width="180" />
+<img src="https://images.openai.com/static-rsc-1/aOzbu9GL_fCjeLCX9gMVZUWX7mDu_Ta6PIE9tIGYUtEVsyvL0OcvU4xhVMvX9VA2lGrtrZ62pKbdsuzA4E1ec5yN6azy4Z02SIfyFKMSuGKCyuqmY1_TK8wYC6zpQP31IrE2bwl2bTJP9j5DKy4JphhIXbbwWc51T116AC3V-IP9TKb3AHs1SycBqq9fSEZjbI65X9uCNumhclERIQOZKX4WGGUcYATRjKqCiNGCTMQVhgs4bsnv91PkNdii_aGw" alt="SKINZ Practice Skin" width="180" />
 
 | Campo               | Informação                                                                              |
 | ------------------- | --------------------------------------------------------------------------------------- |
@@ -514,7 +514,7 @@ Para treino exclusivamente em **pele sintética**, a prioridade é criar um setu
 
 ## KILLERBLACK Rich Black
 
-<img src="https://devilish-tattoo.fr/15583-large_default/encre-de-tatouage-killerblack-rich-black.jpg" alt="KILLERBLACK Rich Black" width="180" />
+<img src="https://images.openai.com/thumbnails/url/x1NqfXicDcnhEkIwAADgJ0KUOu66rkORDmXD-bc2jSszrMlb9Tq9TX1_v--nFoKPtqZVDA8zFxVRxI3pKh0FEg1WcddqY91x3jC667f_s_cRsY4YrIrnBoQMVZC41NOBzgYUGyCD8aH01q0yTUlaLKTJhn4ZsGK-e0QO19pN2zajPrkk0AgmEgWRSXPkoKS0vPREm3cOuIylQi7nlzW7j9DhOoxwLvqrf5Rr-gOduD7x" alt="KILLERBLACK Rich Black" width="180" />
 
 | Campo               | Informação                                        |
 | ------------------- | ------------------------------------------------- |
@@ -580,7 +580,7 @@ Em vez de um kit barato com 10–20 cores:
 
 ## Mast Pro 2
 
-<img src="https://coztattoosupplies.ca/cdn/shop/files/mast-pro-2-cartridge.jpg" alt="Mast Pro 2 Cartridges" width="180" />
+<img src="https://images.openai.com/thumbnails/url/LZodwXicu9mUUVJSUGylr5-al1xUWVCSmqJbkpRnpJdeXJJYkpmsl5yfq1-ckV9QkJmXbl9oC5SzcvRLsXRPDvLIjczIcyrKSgMqCXLMTyrNyHZ38cnSjfQM9nfNjtfNK8ssiSw2CTa3jIqICq70ryrMiQ-NDy1x8cqsqiyK8A5NMfUMKjP3TwYA474wUg" alt="Mast Pro 2 Cartridges" width="180" />
 
 | Campo               | Informação                                                                           |
 | ------------------- | ------------------------------------------------------------------------------------ |
@@ -609,7 +609,7 @@ Uma seleção pequena já cobre bastante treino:
 
 ## Dragonhawk Mast Tour
 
-<img src="https://www.dragonhawktattoosupply.com/cdn/shop/products/dragonhawk-mast-tour-tattoo-machine-pen-kit-pink.jpg" alt="Dragonhawk Mast Tour" width="180" />
+<img src="https://images.openai.com/thumbnails/url/EZ9GH3icu9mYUVJSUGylr5-al1xUWVCSmqJbkpRnqJdeXJJYkpmsl5yfq1-ckV9QkJmXbl9oC5SzcvRLsXRPDnLO9gxMdSrJMzdMcfH0KA-uKDZLSSs394wKNzVwLk6vMjRwq6o0jXQPTXLJ8kkrKvZLtiyNd8-IzykIcnd0ySlPyw33N3YODAQAdpcuug" alt="Dragonhawk Mast Tour" width="180" />
 
 | Campo               | Informação                                                                                                                         |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
