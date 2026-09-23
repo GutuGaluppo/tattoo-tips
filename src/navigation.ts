@@ -44,31 +44,26 @@ export const artistJourney: NavItem[] = [
     label: 'Preparação da bancada',
     to: '/tatuador/bancada',
     description: 'Barreiras, materiais de uso único e campo limpo.',
-    upcoming: true,
   },
   {
     label: 'Durante a sessão',
     to: '/tatuador/durante-a-sessao',
     description: 'Troca de luvas, perfurocortantes e limpeza.',
-    upcoming: true,
   },
   {
     label: 'Encerramento e descarte',
     to: '/tatuador/encerramento',
     description: 'Curativo, descarte imediato e descontaminação.',
-    upcoming: true,
   },
   {
     label: 'Regulagem inicial',
     to: '/tatuador/regulagem',
     description: 'Stroke, voltagem e agulhas como ponto de partida.',
-    upcoming: true,
   },
   {
     label: 'Limites para iniciantes',
     to: '/tatuador/limites',
     description: 'O que adiar até a mão estar calibrada.',
-    upcoming: true,
   },
 ];
 

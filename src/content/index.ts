@@ -6,6 +6,11 @@ import { healingGuide } from './client/healing';
 import { warningSignsGuide } from './client/warning-signs';
 import { emergencyGuide } from './client/emergency';
 import { screeningGuide } from './artist/screening';
+import { workstationGuide } from './artist/workstation';
+import { duringSessionGuide } from './artist/during-session';
+import { closingGuide } from './artist/closing';
+import { machineSetupGuide } from './artist/machine-setup';
+import { beginnerLimitsGuide } from './artist/beginner-limits';
 
 /** Registro único dos guias publicados — usado pelas rotas e pela validação. */
 export const guides: Guide[] = [
@@ -16,6 +21,11 @@ export const guides: Guide[] = [
   warningSignsGuide,
   emergencyGuide,
   screeningGuide,
+  workstationGuide,
+  duringSessionGuide,
+  closingGuide,
+  machineSetupGuide,
+  beginnerLimitsGuide,
 ];
 
 /**
@@ -32,4 +42,9 @@ export {
   warningSignsGuide,
   emergencyGuide,
   screeningGuide,
+  workstationGuide,
+  duringSessionGuide,
+  closingGuide,
+  machineSetupGuide,
+  beginnerLimitsGuide,
 };

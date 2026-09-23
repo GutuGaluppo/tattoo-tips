@@ -20,6 +20,11 @@ const Healing = lazy(() => import('@/pages/guides/Healing'));
 const WarningSigns = lazy(() => import('@/pages/guides/WarningSigns'));
 const Emergency = lazy(() => import('@/pages/guides/Emergency'));
 const Screening = lazy(() => import('@/pages/guides/Screening'));
+const Workstation = lazy(() => import('@/pages/guides/Workstation'));
+const DuringSession = lazy(() => import('@/pages/guides/DuringSession'));
+const Closing = lazy(() => import('@/pages/guides/Closing'));
+const MachineSetup = lazy(() => import('@/pages/guides/MachineSetup'));
+const BeginnerLimits = lazy(() => import('@/pages/guides/BeginnerLimits'));
 const TattooStyles = lazy(() => import('@/pages/TattooStyles'));
 const Equipment = lazy(() => import('@/pages/Equipment'));
 const EquipmentPro = lazy(() => import('@/pages/EquipmentPro'));
@@ -49,6 +54,11 @@ const pageByRouteId: Record<RouteId, JSX.Element> = {
   emergency: <Emergency />,
   artistHub: <ArtistHub />,
   artistScreening: <Screening />,
+  artistWorkstation: <Workstation />,
+  artistDuringSession: <DuringSession />,
+  artistClosing: <Closing />,
+  artistMachineSetup: <MachineSetup />,
+  artistBeginnerLimits: <BeginnerLimits />,
   styles: <TattooStyles />,
   equipmentHub: <Equipment />,
   equipmentPro: <EquipmentPro />,
