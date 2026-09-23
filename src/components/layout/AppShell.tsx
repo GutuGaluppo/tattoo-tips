@@ -5,6 +5,7 @@ import { useLocale } from '@/i18n/useLocale';
 import { dateFormatLocales } from '@/i18n/locale';
 import { pathFor, routeIdForPath, topNavItems } from '@/i18n/routes';
 import { AutomaticPageTranslation } from '@/components/i18n/AutomaticPageTranslation';
+import { MachineCursor } from '@/components/ui/MachineCursor';
 import { Header } from './Header';
 import './layout.css';
 
@@ -35,6 +36,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   return (
     <div className="app-shell">
+      <MachineCursor />
       <a className="skip-link" href="#conteudo">
         {dict.skipToContent}
       </a>

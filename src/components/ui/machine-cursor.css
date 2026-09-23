@@ -1,0 +1,67 @@
+.machine-cursor {
+  position: fixed;
+  z-index: 2147483647;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  mix-blend-mode: difference;
+  transition: opacity 80ms linear;
+  will-change: transform;
+}
+
+.machine-cursor-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.machine-cursor-art {
+  display: block;
+  width: clamp(3.75rem, 4.5vw, 4.75rem);
+  transform: translate(-14%, -94%);
+  transform-origin: 14% 94%;
+  will-change: transform;
+}
+
+.machine-cursor img {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  /* A arte é escura; invertida + difference mantém contraste em papel e tinta. */
+  filter: invert(1) grayscale(1) contrast(1.35);
+}
+
+.machine-cursor-running .machine-cursor-art {
+  animation: machine-cursor-vibration 72ms steps(2, jump-none) infinite;
+}
+
+@keyframes machine-cursor-vibration {
+  0% {
+    transform: translate(calc(-14% - 1px), calc(-94% + 1px)) rotate(-0.7deg);
+  }
+
+  50% {
+    transform: translate(calc(-14% + 1px), calc(-94% - 1px)) rotate(0.7deg);
+  }
+
+  100% {
+    transform: translate(calc(-14% - 1px), -94%) rotate(-0.35deg);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html.machine-cursor-enabled,
+  html.machine-cursor-enabled * {
+    cursor: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .machine-cursor-running .machine-cursor-art {
+    animation: none;
+  }
+}
