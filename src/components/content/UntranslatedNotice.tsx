@@ -12,7 +12,7 @@ export function UntranslatedNotice() {
   if (locale === defaultLocale) return null;
 
   return (
-    <p className="untranslated-notice" role="note">
+    <p className="untranslated-notice" role="note" data-no-auto-translate>
       {dict.untranslatedNotice}
     </p>
   );

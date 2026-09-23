@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import type { AlertLevel } from '@/content/types';
+import { useLocale } from '@/i18n/useLocale';
 import './content.css';
 
 interface AlertBoxProps {
@@ -14,9 +15,8 @@ interface AlertBoxProps {
  * Cor nunca é o único sinal: cada nível tem rótulo textual e ícone próprio,
  * para funcionar em daltonismo, impressão em preto e branco e leitor de tela.
  */
-const LEVELS: Record<AlertLevel, { label: string; icon: ReactNode }> = {
+const ICONS: Record<AlertLevel, { icon: ReactNode }> = {
   ok: {
-    label: 'Esperado',
     icon: (
       <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
         <path
@@ -31,7 +31,6 @@ const LEVELS: Record<AlertLevel, { label: string; icon: ReactNode }> = {
     ),
   },
   info: {
-    label: 'Informação',
     icon: (
       <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
         <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
@@ -41,7 +40,6 @@ const LEVELS: Record<AlertLevel, { label: string; icon: ReactNode }> = {
     ),
   },
   atencao: {
-    label: 'Atenção',
     icon: (
       <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
         <path
@@ -57,7 +55,6 @@ const LEVELS: Record<AlertLevel, { label: string; icon: ReactNode }> = {
     ),
   },
   urgencia: {
-    label: 'Urgente',
     icon: (
       <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false">
         <circle cx="10" cy="10" r="8" fill="none" stroke="currentColor" strokeWidth="1.8" />
@@ -69,7 +66,15 @@ const LEVELS: Record<AlertLevel, { label: string; icon: ReactNode }> = {
 };
 
 export function AlertBox({ level, title, children, live }: AlertBoxProps) {
-  const { label, icon } = LEVELS[level];
+  const { dict } = useLocale();
+  const labels: Record<AlertLevel, string> = {
+    ok: dict.content.expected,
+    info: dict.content.information,
+    atencao: dict.content.attention,
+    urgencia: dict.content.urgent,
+  };
+  const label = labels[level];
+  const icon = ICONS[level].icon;
 
   return (
     <div

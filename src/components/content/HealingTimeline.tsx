@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import type { TimelineBlock } from '@/content/types';
 import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 import { SourceRefs } from './SourceRefs';
+import { useLocale } from '@/i18n/useLocale';
 import './content.css';
 
 type HealingTimelineProps = Omit<TimelineBlock, 'type'>;
@@ -12,6 +13,7 @@ type HealingTimelineProps = Omit<TimelineBlock, 'type'>;
  * junto com o componente.
  */
 export function HealingTimeline({ title, entries, sources }: HealingTimelineProps) {
+  const { dict } = useLocale();
   const listRef = useRef<HTMLOListElement>(null);
   const [reached, setReached] = useState(0);
   const reducedMotion = usePrefersReducedMotion();
@@ -64,7 +66,7 @@ export function HealingTimeline({ title, entries, sources }: HealingTimelineProp
               <p className="text-muted">{entry.text}</p>
               {entry.watchFor && (
                 <p className="timeline-watch">
-                  <strong>Ficar de olho:</strong> {entry.watchFor}
+                  <strong>{dict.content.keepAnEyeOn}:</strong> {entry.watchFor}
                 </p>
               )}
             </div>

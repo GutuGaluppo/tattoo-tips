@@ -6,13 +6,8 @@ import { Picture } from '@/components/ui/Picture';
 import { Reveal } from '@/components/motion/Reveal';
 import { BlockRenderer } from './BlockRenderer';
 import { SourceList } from './SourceRefs';
+import { useLocale } from '@/i18n/useLocale';
 import './content.css';
-
-const AUDIENCE_LABEL: Record<Guide['audience'], string> = {
-  cliente: 'Para quem vai tatuar',
-  tatuador: 'Para quem tatua',
-  ambos: 'Para clientes e tatuadores',
-};
 
 /** Destaca no sumário a seção que está sendo lida. */
 function useActiveSection(ids: string[]) {
@@ -48,13 +43,20 @@ function useActiveSection(ids: string[]) {
  * fontes e data de revisão.
  */
 export function GuideLayout({ guide }: { guide: Guide }) {
+  const { dict } = useLocale();
   const sectionIds = guide.sections.map((section) => section.id);
   const active = useActiveSection(sectionIds);
 
   return (
     <article className="guide">
       <header className="guide-header">
-        <Eyebrow>{AUDIENCE_LABEL[guide.audience]}</Eyebrow>
+        <Eyebrow>
+          {
+            dict.content.audience[
+              guide.audience === 'cliente' ? 'client' : guide.audience === 'tatuador' ? 'artist' : 'both'
+            ]
+          }
+        </Eyebrow>
         <h1>{guide.title}</h1>
         <p className="guide-description">{guide.description}</p>
         <LastReviewed date={guide.lastReviewed} jurisdiction={guide.jurisdiction} />
@@ -72,8 +74,8 @@ export function GuideLayout({ guide }: { guide: Guide }) {
 
       <div className="guide-body">
         {guide.sections.length > 1 && (
-          <nav className="guide-toc no-print" aria-label="Sumário deste guia">
-            <p className="guide-toc-title">Nesta página</p>
+          <nav className="guide-toc no-print" aria-label={dict.content.guideTocLabel}>
+            <p className="guide-toc-title">{dict.content.onThisPage}</p>
             <ol>
               {guide.sections.map((section) => (
                 <li key={section.id}>
@@ -106,7 +108,7 @@ export function GuideLayout({ guide }: { guide: Guide }) {
                 <a
                   className="anchor-link no-print"
                   href={`#${section.id}`}
-                  aria-label={`Link direto para a seção ${section.title}`}
+                  aria-label={dict.content.directSectionLink(section.title)}
                 >
                   #
                 </a>
@@ -121,7 +123,8 @@ export function GuideLayout({ guide }: { guide: Guide }) {
           <SourceList ids={guide.sources} />
 
           <p className="print-note" hidden>
-            {guide.title} — {site.name} ({site.url}) · Última revisão: {guide.lastReviewed}
+            {guide.title} — {site.name} ({site.url}) · {dict.content.lastReviewed}:{' '}
+            {guide.lastReviewed}
           </p>
         </div>
       </div>

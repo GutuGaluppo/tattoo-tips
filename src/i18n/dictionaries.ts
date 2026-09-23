@@ -28,6 +28,48 @@ export interface Dictionary {
   languageSwitcherLabel: string;
   untranslatedNotice: string;
   routeFallback: string;
+  content: {
+    audience: { client: string; artist: string; both: string };
+    lastReviewed: string;
+    regulatoryReference: string;
+    medicalDisclaimer: string;
+    technicalDisclaimer: string;
+    scopeNotice: string;
+    technicalRecommendations: string;
+    guideTocLabel: string;
+    onThisPage: string;
+    directSectionLink: (title: string) => string;
+    sources: string;
+    sourceLabel: string;
+    jurisdiction: string;
+    checkedOn: string;
+    sourceKinds: {
+      norma: string;
+      clinicalGuidance: string;
+      regulator: string;
+      educational: string;
+      manufacturer: string;
+      video: string;
+    };
+    restart: string;
+    completed: (done: number, total: number) => string;
+    filter: string;
+    searchTable: string;
+    table: string;
+    noTableResults: (query: string) => string;
+    expected: string;
+    information: string;
+    attention: string;
+    urgent: string;
+    playVideo: (title: string, organization: string) => string;
+    loadFromYoutube: string;
+    watchOnYoutube: string;
+    situation: string;
+    keepAnEyeOn: string;
+    openPlaylist: string;
+    playlistPlayerNotice: string;
+    listenOnSpotify: string;
+  };
 }
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -55,6 +97,23 @@ export const dictionaries: Record<Locale, Dictionary> = {
     languageSwitcherLabel: 'Idioma',
     untranslatedNotice: '',
     routeFallback: 'Carregando conteúdo',
+    content: {
+      audience: { client: 'Para quem vai tatuar', artist: 'Para quem tatua', both: 'Para clientes e tatuadores' },
+      lastReviewed: 'Última revisão', regulatoryReference: 'Referência regulatória',
+      medicalDisclaimer: 'Conteúdo educacional. Não substitui avaliação médica presencial nem a legislação sanitária do seu município, estado ou país. Diante de sinais de infecção ou reação, procure atendimento de saúde.',
+      technicalDisclaimer: 'Faixas de regulagem, materiais e produtos citados são pontos de partida. O ajuste correto depende da sua máquina, do cartucho, da pele do cliente, da sua velocidade de mão e das normas locais.',
+      scopeNotice: 'Aviso', technicalRecommendations: 'Sobre as recomendações técnicas',
+      guideTocLabel: 'Sumário deste guia', onThisPage: 'Nesta página', directSectionLink: (title) => `Link direto para a seção ${title}`,
+      sources: 'Fontes', sourceLabel: 'Fontes', jurisdiction: 'Jurisdição', checkedOn: 'Verificado em',
+      sourceKinds: { norma: 'Norma', clinicalGuidance: 'Orientação clínica', regulator: 'Órgão regulador', educational: 'Material educacional', manufacturer: 'Fabricante', video: 'Vídeo' },
+      restart: 'Reiniciar', completed: (done, total) => `${done} de ${total} concluídos`,
+      filter: 'Filtrar', searchTable: 'Buscar na tabela', table: 'Tabela', noTableResults: (query) => `Nenhuma linha corresponde a “${query}”.`,
+      expected: 'Esperado', information: 'Informação', attention: 'Atenção', urgent: 'Urgente',
+      playVideo: (title, organization) => `Reproduzir o vídeo “${title}”, de ${organization}. Carrega conteúdo do YouTube.`,
+      loadFromYoutube: 'Clique para carregar do YouTube', watchOnYoutube: 'Ver no YouTube',
+      situation: 'Situação', keepAnEyeOn: 'Ficar de olho', openPlaylist: 'Abrir playlist',
+      playlistPlayerNotice: 'O player é do Spotify e só carrega quando você abre.', listenOnSpotify: 'Ouvir no Spotify',
+    },
   },
   en: {
     skipToContent: 'Skip to content',
@@ -79,8 +138,25 @@ export const dictionaries: Record<Locale, Dictionary> = {
       `Independent educational content. It does not replace medical evaluation or local health regulation. Default regulatory reference: ${jurisdiction}. Last reviewed: ${date}.`,
     languageSwitcherLabel: 'Language',
     untranslatedNotice:
-      "This page hasn't been translated yet. You're reading the original Portuguese content below.",
+      'This page is automatically translated from the original Portuguese content. Please verify critical information against the cited sources.',
     routeFallback: 'Loading content',
+    content: {
+      audience: { client: 'For tattoo clients', artist: 'For tattoo artists', both: 'For clients and tattoo artists' },
+      lastReviewed: 'Last reviewed', regulatoryReference: 'Regulatory reference',
+      medicalDisclaimer: 'Educational content. It does not replace an in-person medical assessment or the health regulations of your city, state, or country. Seek medical care if there are signs of infection or a reaction.',
+      technicalDisclaimer: 'The settings, materials, and products mentioned are starting points. The right adjustment depends on your machine, cartridge, the client’s skin, your hand speed, and local regulations.',
+      scopeNotice: 'Notice', technicalRecommendations: 'About technical recommendations',
+      guideTocLabel: 'Table of contents for this guide', onThisPage: 'On this page', directSectionLink: (title) => `Direct link to the ${title} section`,
+      sources: 'Sources', sourceLabel: 'Sources', jurisdiction: 'Jurisdiction', checkedOn: 'Checked on',
+      sourceKinds: { norma: 'Standard', clinicalGuidance: 'Clinical guidance', regulator: 'Regulatory body', educational: 'Educational material', manufacturer: 'Manufacturer', video: 'Video' },
+      restart: 'Reset', completed: (done, total) => `${done} of ${total} completed`,
+      filter: 'Filter', searchTable: 'Search this table', table: 'Table', noTableResults: (query) => `No rows match “${query}”.`,
+      expected: 'Expected', information: 'Information', attention: 'Attention', urgent: 'Urgent',
+      playVideo: (title, organization) => `Play “${title}” by ${organization}. Loads content from YouTube.`,
+      loadFromYoutube: 'Click to load from YouTube', watchOnYoutube: 'Watch on YouTube',
+      situation: 'Situation', keepAnEyeOn: 'Keep an eye on', openPlaylist: 'Open playlist',
+      playlistPlayerNotice: 'The Spotify player only loads when you open it.', listenOnSpotify: 'Listen on Spotify',
+    },
   },
   es: {
     skipToContent: 'Saltar al contenido',
@@ -105,8 +181,25 @@ export const dictionaries: Record<Locale, Dictionary> = {
       `Contenido educativo independiente. No sustituye la evaluación médica ni la legislación sanitaria local. Referencia regulatoria por defecto: ${jurisdiction}. Última revisión: ${date}.`,
     languageSwitcherLabel: 'Idioma',
     untranslatedNotice:
-      'Esta página todavía no fue traducida. A continuación se muestra el contenido original en portugués.',
+      'Esta página se traduce automáticamente del contenido original en portugués. Verifica la información crítica con las fuentes citadas.',
     routeFallback: 'Cargando contenido',
+    content: {
+      audience: { client: 'Para quienes se van a tatuar', artist: 'Para tatuadores', both: 'Para clientes y tatuadores' },
+      lastReviewed: 'Última revisión', regulatoryReference: 'Referencia regulatoria',
+      medicalDisclaimer: 'Contenido educativo. No sustituye una evaluación médica presencial ni la normativa sanitaria de tu municipio, estado o país. Busca atención médica ante signos de infección o reacción.',
+      technicalDisclaimer: 'Los ajustes, materiales y productos citados son puntos de partida. El ajuste correcto depende de tu máquina, el cartucho, la piel del cliente, tu velocidad de mano y las normas locales.',
+      scopeNotice: 'Aviso', technicalRecommendations: 'Sobre las recomendaciones técnicas',
+      guideTocLabel: 'Índice de esta guía', onThisPage: 'En esta página', directSectionLink: (title) => `Enlace directo a la sección ${title}`,
+      sources: 'Fuentes', sourceLabel: 'Fuentes', jurisdiction: 'Jurisdicción', checkedOn: 'Verificado el',
+      sourceKinds: { norma: 'Norma', clinicalGuidance: 'Orientación clínica', regulator: 'Organismo regulador', educational: 'Material educativo', manufacturer: 'Fabricante', video: 'Vídeo' },
+      restart: 'Reiniciar', completed: (done, total) => `${done} de ${total} completados`,
+      filter: 'Filtrar', searchTable: 'Buscar en la tabla', table: 'Tabla', noTableResults: (query) => `Ninguna fila coincide con “${query}”.`,
+      expected: 'Esperado', information: 'Información', attention: 'Atención', urgent: 'Urgente',
+      playVideo: (title, organization) => `Reproducir «${title}», de ${organization}. Carga contenido de YouTube.`,
+      loadFromYoutube: 'Haz clic para cargar desde YouTube', watchOnYoutube: 'Ver en YouTube',
+      situation: 'Situación', keepAnEyeOn: 'Vigila', openPlaylist: 'Abrir playlist',
+      playlistPlayerNotice: 'El reproductor de Spotify solo se carga cuando lo abres.', listenOnSpotify: 'Escuchar en Spotify',
+    },
   },
   de: {
     skipToContent: 'Zum Inhalt springen',
@@ -131,7 +224,24 @@ export const dictionaries: Record<Locale, Dictionary> = {
       `Unabhängiger Bildungsinhalt. Ersetzt keine ärztliche Beurteilung oder lokale Gesundheitsvorschriften. Standardmäßige regulatorische Referenz: ${jurisdiction}. Zuletzt überprüft: ${date}.`,
     languageSwitcherLabel: 'Sprache',
     untranslatedNotice:
-      'Diese Seite wurde noch nicht übersetzt. Unten sehen Sie den ursprünglichen Inhalt auf Portugiesisch.',
+      'Diese Seite wird automatisch aus dem portugiesischen Originalinhalt übersetzt. Prüfen Sie wichtige Informationen anhand der angegebenen Quellen.',
     routeFallback: 'Inhalt wird geladen',
+    content: {
+      audience: { client: 'Für Tattoo-Kund:innen', artist: 'Für Tätowierer:innen', both: 'Für Kund:innen und Tätowierer:innen' },
+      lastReviewed: 'Zuletzt überprüft', regulatoryReference: 'Regulatorische Referenz',
+      medicalDisclaimer: 'Bildungsinhalt. Ersetzt weder eine ärztliche Untersuchung noch die Gesundheitsvorschriften deiner Gemeinde, deines Bundeslands oder deines Landes. Bei Anzeichen einer Infektion oder Reaktion medizinische Hilfe suchen.',
+      technicalDisclaimer: 'Die genannten Einstellungen, Materialien und Produkte sind Ausgangspunkte. Die richtige Anpassung hängt von deiner Maschine, der Cartridge, der Haut der Kundschaft, deiner Handgeschwindigkeit und den lokalen Vorschriften ab.',
+      scopeNotice: 'Hinweis', technicalRecommendations: 'Zu technischen Empfehlungen',
+      guideTocLabel: 'Inhaltsverzeichnis dieses Leitfadens', onThisPage: 'Auf dieser Seite', directSectionLink: (title) => `Direktlink zum Abschnitt ${title}`,
+      sources: 'Quellen', sourceLabel: 'Quellen', jurisdiction: 'Rechtsraum', checkedOn: 'Geprüft am',
+      sourceKinds: { norma: 'Norm', clinicalGuidance: 'Klinische Leitlinie', regulator: 'Regulierungsbehörde', educational: 'Schulungsmaterial', manufacturer: 'Hersteller', video: 'Video' },
+      restart: 'Zurücksetzen', completed: (done, total) => `${done} von ${total} erledigt`,
+      filter: 'Filtern', searchTable: 'Tabelle durchsuchen', table: 'Tabelle', noTableResults: (query) => `Keine Zeilen entsprechen „${query}“.`,
+      expected: 'Erwartet', information: 'Information', attention: 'Achtung', urgent: 'Dringend',
+      playVideo: (title, organization) => `„${title}“ von ${organization} abspielen. Lädt Inhalte von YouTube.`,
+      loadFromYoutube: 'Klicken, um von YouTube zu laden', watchOnYoutube: 'Auf YouTube ansehen',
+      situation: 'Situation', keepAnEyeOn: 'Darauf achten', openPlaylist: 'Playlist öffnen',
+      playlistPlayerNotice: 'Der Spotify-Player wird erst geladen, wenn du ihn öffnest.', listenOnSpotify: 'Auf Spotify hören',
+    },
   },
 };

@@ -1,5 +1,6 @@
 import type { ComparisonBlock } from '@/content/types';
 import { SourceRefs } from './SourceRefs';
+import { useLocale } from '@/i18n/useLocale';
 import './content.css';
 
 type ComparisonTableProps = Omit<ComparisonBlock, 'type'>;
@@ -16,6 +17,7 @@ export function ComparisonTable({
   rows,
   sources,
 }: ComparisonTableProps) {
+  const { dict } = useLocale();
   return (
     <section className="comparison-table">
       {title && <h3>{title}</h3>}
@@ -23,13 +25,13 @@ export function ComparisonTable({
       <div
         className="comparison-wrapper"
         role="region"
-        aria-label={title ? `Tabela: ${title}` : 'Tabela comparativa'}
+        aria-label={title ? `${dict.content.table}: ${title}` : dict.content.table}
         tabIndex={0}
       >
         <table>
           <thead>
             <tr>
-              <th scope="col">Situação</th>
+              <th scope="col">{dict.content.situation}</th>
               <th scope="col" className="col-expected">
                 <span className="comparison-flag comparison-flag-ok" aria-hidden="true">
                   ✓

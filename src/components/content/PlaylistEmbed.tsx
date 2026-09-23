@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Picture } from '@/components/ui/Picture';
 import type { ImageKey } from '@/content/images';
+import { useLocale } from '@/i18n/useLocale';
 import './content.css';
 
 interface PlaylistEmbedProps {
@@ -30,6 +31,7 @@ export function PlaylistEmbed({
   compact,
   image,
 }: PlaylistEmbedProps) {
+  const { dict } = useLocale();
   const [playing, setPlaying] = useState(false);
   const height = compact ? 152 : 352;
 
@@ -86,20 +88,20 @@ export function PlaylistEmbed({
             className="btn btn-primary playlist-button"
             onClick={() => setPlaying(true)}
           >
-            Abrir playlist
+            {dict.content.openPlaylist}
             <span className="visually-hidden"> — carrega o player do Spotify</span>
           </button>
         </div>
       )}
 
       <figcaption>
-        O player é do Spotify e só carrega quando você abre.{' '}
+        {dict.content.playlistPlayerNotice}{' '}
         <a
           href={`https://open.spotify.com/playlist/${spotifyId}`}
           target="_blank"
           rel="noopener noreferrer"
         >
-          Ouvir no Spotify
+          {dict.content.listenOnSpotify}
         </a>
       </figcaption>
     </figure>

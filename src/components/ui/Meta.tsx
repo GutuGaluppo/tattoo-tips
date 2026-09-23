@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { medicalDisclaimer, technicalDisclaimer } from '@/config/site';
+import { useLocale } from '@/i18n/useLocale';
+import { dateFormatLocales } from '@/i18n/locale';
 import './ui.css';
 
 export function Eyebrow({ children }: { children: ReactNode }) {
@@ -18,7 +19,8 @@ export function Badge({
 
 /** Data de revisão editorial — obrigatória em todo guia sensível. */
 export function LastReviewed({ date, jurisdiction }: { date: string; jurisdiction?: string }) {
-  const formatted = new Date(`${date}T12:00:00`).toLocaleDateString('pt-BR', {
+  const { locale, dict } = useLocale();
+  const formatted = new Date(`${date}T12:00:00`).toLocaleDateString(dateFormatLocales[locale], {
     day: '2-digit',
     month: 'long',
     year: 'numeric',
@@ -27,22 +29,23 @@ export function LastReviewed({ date, jurisdiction }: { date: string; jurisdictio
   return (
     <p className="last-reviewed">
       <span>
-        Última revisão: <time dateTime={date}>{formatted}</time>
+        {dict.content.lastReviewed}: <time dateTime={date}>{formatted}</time>
       </span>
-      {jurisdiction && <span> · Referência regulatória: {jurisdiction}</span>}
+      {jurisdiction && <span> · {dict.content.regulatoryReference}: {jurisdiction}</span>}
     </p>
   );
 }
 
 export function Disclaimer({ technical }: { technical?: boolean }) {
+  const { dict } = useLocale();
   return (
-    <aside className="disclaimer" aria-label="Aviso de escopo">
+    <aside className="disclaimer" aria-label={dict.content.scopeNotice}>
       <p>
-        <strong>Aviso.</strong> {medicalDisclaimer}
+        <strong>{dict.content.scopeNotice}.</strong> {dict.content.medicalDisclaimer}
       </p>
       {technical && (
         <p>
-          <strong>Sobre as recomendações técnicas.</strong> {technicalDisclaimer}
+          <strong>{dict.content.technicalRecommendations}.</strong> {dict.content.technicalDisclaimer}
         </p>
       )}
     </aside>

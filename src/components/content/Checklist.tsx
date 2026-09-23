@@ -1,6 +1,7 @@
 import { useId } from 'react';
 import { isStringArray, usePersistentState } from '@/hooks/usePersistentState';
 import type { ChecklistBlock } from '@/content/types';
+import { useLocale } from '@/i18n/useLocale';
 import { SourceRefs } from './SourceRefs';
 import './content.css';
 
@@ -11,6 +12,7 @@ type ChecklistProps = Omit<ChecklistBlock, 'type'>;
  * estúdio, marca os itens e pode fechar o navegador sem perder o que já fez.
  */
 export function Checklist({ id, title, description, items, sources }: ChecklistProps) {
+  const { dict } = useLocale();
   const headingId = useId();
   const [checked, setChecked, reset] = usePersistentState<string[]>(
     `checklist:${id}`,
@@ -47,7 +49,7 @@ export function Checklist({ id, title, description, items, sources }: ChecklistP
           onClick={reset}
           disabled={done === 0}
         >
-          Reiniciar
+          {dict.content.restart}
         </button>
       </header>
 
@@ -63,7 +65,7 @@ export function Checklist({ id, title, description, items, sources }: ChecklistP
           <span style={{ width: `${percent}%` }} />
         </div>
         <p className="checklist-count" aria-live="polite">
-          {done} de {total} concluídos
+          {dict.content.completed(done, total)}
         </p>
       </div>
 

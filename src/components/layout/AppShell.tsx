@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import { site } from '@/config/site';
 import { useLocale } from '@/i18n/useLocale';
 import { dateFormatLocales } from '@/i18n/locale';
-import { pathFor, topNavItems } from '@/i18n/routes';
+import { pathFor, routeIdForPath, topNavItems } from '@/i18n/routes';
+import { AutomaticPageTranslation } from '@/components/i18n/AutomaticPageTranslation';
 import { Header } from './Header';
 import './layout.css';
 
@@ -28,7 +29,9 @@ function useRouteFocus() {
 
 export function AppShell({ children }: { children: ReactNode }) {
   useRouteFocus();
-  const { dict } = useLocale();
+  const { pathname } = useLocation();
+  const { locale, dict } = useLocale();
+  const routeId = routeIdForPath(locale, pathname);
 
   return (
     <div className="app-shell">
@@ -41,6 +44,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <main id="conteudo" className="band-paper" tabIndex={-1}>
         {children}
       </main>
+      <AutomaticPageTranslation locale={locale} routeId={routeId} />
 
       <Footer />
     </div>

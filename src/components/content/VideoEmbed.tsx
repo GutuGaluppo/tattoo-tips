@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { getSource, type SourceId } from '@/content/references';
+import { useLocale } from '@/i18n/useLocale';
 import './content.css';
 
 interface VideoEmbedProps {
@@ -16,6 +17,7 @@ interface VideoEmbedProps {
  * ação do usuário. O iframe usa o domínio sem cookies.
  */
 export function VideoEmbed({ youtubeId, title, description, sourceId }: VideoEmbedProps) {
+  const { dict } = useLocale();
   const [playing, setPlaying] = useState(false);
   const source = getSource(sourceId);
 
@@ -35,7 +37,7 @@ export function VideoEmbed({ youtubeId, title, description, sourceId }: VideoEmb
             type="button"
             className="video-poster"
             onClick={() => setPlaying(true)}
-            aria-label={`Reproduzir o vídeo “${title}”, de ${source.org}. Carrega conteúdo do YouTube.`}
+            aria-label={dict.content.playVideo(title, source.org)}
           >
             <span className="video-play" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="26" height="26" focusable="false">
@@ -45,7 +47,7 @@ export function VideoEmbed({ youtubeId, title, description, sourceId }: VideoEmb
             <span className="video-meta" aria-hidden="true">
               <span className="video-org">{source.org}</span>
               <span className="video-title">{title}</span>
-              <span className="video-hint">Clique para carregar do YouTube</span>
+              <span className="video-hint">{dict.content.loadFromYoutube}</span>
             </span>
           </button>
         )}
@@ -54,7 +56,7 @@ export function VideoEmbed({ youtubeId, title, description, sourceId }: VideoEmb
       <figcaption>
         {description && <span className="video-description">{description}</span>}
         <a href={source.url} target="_blank" rel="noopener noreferrer">
-          Ver no YouTube — {source.org}
+          {dict.content.watchOnYoutube} — {source.org}
         </a>
       </figcaption>
     </figure>

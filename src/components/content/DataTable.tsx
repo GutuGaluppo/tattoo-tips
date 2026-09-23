@@ -1,5 +1,6 @@
 import { useId, useMemo, useState } from 'react';
 import type { TableBlock } from '@/content/types';
+import { useLocale } from '@/i18n/useLocale';
 import { SourceRefs } from './SourceRefs';
 import './content.css';
 
@@ -21,6 +22,7 @@ export function DataTable({
   cardTitleKey,
   sources,
 }: DataTableProps) {
+  const { locale, dict } = useLocale();
   const searchId = useId();
   const captionId = useId();
   const [query, setQuery] = useState('');
@@ -37,13 +39,13 @@ export function DataTable({
     if (!sort) return filtered;
 
     return [...filtered].sort((a, b) => {
-      const result = (a[sort.key] ?? '').localeCompare(b[sort.key] ?? '', 'pt-BR', {
+      const result = (a[sort.key] ?? '').localeCompare(b[sort.key] ?? '', locale, {
         numeric: true,
         sensitivity: 'base',
       });
       return sort.direction === 'asc' ? result : -result;
     });
-  }, [columns, rows, query, sort]);
+  }, [columns, rows, query, sort, locale]);
 
   function toggleSort(key: string) {
     setSort((previous) => {
@@ -62,13 +64,13 @@ export function DataTable({
           {title && <h3 id={captionId}>{title}</h3>}
           {searchable && (
             <div className="data-table-search">
-              <label htmlFor={searchId}>Filtrar</label>
+              <label htmlFor={searchId}>{dict.content.filter}</label>
               <input
                 id={searchId}
                 className="input"
                 type="search"
                 value={query}
-                placeholder="Buscar na tabela"
+                placeholder={dict.content.searchTable}
                 onChange={(event) => setQuery(event.target.value)}
                 autoComplete="off"
               />
@@ -82,7 +84,7 @@ export function DataTable({
       <div
         className="data-table-wrapper"
         role="region"
-        aria-label={title ? `Tabela: ${title}` : 'Tabela'}
+        aria-label={title ? `${dict.content.table}: ${title}` : dict.content.table}
         tabIndex={0}
       >
         <table>
@@ -138,7 +140,7 @@ export function DataTable({
 
         {visibleRows.length === 0 && (
           <p className="data-table-empty" role="status">
-            Nenhuma linha corresponde a “{query}”.
+            {dict.content.noTableResults(query)}
           </p>
         )}
       </div>

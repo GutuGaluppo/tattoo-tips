@@ -1,6 +1,8 @@
 import { getSources, type SourceId } from '@/content/references';
 import { shortOrg } from '@/content/org';
 import type { Source } from '@/content/types';
+import { useLocale } from '@/i18n/useLocale';
+import { dateFormatLocales } from '@/i18n/locale';
 import './content.css';
 
 interface SourceRefsProps {
@@ -15,12 +17,13 @@ interface SourceRefsProps {
  * educacional comercial antes de clicar.
  */
 export function SourceRefs({ ids, block }: SourceRefsProps) {
+  const { dict } = useLocale();
   if (!ids || ids.length === 0) return null;
   const sources = getSources(ids);
 
   return (
     <span className={block ? 'source-refs source-refs-block' : 'source-refs'}>
-      <span className="visually-hidden">Fontes: </span>
+      <span className="visually-hidden">{dict.content.sourceLabel}: </span>
       {sources.map((source) => (
         <a
           key={source.id}
@@ -40,28 +43,30 @@ export function SourceRefs({ ids, block }: SourceRefsProps) {
   );
 }
 
-const KIND_LABEL: Record<Source['kind'], string> = {
-  norma: 'Norma',
-  'orientacao-clinica': 'Orientação clínica',
-  'orgao-regulador': 'Órgão regulador',
-  educacional: 'Material educacional',
-  video: 'Vídeo',
-};
-
 /** Lista completa e verificável, no fim de cada guia e na página de fontes. */
 export function SourceList({
   ids,
-  title = 'Fontes',
+  title,
 }: {
   ids: readonly SourceId[];
   title?: string;
 }) {
+  const { locale, dict } = useLocale();
   const sources = getSources(ids);
   if (sources.length === 0) return null;
+  const displayedTitle = title ?? dict.content.sources;
+  const kindLabels: Record<Source['kind'], string> = {
+    norma: dict.content.sourceKinds.norma,
+    'orientacao-clinica': dict.content.sourceKinds.clinicalGuidance,
+    'orgao-regulador': dict.content.sourceKinds.regulator,
+    educacional: dict.content.sourceKinds.educational,
+    fabricante: dict.content.sourceKinds.manufacturer,
+    video: dict.content.sourceKinds.video,
+  };
 
   return (
-    <section className="source-list" aria-label={title}>
-      <h2>{title}</h2>
+    <section className="source-list" aria-label={displayedTitle}>
+      <h2>{displayedTitle}</h2>
       <ul>
         {sources.map((source) => (
           <li key={source.id}>
@@ -69,13 +74,13 @@ export function SourceList({
               {source.title}
             </a>
             <p className="source-meta">
-              {source.org} · {KIND_LABEL[source.kind]}
+              {source.org} · {kindLabels[source.kind]}
               {source.jurisdiction && source.jurisdiction !== 'global'
-                ? ` · Jurisdição: ${source.jurisdiction}`
+                ? ` · ${dict.content.jurisdiction}: ${source.jurisdiction}`
                 : ''}{' '}
-              · Verificado em{' '}
+              · {dict.content.checkedOn}{' '}
               <time dateTime={source.accessedAt}>
-                {new Date(`${source.accessedAt}T12:00:00`).toLocaleDateString('pt-BR')}
+                {new Date(`${source.accessedAt}T12:00:00`).toLocaleDateString(dateFormatLocales[locale])}
               </time>
             </p>
             {source.note && <p className="source-note">{source.note}</p>}

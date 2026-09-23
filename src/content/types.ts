@@ -9,7 +9,7 @@ export type AlertLevel = 'ok' | 'info' | 'atencao' | 'urgencia';
 export type Jurisdiction = 'BR' | 'EU' | 'US' | 'global';
 
 export type SourceKind =
-  'norma' | 'orientacao-clinica' | 'orgao-regulador' | 'educacional' | 'video';
+  'norma' | 'orientacao-clinica' | 'orgao-regulador' | 'educacional' | 'fabricante' | 'video';
 
 export interface Source {
   id: string;
