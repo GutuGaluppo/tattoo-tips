@@ -77,7 +77,16 @@ export function MachineCursor() {
   return (
     <span ref={cursorRef} className="machine-cursor" aria-hidden="true">
       <span className="machine-cursor-art">
-        <img src="/images/mouse_cursor.png" alt="" draggable="false" />
+        <svg className="machine-cursor-layer" viewBox="0 0 1254 1254" focusable="false">
+          <use href="/images/mouse_cursor.svg#machine-body" />
+        </svg>
+        <svg
+          className="machine-cursor-layer machine-cursor-needle"
+          viewBox="0 0 1254 1254"
+          focusable="false"
+        >
+          <use href="/images/mouse_cursor.svg#machine-needle" />
+        </svg>
       </span>
     </span>
   );

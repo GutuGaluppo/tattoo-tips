@@ -19,37 +19,44 @@
 }
 
 .machine-cursor-art {
+  position: relative;
   display: block;
   width: clamp(3.75rem, 4.5vw, 4.75rem);
+  aspect-ratio: 1;
   transform: translate(-14%, -94%);
   transform-origin: 14% 94%;
-  will-change: transform;
 }
 
-.machine-cursor img {
+.machine-cursor-layer {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: auto;
-  user-select: none;
+  height: 100%;
+  overflow: visible;
   /* A arte é escura; invertida + difference mantém contraste em papel e tinta. */
   filter: invert(1) grayscale(1) contrast(1.35);
 }
 
-.machine-cursor-running .machine-cursor-art {
-  animation: machine-cursor-vibration 72ms steps(2, jump-none) infinite;
+.machine-cursor-needle {
+  will-change: transform;
 }
 
-@keyframes machine-cursor-vibration {
+.machine-cursor-running .machine-cursor-needle {
+  animation: machine-needle-vibration 58ms steps(2, jump-none) infinite;
+}
+
+@keyframes machine-needle-vibration {
   0% {
-    transform: translate(calc(-14% - 1px), calc(-94% + 1px)) rotate(-0.7deg);
+    transform: translate(0, 0);
   }
 
   50% {
-    transform: translate(calc(-14% + 1px), calc(-94% - 1px)) rotate(0.7deg);
+    transform: translate(-0.8px, 1.15px);
   }
 
   100% {
-    transform: translate(calc(-14% - 1px), -94%) rotate(-0.35deg);
+    transform: translate(0.35px, -0.5px);
   }
 }
 
@@ -61,7 +68,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .machine-cursor-running .machine-cursor-art {
+  .machine-cursor-running .machine-cursor-needle {
     animation: none;
   }
 }
