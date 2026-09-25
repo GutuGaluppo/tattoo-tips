@@ -76,7 +76,8 @@
   padding: 0;
 }
 
-.nav-desktop a {
+.nav-desktop a,
+.nav-menu-toggle {
   display: inline-block;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-pill);
@@ -89,12 +90,15 @@
     background-color var(--dur-fast) var(--ease-out);
 }
 
-.nav-desktop a:hover {
+.nav-desktop a:hover,
+.nav-menu-toggle:hover,
+.nav-menu-toggle[aria-expanded='true'] {
   color: var(--color-text);
   background: rgba(244, 242, 240, 0.08);
 }
 
-.nav-desktop a.active {
+.nav-desktop a.active,
+.nav-menu-toggle.active {
   color: var(--color-text);
   background: rgba(244, 242, 240, 0.12);
 }
@@ -107,6 +111,104 @@
 .nav-desktop a.nav-alert.active {
   color: var(--alert-warning);
   background: var(--alert-warning-bg);
+}
+
+/* ------------------------------------------------ menus da barra (desktop) */
+
+.nav-menu {
+  position: relative;
+}
+
+.nav-menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+.nav-menu-toggle:focus-visible,
+.nav-menu-panel a:focus-visible {
+  outline: 2px solid var(--color-text);
+  outline-offset: 2px;
+}
+
+.nav-menu-chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.nav-menu-toggle[aria-expanded='true'] .nav-menu-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-menu-panel {
+  position: absolute;
+  z-index: var(--z-drawer);
+  top: calc(100% + 0.6rem);
+  left: 0;
+  display: grid;
+  gap: var(--space-3) var(--space-5);
+  min-width: 16rem;
+  padding: var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  animation: drawer-in var(--dur-fast) var(--ease-out);
+}
+
+.nav-menu-panel[hidden] {
+  display: none;
+}
+
+.nav-menu-panel[data-columns='2'] {
+  grid-template-columns: repeat(2, minmax(13rem, auto));
+}
+
+.nav-desktop .nav-menu-panel ul {
+  display: grid;
+  gap: 2px;
+}
+
+.nav-desktop .nav-menu-panel a {
+  display: block;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-xs);
+  white-space: nowrap;
+}
+
+.nav-menu-heading {
+  margin: 0 0 var(--space-1);
+  padding-inline: var(--space-3);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-subtle);
+}
+
+.nav-desktop .nav-menu-panel .nav-menu-hub {
+  grid-column: 1 / -1;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-border);
+  border-radius: 0;
+  color: var(--color-accent-text);
+  font-weight: 600;
+}
+
+.nav-desktop .nav-menu-panel .nav-menu-hub:hover {
+  background: transparent;
+  color: var(--color-text);
 }
 
 /* Escopado no header de propósito: `.btn` tem a mesma especificidade e é

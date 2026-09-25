@@ -1,4 +1,5 @@
 import type { Locale } from './locale';
+import type { RouteId } from './routes';
 
 /**
  * Só o que forra o site (nav, rodapé, botões, avisos). O corpo dos guias —
@@ -15,6 +16,13 @@ export interface Dictionary {
     equipment: string;
     about: string;
     skillsTest: string;
+  };
+  /** Nome curto de cada página, usado nos menus da navegação. */
+  pageTitles: Record<RouteId, string>;
+  navMenu: {
+    guides: string;
+    tools: string;
+    seeJourney: string;
   };
   emergency: string;
   mainNavLabel: string;
@@ -105,6 +113,34 @@ export const dictionaries: Record<Locale, Dictionary> = {
       about: 'Sobre',
       skillsTest: 'Teste suas habilidades',
     },
+    pageTitles: {
+      home: 'Início',
+      clientHub: 'Para clientes',
+      clientBefore: 'Antes da tatuagem',
+      clientSessionDay: 'Dia da sessão',
+      clientAftercare: 'Cuidados depois',
+      clientHealing: 'Cicatrização',
+      warningSigns: 'Sinais de alerta',
+      emergency: 'Emergências',
+      artistHub: 'Para tatuadores',
+      artistScreening: 'Triagem e higiene',
+      artistWorkstation: 'Preparação da bancada',
+      artistDuringSession: 'Durante a sessão',
+      artistClosing: 'Encerramento e descarte',
+      artistMachineSetup: 'Regulagem inicial',
+      artistBeginnerLimits: 'Limites para iniciantes',
+      styles: 'Estilos',
+      equipmentHub: 'Equipamento',
+      equipmentPro: 'Equipamento pro',
+      sources: 'Fontes',
+      about: 'Sobre',
+      skillsTest: 'Teste suas habilidades',
+    },
+    navMenu: {
+      guides: 'Guias',
+      tools: 'Ferramentas',
+      seeJourney: 'Ver jornada completa',
+    },
     emergency: 'Emergências',
     mainNavLabel: 'Navegação principal',
     mobileNavLabel: 'Navegação principal (móvel)',
@@ -171,6 +207,34 @@ export const dictionaries: Record<Locale, Dictionary> = {
       equipment: 'Gear',
       about: 'About',
       skillsTest: 'Test your skills',
+    },
+    pageTitles: {
+      home: 'Home',
+      clientHub: 'For clients',
+      clientBefore: 'Before your tattoo',
+      clientSessionDay: 'Session day',
+      clientAftercare: 'Aftercare',
+      clientHealing: 'Healing',
+      warningSigns: 'Warning signs',
+      emergency: 'Emergency',
+      artistHub: 'For tattoo artists',
+      artistScreening: 'Screening and hygiene',
+      artistWorkstation: 'Workstation setup',
+      artistDuringSession: 'During the session',
+      artistClosing: 'Closing and disposal',
+      artistMachineSetup: 'Machine setup',
+      artistBeginnerLimits: 'Beginner limits',
+      styles: 'Styles',
+      equipmentHub: 'Gear',
+      equipmentPro: 'Pro gear',
+      sources: 'Sources',
+      about: 'About',
+      skillsTest: 'Test your skills',
+    },
+    navMenu: {
+      guides: 'Guides',
+      tools: 'Tools',
+      seeJourney: 'See the full journey',
     },
     emergency: 'Emergency',
     mainNavLabel: 'Main navigation',
@@ -240,6 +304,34 @@ export const dictionaries: Record<Locale, Dictionary> = {
       about: 'Acerca de',
       skillsTest: 'Pon a prueba tus habilidades',
     },
+    pageTitles: {
+      home: 'Inicio',
+      clientHub: 'Para clientes',
+      clientBefore: 'Antes del tatuaje',
+      clientSessionDay: 'Día de la sesión',
+      clientAftercare: 'Cuidados posteriores',
+      clientHealing: 'Cicatrización',
+      warningSigns: 'Señales de alerta',
+      emergency: 'Emergencias',
+      artistHub: 'Para tatuadores',
+      artistScreening: 'Evaluación e higiene',
+      artistWorkstation: 'Estación de trabajo',
+      artistDuringSession: 'Durante la sesión',
+      artistClosing: 'Cierre y descarte',
+      artistMachineSetup: 'Ajuste inicial',
+      artistBeginnerLimits: 'Límites para principiantes',
+      styles: 'Estilos',
+      equipmentHub: 'Equipo',
+      equipmentPro: 'Equipo pro',
+      sources: 'Fuentes',
+      about: 'Acerca de',
+      skillsTest: 'Pon a prueba tus habilidades',
+    },
+    navMenu: {
+      guides: 'Guías',
+      tools: 'Herramientas',
+      seeJourney: 'Ver el recorrido completo',
+    },
     emergency: 'Emergencias',
     mainNavLabel: 'Navegación principal',
     mobileNavLabel: 'Navegación principal (móvil)',
@@ -307,6 +399,34 @@ export const dictionaries: Record<Locale, Dictionary> = {
       equipment: 'Ausrüstung',
       about: 'Über uns',
       skillsTest: 'Teste deine Fähigkeiten',
+    },
+    pageTitles: {
+      home: 'Start',
+      clientHub: 'Für Kund:innen',
+      clientBefore: 'Vor dem Tattoo',
+      clientSessionDay: 'Sitzungstag',
+      clientAftercare: 'Nachsorge',
+      clientHealing: 'Heilung',
+      warningSigns: 'Warnzeichen',
+      emergency: 'Notfall',
+      artistHub: 'Für Tätowierer:innen',
+      artistScreening: 'Erstgespräch und Hygiene',
+      artistWorkstation: 'Arbeitsplatz-Vorbereitung',
+      artistDuringSession: 'Während der Sitzung',
+      artistClosing: 'Abschluss und Entsorgung',
+      artistMachineSetup: 'Grundeinstellung',
+      artistBeginnerLimits: 'Grenzen für Einsteiger',
+      styles: 'Stile',
+      equipmentHub: 'Ausrüstung',
+      equipmentPro: 'Profi-Ausrüstung',
+      sources: 'Quellen',
+      about: 'Über uns',
+      skillsTest: 'Teste deine Fähigkeiten',
+    },
+    navMenu: {
+      guides: 'Leitfäden',
+      tools: 'Werkzeuge',
+      seeJourney: 'Gesamten Weg ansehen',
     },
     emergency: 'Notfall',
     mainNavLabel: 'Hauptnavigation',

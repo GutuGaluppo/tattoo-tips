@@ -178,3 +178,62 @@ export const topNavItems: readonly { id: RouteId; navKey: keyof Dictionary['nav'
   { id: 'about', navKey: 'about' },
   { id: 'skillsTest', navKey: 'skillsTest' },
 ];
+
+export interface NavMenuSection {
+  /** Título da coluna no painel; sem título, a coluna é a única do menu. */
+  titleKey?: 'guides' | 'tools';
+  items: readonly RouteId[];
+}
+
+export type NavGroup =
+  | {
+      kind: 'menu';
+      navKey: keyof Dictionary['nav'];
+      hub: RouteId;
+      sections: readonly NavMenuSection[];
+    }
+  | { kind: 'link'; navKey: keyof Dictionary['nav']; id: RouteId };
+
+/**
+ * Navegação do desktop agrupada por público: poucos itens na barra, e cada
+ * jornada abre um painel com as páginas dela. "Sobre" fica só no rodapé;
+ * Emergências continua sempre visível como botão.
+ */
+export const navGroups: readonly NavGroup[] = [
+  {
+    kind: 'menu',
+    navKey: 'clients',
+    hub: 'clientHub',
+    sections: [
+      {
+        items: [
+          'warningSigns',
+          'clientBefore',
+          'clientSessionDay',
+          'clientAftercare',
+          'clientHealing',
+        ],
+      },
+    ],
+  },
+  {
+    kind: 'menu',
+    navKey: 'artists',
+    hub: 'artistHub',
+    sections: [
+      {
+        titleKey: 'guides',
+        items: [
+          'artistScreening',
+          'artistWorkstation',
+          'artistDuringSession',
+          'artistClosing',
+          'artistMachineSetup',
+          'artistBeginnerLimits',
+        ],
+      },
+      { titleKey: 'tools', items: ['equipmentHub', 'equipmentPro', 'skillsTest'] },
+    ],
+  },
+  { kind: 'link', navKey: 'styles', id: 'styles' },
+];
