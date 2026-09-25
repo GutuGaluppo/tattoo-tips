@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import App from './App';
@@ -64,5 +64,38 @@ describe('navegação', () => {
       'href',
       'https://tattoo-tips.example/emergencias',
     );
+  });
+
+  it('publica a página de prática com o painel de desenho', async () => {
+    renderApp('/en/test-your-skills');
+
+    expect(
+      await screen.findByRole('heading', { level: 1, name: /test your skills/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /drawing panel/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /test your skills/i })[0]).toHaveAttribute(
+      'href',
+      '/en/test-your-skills',
+    );
+  });
+
+  it('agrupa a navegação do desktop em menus por público', async () => {
+    const user = userEvent.setup();
+    renderApp('/');
+
+    const nav = screen.getByRole('navigation', { name: 'Navegação principal' });
+    const toggle = within(nav).getByRole('button', { name: /para clientes/i });
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+
+    await user.click(toggle);
+    expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    expect(within(nav).getByRole('link', { name: 'Sinais de alerta' })).toHaveAttribute(
+      'href',
+      '/sinais-de-alerta',
+    );
+
+    await user.keyboard('{Escape}');
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    expect(toggle).toHaveFocus();
   });
 });

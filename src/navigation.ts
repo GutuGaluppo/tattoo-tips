@@ -88,4 +88,5 @@ export const publishedRoutes: string[] = [
   '/estilos',
   '/fontes',
   '/sobre',
+  '/teste-suas-habilidades',
 ];

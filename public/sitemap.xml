@@ -800,4 +800,44 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/sobre" />
     <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/ueber-uns" />
   </url>
+  <url>
+    <loc>https://tattoo-tips.example/teste-suas-habilidades</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/teste-suas-habilidades" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/test-your-skills" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/pon-a-prueba-tus-habilidades" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/teste-deine-faehigkeiten" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/en/test-your-skills</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/teste-suas-habilidades" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/test-your-skills" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/pon-a-prueba-tus-habilidades" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/teste-deine-faehigkeiten" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/es/pon-a-prueba-tus-habilidades</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/teste-suas-habilidades" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/test-your-skills" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/pon-a-prueba-tus-habilidades" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/teste-deine-faehigkeiten" />
+  </url>
+  <url>
+    <loc>https://tattoo-tips.example/de/teste-deine-faehigkeiten</loc>
+    <lastmod>2026-07-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://tattoo-tips.example/teste-suas-habilidades" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://tattoo-tips.example/en/test-your-skills" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://tattoo-tips.example/es/pon-a-prueba-tus-habilidades" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://tattoo-tips.example/de/teste-deine-faehigkeiten" />
+  </url>
 </urlset>

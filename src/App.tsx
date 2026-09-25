@@ -30,6 +30,7 @@ const Equipment = lazy(() => import('@/pages/Equipment'));
 const EquipmentPro = lazy(() => import('@/pages/EquipmentPro'));
 const Sources = lazy(() => import('@/pages/Sources'));
 const About = lazy(() => import('@/pages/About'));
+const SkillsTest = lazy(() => import('@/pages/SkillsTest'));
 const NotFound = lazy(() => import('@/pages/NotFound'));
 
 function RouteFallback() {
@@ -64,6 +65,7 @@ const pageByRouteId: Record<RouteId, JSX.Element> = {
   equipmentPro: <EquipmentPro />,
   sources: <Sources />,
   about: <About />,
+  skillsTest: <SkillsTest />,
 };
 
 export default function App() {

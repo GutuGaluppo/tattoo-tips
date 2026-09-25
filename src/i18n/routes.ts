@@ -26,6 +26,7 @@ export const routeIds = [
   'equipmentPro',
   'sources',
   'about',
+  'skillsTest',
 ] as const;
 
 export type RouteId = (typeof routeIds)[number];
@@ -58,6 +59,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'equipamento/pro',
     sources: 'fontes',
     about: 'sobre',
+    skillsTest: 'teste-suas-habilidades',
   },
   en: {
     home: '',
@@ -80,6 +82,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'equipment/pro',
     sources: 'sources',
     about: 'about',
+    skillsTest: 'test-your-skills',
   },
   es: {
     home: '',
@@ -102,6 +105,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'equipo/pro',
     sources: 'fuentes',
     about: 'sobre',
+    skillsTest: 'pon-a-prueba-tus-habilidades',
   },
   de: {
     home: '',
@@ -124,6 +128,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'ausruestung/pro',
     sources: 'quellen',
     about: 'ueber-uns',
+    skillsTest: 'teste-deine-faehigkeiten',
   },
 };
 
@@ -161,7 +166,7 @@ export function localizeHref(ptPath: string, locale: Locale): string {
 }
 
 /**
- * Os cinco itens do topo (header e rodapé) — únicos com rótulo traduzido no
+ * Os itens do topo (header e rodapé) — únicos com rótulo traduzido no
  * dicionário. `navKey` bate com as chaves de `Dictionary['nav']`.
  */
 export const topNavItems: readonly { id: RouteId; navKey: keyof Dictionary['nav'] }[] = [
@@ -171,4 +176,64 @@ export const topNavItems: readonly { id: RouteId; navKey: keyof Dictionary['nav'
   { id: 'styles', navKey: 'styles' },
   { id: 'equipmentHub', navKey: 'equipment' },
   { id: 'about', navKey: 'about' },
+  { id: 'skillsTest', navKey: 'skillsTest' },
+];
+
+export interface NavMenuSection {
+  /** Título da coluna no painel; sem título, a coluna é a única do menu. */
+  titleKey?: 'guides' | 'tools';
+  items: readonly RouteId[];
+}
+
+export type NavGroup =
+  | {
+      kind: 'menu';
+      navKey: keyof Dictionary['nav'];
+      hub: RouteId;
+      sections: readonly NavMenuSection[];
+    }
+  | { kind: 'link'; navKey: keyof Dictionary['nav']; id: RouteId };
+
+/**
+ * Navegação do desktop agrupada por público: poucos itens na barra, e cada
+ * jornada abre um painel com as páginas dela. "Sobre" fica só no rodapé;
+ * Emergências continua sempre visível como botão.
+ */
+export const navGroups: readonly NavGroup[] = [
+  {
+    kind: 'menu',
+    navKey: 'clients',
+    hub: 'clientHub',
+    sections: [
+      {
+        items: [
+          'warningSigns',
+          'clientBefore',
+          'clientSessionDay',
+          'clientAftercare',
+          'clientHealing',
+        ],
+      },
+    ],
+  },
+  {
+    kind: 'menu',
+    navKey: 'artists',
+    hub: 'artistHub',
+    sections: [
+      {
+        titleKey: 'guides',
+        items: [
+          'artistScreening',
+          'artistWorkstation',
+          'artistDuringSession',
+          'artistClosing',
+          'artistMachineSetup',
+          'artistBeginnerLimits',
+        ],
+      },
+      { titleKey: 'tools', items: ['equipmentHub', 'equipmentPro', 'skillsTest'] },
+    ],
+  },
+  { kind: 'link', navKey: 'styles', id: 'styles' },
 ];

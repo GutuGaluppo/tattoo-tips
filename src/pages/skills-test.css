@@ -1,0 +1,215 @@
+/* ============================================ teste suas habilidades */
+
+.skills-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-4);
+}
+
+.skills-needles {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.skills-needles legend {
+  float: left;
+  margin-right: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.skills-needle input,
+.skills-stencil-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skills-needle > span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.skills-needle-dot {
+  display: inline-block;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.skills-needle input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.skills-needle input:focus-visible + span,
+.skills-stencil-toggle:has(input:focus-visible) {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.skills-stencil-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 40px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.skills-stencil-toggle::before {
+  content: '';
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1.5px solid var(--color-border-strong);
+  border-radius: var(--radius-xs);
+  background: transparent;
+}
+
+.skills-stencil-toggle:has(input:checked)::before {
+  border-color: var(--ink);
+  background:
+    no-repeat center / 70%
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 10'%3E%3Cpath d='M1 5l3.5 3.5L11 1' fill='none' stroke='%23eaeaea' stroke-width='2'/%3E%3C/svg%3E"),
+    var(--ink);
+}
+
+/**
+ * O frame é a "pele": tom quente, borda de papel de stencil e sombra interna
+ * leve. O canvas ocupa o frame inteiro e é o único lugar que recebe o traço.
+ */
+.skills-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  max-height: 70vh;
+  overflow: hidden;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.45), transparent 55%), #e9d3c2;
+  box-shadow: inset 0 2px 18px rgba(80, 44, 30, 0.18);
+  transition: box-shadow var(--dur-fast) var(--ease-out);
+}
+
+.skills-frame[data-drawing] {
+  box-shadow:
+    inset 0 2px 18px rgba(80, 44, 30, 0.18),
+    0 0 0 3px var(--color-highlight-soft);
+}
+
+.skills-stencil {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: rgba(76, 58, 140, 0.55);
+  stroke-width: 2;
+  stroke-dasharray: 6 7;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.skills-canvas {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: crosshair;
+  /* Sem isso o toque rolaria a página em vez de riscar. */
+  touch-action: none;
+}
+
+.skills-hint {
+  margin-top: var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------- pontuação */
+
+.skills-score {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+}
+
+.skills-score-title {
+  margin: 0;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.skills-score-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  min-height: 3.5rem;
+}
+
+.skills-score-total {
+  margin: 0;
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.skills-score-total strong {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+}
+
+.skills-score-total span {
+  font-size: var(--fs-md);
+  color: var(--color-muted);
+}
+
+.skills-score-rank {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  color: var(--color-accent-text);
+}
+
+.skills-score-detail,
+.skills-score-empty,
+.skills-score-disclaimer {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+.skills-score-disclaimer {
+  font-size: var(--fs-xs);
+  color: var(--color-subtle);
+}
