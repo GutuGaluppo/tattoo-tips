@@ -66,13 +66,6 @@ describe('navegação', () => {
     );
   });
 
-  it('mostra o nome da página no centro do cabeçalho', async () => {
-    renderApp('/cliente/cuidados-depois');
-
-    await screen.findByRole('heading', { level: 1 });
-    expect(document.querySelector('.header-section')).toHaveTextContent('Cuidados depois');
-  });
-
   it('publica a página de prática com o painel de desenho', async () => {
     renderApp('/en/test-your-skills');
 

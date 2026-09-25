@@ -4,6 +4,15 @@ import { useLocale } from '@/i18n/useLocale';
 import { Button } from '@/components/ui/Button';
 import { Eyebrow } from '@/components/ui/Meta';
 import './pages.css';
+import {
+  STENCIL_HEIGHT,
+  STENCIL_SHAPES,
+  STENCIL_WIDTH,
+  interpolate,
+  scoreDrawing,
+  type Score,
+  type Vec,
+} from './skillsScore';
 import './skills-test.css';
 
 /** Espessura base do traço, em px CSS, por configuração de agulha. */
@@ -39,6 +48,9 @@ export default function SkillsTest() {
   const [needle, setNeedle] = useState<NeedleId>('7RL');
   const [showStencil, setShowStencil] = useState(true);
   const [drawing, setDrawing] = useState(false);
+  const [score, setScore] = useState<Score | null>(null);
+  /** Tinta já riscada, em coordenadas do stencil — base da pontuação. */
+  const ink = useRef<Vec[]>([]);
 
   const baseWidth = NEEDLES.find((item) => item.id === needle)?.width ?? 5;
 
@@ -110,6 +122,18 @@ export default function SkillsTest() {
       context.lineTo(to.x, to.y);
       context.stroke();
       context.restore();
+
+      // O stencil é desenhado com `meet`: mesma escala nos dois eixos,
+      // centralizado no frame. Converte para as coordenadas dele.
+      const rect = canvas.getBoundingClientRect();
+      const scale = Math.min(rect.width / STENCIL_WIDTH, rect.height / STENCIL_HEIGHT) || 1;
+      const offsetX = (rect.width - STENCIL_WIDTH * scale) / 2;
+      const offsetY = (rect.height - STENCIL_HEIGHT * scale) / 2;
+      const toStencil = (p: Point): Vec => ({
+        x: (p.x - offsetX) / scale,
+        y: (p.y - offsetY) / scale,
+      });
+      ink.current.push(...interpolate(toStencil(from), toStencil(to)));
     },
     [baseWidth],
   );
@@ -139,15 +163,21 @@ export default function SkillsTest() {
   };
 
   const endStroke = () => {
+    if (!lastPoint.current) return;
     lastPoint.current = null;
     lastWidth.current = 0;
     setDrawing(false);
+    setScore(scoreDrawing(ink.current));
   };
 
   const clear = () => {
     const canvas = canvasRef.current;
     canvas?.getContext('2d')?.clearRect(0, 0, canvas.width, canvas.height);
+    ink.current = [];
+    setScore(null);
   };
+
+  const rank = score ? t.ranks.find((item) => score.total >= item.min) : undefined;
 
   return (
     <div className="container page skills-test" data-no-auto-translate>
@@ -211,6 +241,32 @@ export default function SkillsTest() {
         />
       </div>
 
+      <section className="skills-score" aria-labelledby="skills-score-title">
+        <h2 id="skills-score-title" className="skills-score-title">
+          {t.scoreLabel}
+        </h2>
+        <div className="skills-score-body" aria-live="polite">
+          {score ? (
+            <>
+              <p className="skills-score-total">
+                <strong>{score.total}</strong>
+                <span>/100</span>
+              </p>
+              <div>
+                {rank && <p className="skills-score-rank">{rank.label}</p>}
+                <p className="skills-score-detail">
+                  {t.coverage}: {Math.round(score.coverage * 100)}% · {t.precision}:{' '}
+                  {Math.round(score.precision * 100)}%
+                </p>
+              </div>
+            </>
+          ) : (
+            <p className="skills-score-empty">{t.scoreEmpty}</p>
+          )}
+        </div>
+        <p className="skills-score-disclaimer">{t.scoreDisclaimer}</p>
+      </section>
+
       <p className="skills-hint">{t.hint}</p>
     </div>
   );
@@ -221,17 +277,14 @@ function Stencil() {
   return (
     <svg
       className="skills-stencil"
-      viewBox="0 0 800 450"
+      viewBox={`0 0 ${STENCIL_WIDTH} ${STENCIL_HEIGHT}`}
       preserveAspectRatio="xMidYMid meet"
       aria-hidden="true"
       focusable="false"
     >
-      <path d="M80 80 H360" />
-      <path d="M80 140 H360" />
-      <path d="M80 200 H360" />
-      <path d="M80 380 C 160 250, 280 250, 360 380" />
-      <circle cx="590" cy="130" r="80" />
-      <path d="M460 330 q 40 -60 80 0 t 80 0 t 80 0" />
+      {STENCIL_SHAPES.map((shape) => (
+        <path key={shape.d} d={shape.d} />
+      ))}
     </svg>
   );
 }

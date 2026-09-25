@@ -147,3 +147,69 @@
   font-size: var(--fs-sm);
   color: var(--color-muted);
 }
+
+/* --------------------------------------------------------- pontuação */
+
+.skills-score {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface-raised);
+}
+
+.skills-score-title {
+  margin: 0;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.skills-score-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  min-height: 3.5rem;
+}
+
+.skills-score-total {
+  margin: 0;
+  font-family: var(--font-heading);
+  line-height: 1;
+}
+
+.skills-score-total strong {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+}
+
+.skills-score-total span {
+  font-size: var(--fs-md);
+  color: var(--color-muted);
+}
+
+.skills-score-rank {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-md);
+  color: var(--color-accent-text);
+}
+
+.skills-score-detail,
+.skills-score-empty,
+.skills-score-disclaimer {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--color-muted);
+}
+
+.skills-score-disclaimer {
+  font-size: var(--fs-xs);
+  color: var(--color-subtle);
+}
