@@ -1,9 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { primaryNav } from '@/navigation';
 import { site } from '@/config/site';
 import { useLocale } from '@/i18n/useLocale';
-import { navGroups, pathFor, routeIdForPath, topNavItems, type NavGroup } from '@/i18n/routes';
+import { navGroups, pathFor, routeIdForPath, type NavGroup, type RouteId } from '@/i18n/routes';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import './layout.css';
 
@@ -96,41 +95,7 @@ export function Header() {
 
       {open && (
         <div className="mobile-nav" id="menu-principal" ref={drawerRef}>
-          <nav aria-label={dict.mobileNavLabel}>
-            <ul>
-              {topNavItems.map(({ id, navKey }, index) => {
-                const children = primaryNav[index]?.children;
-                return (
-                  <li key={id}>
-                    <NavLink to={pathFor(id, locale)}>{dict.nav[navKey]}</NavLink>
-                    {children && (
-                      <ul className="mobile-subnav">
-                        {children
-                          .filter((child) => !child.upcoming)
-                          .map((child) => {
-                            const childRouteId = routeIdForPath('pt', child.to);
-                            const childHref = childRouteId
-                              ? pathFor(childRouteId, locale)
-                              : child.to;
-                            return (
-                              <li key={child.to}>
-                                <NavLink to={childHref}>{child.label}</NavLink>
-                              </li>
-                            );
-                          })}
-                      </ul>
-                    )}
-                  </li>
-                );
-              })}
-              <li>
-                <Link to={emergencyHref} className="mobile-nav-emergency">
-                  {dict.emergency}
-                </Link>
-              </li>
-            </ul>
-          </nav>
-
+          <MobileNav />
           <LanguageSwitcher currentPathname={pathname} className="language-switcher-mobile" />
         </div>
       )}
@@ -174,11 +139,7 @@ function DesktopNav() {
   }, [openKey]);
 
   const currentRoute = routeIdForPath(locale, pathname);
-  const isCurrent = (group: NavGroup) =>
-    group.kind === 'link'
-      ? currentRoute === group.id
-      : currentRoute === group.hub ||
-        group.sections.some((section) => currentRoute && section.items.includes(currentRoute));
+  const isCurrent = (group: NavGroup) => groupIsCurrent(group, currentRoute);
 
   return (
     <nav className="nav-desktop" aria-label={dict.mainNavLabel} ref={navRef}>
@@ -254,6 +215,118 @@ function DesktopNav() {
             </li>
           );
         })}
+      </ul>
+    </nav>
+  );
+}
+
+/** O grupo da página atual, para abrir já expandido no menu e marcar a barra. */
+function groupIsCurrent(group: NavGroup, currentRoute: RouteId | undefined) {
+  if (!currentRoute) return false;
+  return group.kind === 'link'
+    ? currentRoute === group.id
+    : currentRoute === group.hub ||
+        group.sections.some((section) => section.items.includes(currentRoute));
+}
+
+/**
+ * Menu do celular com a mesma estrutura da barra do desktop: Emergências no
+ * topo, sempre à vista, e cada público como uma seção recolhível. Só a seção
+ * da página atual abre expandida, para o menu caber na tela.
+ */
+function MobileNav() {
+  const { pathname } = useLocation();
+  const { locale, dict } = useLocale();
+  const currentRoute = routeIdForPath(locale, pathname);
+
+  const [expanded, setExpanded] = useState<ReadonlySet<string>>(
+    () =>
+      new Set(
+        navGroups
+          .filter((group) => group.kind === 'menu' && groupIsCurrent(group, currentRoute))
+          .map((group) => group.navKey),
+      ),
+  );
+
+  const toggle = (key: string) =>
+    setExpanded((previous) => {
+      const next = new Set(previous);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+
+  return (
+    <nav aria-label={dict.mobileNavLabel}>
+      <Link to={pathFor('emergency', locale)} className="mobile-nav-emergency">
+        {dict.emergency}
+      </Link>
+
+      <ul className="mobile-nav-groups">
+        {navGroups.map((group) => {
+          if (group.kind === 'link') {
+            return (
+              <li key={group.navKey}>
+                <NavLink to={pathFor(group.id, locale)} className="mobile-nav-top">
+                  {dict.nav[group.navKey]}
+                </NavLink>
+              </li>
+            );
+          }
+
+          const isOpen = expanded.has(group.navKey);
+          const panelId = `mobile-nav-${group.navKey}`;
+
+          return (
+            <li key={group.navKey}>
+              <button
+                type="button"
+                className={
+                  groupIsCurrent(group, currentRoute) ? 'mobile-nav-top active' : 'mobile-nav-top'
+                }
+                aria-expanded={isOpen}
+                aria-controls={panelId}
+                onClick={() => toggle(group.navKey)}
+              >
+                {dict.nav[group.navKey]}
+                <svg className="mobile-nav-chevron" viewBox="0 0 12 12" aria-hidden="true">
+                  <path d="M2.5 4.5 6 8l3.5-3.5" />
+                </svg>
+              </button>
+
+              <div className="mobile-subnav" id={panelId} hidden={!isOpen}>
+                {group.sections.map((section, index) => (
+                  <div key={section.titleKey ?? index}>
+                    {section.titleKey && (
+                      <p className="mobile-subnav-heading">{dict.navMenu[section.titleKey]}</p>
+                    )}
+                    <ul>
+                      {section.items.map((id) => (
+                        <li key={id}>
+                          <NavLink
+                            to={pathFor(id, locale)}
+                            className={id === 'warningSigns' ? 'nav-alert' : undefined}
+                            end
+                          >
+                            {dict.pageTitles[id]}
+                          </NavLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+                <Link to={pathFor(group.hub, locale)} className="mobile-subnav-hub">
+                  {dict.navMenu.seeJourney} <span aria-hidden="true">→</span>
+                </Link>
+              </div>
+            </li>
+          );
+        })}
+        <li>
+          <NavLink to={pathFor('about', locale)} className="mobile-nav-top">
+            {dict.nav.about}
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

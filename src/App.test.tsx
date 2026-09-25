@@ -98,4 +98,32 @@ describe('navegação', () => {
     expect(toggle).toHaveAttribute('aria-expanded', 'false');
     expect(toggle).toHaveFocus();
   });
+
+  it('organiza o menu do celular por público, traduzido e com Emergências no topo', async () => {
+    const user = userEvent.setup();
+    renderApp('/en/client/aftercare');
+
+    await screen.findByRole('heading', { level: 1 });
+    await user.click(screen.getByRole('button', { name: /open menu/i }));
+
+    const drawer = screen.getByRole('navigation', { name: 'Main navigation (mobile)' });
+    const links = within(drawer).getAllByRole('link');
+    expect(links[0]).toHaveAccessibleName('Emergency');
+
+    // A seção da página atual abre expandida; as outras começam recolhidas.
+    const clients = within(drawer).getByRole('button', { name: /for clients/i });
+    const artists = within(drawer).getByRole('button', { name: /for tattoo artists/i });
+    expect(clients).toHaveAttribute('aria-expanded', 'true');
+    expect(artists).toHaveAttribute('aria-expanded', 'false');
+    expect(within(drawer).getByRole('link', { name: 'Aftercare' })).toHaveAttribute(
+      'href',
+      '/en/client/aftercare',
+    );
+
+    await user.click(artists);
+    expect(within(drawer).getByRole('link', { name: 'Test your skills' })).toHaveAttribute(
+      'href',
+      '/en/test-your-skills',
+    );
+  });
 });
