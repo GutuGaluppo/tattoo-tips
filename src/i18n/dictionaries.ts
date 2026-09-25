@@ -1,4 +1,5 @@
 import type { Locale } from './locale';
+import type { RouteId } from './routes';
 
 /**
  * Só o que forra o site (nav, rodapé, botões, avisos). O corpo dos guias —
@@ -14,7 +15,11 @@ export interface Dictionary {
     styles: string;
     equipment: string;
     about: string;
+    skillsTest: string;
   };
+  /** Nome da página exibido no centro do cabeçalho. */
+  pageTitles: Record<RouteId, string>;
+  currentSectionLabel: string;
   emergency: string;
   mainNavLabel: string;
   mobileNavLabel: string;
@@ -70,6 +75,19 @@ export interface Dictionary {
     playlistPlayerNotice: string;
     listenOnSpotify: string;
   };
+  skillsTest: {
+    metaTitle: string;
+    metaDescription: string;
+    eyebrow: string;
+    title: string;
+    description: string;
+    canvasLabel: string;
+    toolbarLabel: string;
+    needle: string;
+    stencil: string;
+    clear: string;
+    hint: string;
+  };
 }
 
 export const dictionaries: Record<Locale, Dictionary> = {
@@ -82,7 +100,32 @@ export const dictionaries: Record<Locale, Dictionary> = {
       styles: 'Estilos',
       equipment: 'Equipamento',
       about: 'Sobre',
+      skillsTest: 'Teste suas habilidades',
     },
+    pageTitles: {
+      home: 'Início',
+      clientHub: 'Para clientes',
+      clientBefore: 'Antes da tatuagem',
+      clientSessionDay: 'Dia da sessão',
+      clientAftercare: 'Cuidados depois',
+      clientHealing: 'Cicatrização',
+      warningSigns: 'Sinais de alerta',
+      emergency: 'Emergências',
+      artistHub: 'Para tatuadores',
+      artistScreening: 'Triagem e higiene',
+      artistWorkstation: 'Preparação da bancada',
+      artistDuringSession: 'Durante a sessão',
+      artistClosing: 'Encerramento e descarte',
+      artistMachineSetup: 'Regulagem inicial',
+      artistBeginnerLimits: 'Limites para iniciantes',
+      styles: 'Estilos',
+      equipmentHub: 'Equipamento',
+      equipmentPro: 'Equipamento pro',
+      sources: 'Fontes',
+      about: 'Sobre',
+      skillsTest: 'Teste suas habilidades',
+    },
+    currentSectionLabel: 'Seção atual',
     emergency: 'Emergências',
     mainNavLabel: 'Navegação principal',
     mobileNavLabel: 'Navegação principal (móvel)',
@@ -114,6 +157,19 @@ export const dictionaries: Record<Locale, Dictionary> = {
       situation: 'Situação', keepAnEyeOn: 'Ficar de olho', openPlaylist: 'Abrir playlist',
       playlistPlayerNotice: 'O player é do Spotify e só carrega quando você abre.', listenOnSpotify: 'Ouvir no Spotify',
     },
+    skillsTest: {
+      metaTitle: 'Teste suas habilidades',
+      metaDescription: 'Um painel de pele virtual para treinar linhas com o mouse: agulhas de espessuras diferentes e stencil opcional.',
+      eyebrow: 'Prática',
+      title: 'Teste suas habilidades',
+      description: 'Pratique linhas contínuas antes de encostar a agulha em alguém. Pressione e arraste dentro do painel: o traço só é riscado ali dentro.',
+      canvasLabel: 'Painel de desenho. Pressione e arraste com o mouse para riscar linhas.',
+      toolbarLabel: 'Ferramentas do painel',
+      needle: 'Agulha',
+      stencil: 'Mostrar stencil',
+      clear: 'Limpar painel',
+      hint: 'Dica: linhas rápidas saem mais finas, como na pele. Tente cobrir o stencil sem tremer.',
+    },
   },
   en: {
     skipToContent: 'Skip to content',
@@ -124,7 +180,32 @@ export const dictionaries: Record<Locale, Dictionary> = {
       styles: 'Styles',
       equipment: 'Gear',
       about: 'About',
+      skillsTest: 'Test your skills',
     },
+    pageTitles: {
+      home: 'Home',
+      clientHub: 'For clients',
+      clientBefore: 'Before your tattoo',
+      clientSessionDay: 'Session day',
+      clientAftercare: 'Aftercare',
+      clientHealing: 'Healing',
+      warningSigns: 'Warning signs',
+      emergency: 'Emergency',
+      artistHub: 'For tattoo artists',
+      artistScreening: 'Screening and hygiene',
+      artistWorkstation: 'Workstation setup',
+      artistDuringSession: 'During the session',
+      artistClosing: 'Closing and disposal',
+      artistMachineSetup: 'Machine setup',
+      artistBeginnerLimits: 'Beginner limits',
+      styles: 'Styles',
+      equipmentHub: 'Gear',
+      equipmentPro: 'Pro gear',
+      sources: 'Sources',
+      about: 'About',
+      skillsTest: 'Test your skills',
+    },
+    currentSectionLabel: 'Current section',
     emergency: 'Emergency',
     mainNavLabel: 'Main navigation',
     mobileNavLabel: 'Main navigation (mobile)',
@@ -157,6 +238,19 @@ export const dictionaries: Record<Locale, Dictionary> = {
       situation: 'Situation', keepAnEyeOn: 'Keep an eye on', openPlaylist: 'Open playlist',
       playlistPlayerNotice: 'The Spotify player only loads when you open it.', listenOnSpotify: 'Listen on Spotify',
     },
+    skillsTest: {
+      metaTitle: 'Test your skills',
+      metaDescription: 'A virtual skin panel to practise lines with your mouse: needles of different widths and an optional stencil.',
+      eyebrow: 'Practice',
+      title: 'Test your skills',
+      description: 'Practise steady lines before your needle touches anyone. Press and drag inside the panel: the stroke is only drawn in there.',
+      canvasLabel: 'Drawing panel. Press and drag with the mouse to draw lines.',
+      toolbarLabel: 'Panel tools',
+      needle: 'Needle',
+      stencil: 'Show stencil',
+      clear: 'Clear panel',
+      hint: 'Tip: fast lines come out thinner, just like on skin. Try to follow the stencil without shaking.',
+    },
   },
   es: {
     skipToContent: 'Saltar al contenido',
@@ -167,7 +261,32 @@ export const dictionaries: Record<Locale, Dictionary> = {
       styles: 'Estilos',
       equipment: 'Equipo',
       about: 'Acerca de',
+      skillsTest: 'Pon a prueba tus habilidades',
     },
+    pageTitles: {
+      home: 'Inicio',
+      clientHub: 'Para clientes',
+      clientBefore: 'Antes del tatuaje',
+      clientSessionDay: 'Día de la sesión',
+      clientAftercare: 'Cuidados posteriores',
+      clientHealing: 'Cicatrización',
+      warningSigns: 'Señales de alerta',
+      emergency: 'Emergencias',
+      artistHub: 'Para tatuadores',
+      artistScreening: 'Evaluación e higiene',
+      artistWorkstation: 'Estación de trabajo',
+      artistDuringSession: 'Durante la sesión',
+      artistClosing: 'Cierre y descarte',
+      artistMachineSetup: 'Ajuste inicial',
+      artistBeginnerLimits: 'Límites para principiantes',
+      styles: 'Estilos',
+      equipmentHub: 'Equipo',
+      equipmentPro: 'Equipo pro',
+      sources: 'Fuentes',
+      about: 'Acerca de',
+      skillsTest: 'Pon a prueba tus habilidades',
+    },
+    currentSectionLabel: 'Sección actual',
     emergency: 'Emergencias',
     mainNavLabel: 'Navegación principal',
     mobileNavLabel: 'Navegación principal (móvil)',
@@ -200,6 +319,19 @@ export const dictionaries: Record<Locale, Dictionary> = {
       situation: 'Situación', keepAnEyeOn: 'Vigila', openPlaylist: 'Abrir playlist',
       playlistPlayerNotice: 'El reproductor de Spotify solo se carga cuando lo abres.', listenOnSpotify: 'Escuchar en Spotify',
     },
+    skillsTest: {
+      metaTitle: 'Pon a prueba tus habilidades',
+      metaDescription: 'Un panel de piel virtual para practicar líneas con el ratón: agujas de distintos grosores y stencil opcional.',
+      eyebrow: 'Práctica',
+      title: 'Pon a prueba tus habilidades',
+      description: 'Practica líneas continuas antes de que la aguja toque a alguien. Pulsa y arrastra dentro del panel: el trazo solo se dibuja ahí dentro.',
+      canvasLabel: 'Panel de dibujo. Pulsa y arrastra con el ratón para trazar líneas.',
+      toolbarLabel: 'Herramientas del panel',
+      needle: 'Aguja',
+      stencil: 'Mostrar stencil',
+      clear: 'Limpiar panel',
+      hint: 'Consejo: las líneas rápidas salen más finas, como en la piel. Intenta seguir el stencil sin temblar.',
+    },
   },
   de: {
     skipToContent: 'Zum Inhalt springen',
@@ -210,7 +342,32 @@ export const dictionaries: Record<Locale, Dictionary> = {
       styles: 'Stile',
       equipment: 'Ausrüstung',
       about: 'Über uns',
+      skillsTest: 'Teste deine Fähigkeiten',
     },
+    pageTitles: {
+      home: 'Start',
+      clientHub: 'Für Kund:innen',
+      clientBefore: 'Vor dem Tattoo',
+      clientSessionDay: 'Sitzungstag',
+      clientAftercare: 'Nachsorge',
+      clientHealing: 'Heilung',
+      warningSigns: 'Warnzeichen',
+      emergency: 'Notfall',
+      artistHub: 'Für Tätowierer:innen',
+      artistScreening: 'Erstgespräch und Hygiene',
+      artistWorkstation: 'Arbeitsplatz-Vorbereitung',
+      artistDuringSession: 'Während der Sitzung',
+      artistClosing: 'Abschluss und Entsorgung',
+      artistMachineSetup: 'Grundeinstellung',
+      artistBeginnerLimits: 'Grenzen für Einsteiger',
+      styles: 'Stile',
+      equipmentHub: 'Ausrüstung',
+      equipmentPro: 'Profi-Ausrüstung',
+      sources: 'Quellen',
+      about: 'Über uns',
+      skillsTest: 'Teste deine Fähigkeiten',
+    },
+    currentSectionLabel: 'Aktueller Bereich',
     emergency: 'Notfall',
     mainNavLabel: 'Hauptnavigation',
     mobileNavLabel: 'Hauptnavigation (mobil)',
@@ -242,6 +399,19 @@ export const dictionaries: Record<Locale, Dictionary> = {
       loadFromYoutube: 'Klicken, um von YouTube zu laden', watchOnYoutube: 'Auf YouTube ansehen',
       situation: 'Situation', keepAnEyeOn: 'Darauf achten', openPlaylist: 'Playlist öffnen',
       playlistPlayerNotice: 'Der Spotify-Player wird erst geladen, wenn du ihn öffnest.', listenOnSpotify: 'Auf Spotify hören',
+    },
+    skillsTest: {
+      metaTitle: 'Teste deine Fähigkeiten',
+      metaDescription: 'Eine virtuelle Hautfläche zum Üben von Linien mit der Maus: Nadeln in verschiedenen Stärken und optionale Schablone.',
+      eyebrow: 'Übung',
+      title: 'Teste deine Fähigkeiten',
+      description: 'Übe saubere Linien, bevor deine Nadel jemanden berührt. Drücken und ziehen im Feld: Der Strich wird nur dort gezeichnet.',
+      canvasLabel: 'Zeichenfeld. Mit gedrückter Maustaste ziehen, um Linien zu zeichnen.',
+      toolbarLabel: 'Werkzeuge des Zeichenfelds',
+      needle: 'Nadel',
+      stencil: 'Schablone zeigen',
+      clear: 'Feld leeren',
+      hint: 'Tipp: Schnelle Linien werden dünner, wie auf der Haut. Versuche, der Schablone ohne Zittern zu folgen.',
     },
   },
 };

@@ -1,4 +1,4 @@
-import { useEffect, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { site } from '@/config/site';
 import { useLocale } from '@/i18n/useLocale';
@@ -7,6 +7,7 @@ import { pathFor, routeIdForPath, topNavItems } from '@/i18n/routes';
 import { AutomaticPageTranslation } from '@/components/i18n/AutomaticPageTranslation';
 import { MachineCursor } from '@/components/ui/MachineCursor';
 import { Header } from './Header';
+import { SiteNav } from './SiteNav';
 import './layout.css';
 
 /**
@@ -33,15 +34,17 @@ export function AppShell({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
   const { locale, dict } = useLocale();
   const routeId = routeIdForPath(locale, pathname);
+  const [navDocked, setNavDocked] = useState(false);
 
   return (
-    <div className="app-shell">
+    <div className="app-shell" data-nav-docked={navDocked || undefined}>
       <MachineCursor />
       <a className="skip-link" href="#conteudo">
         {dict.skipToContent}
       </a>
 
       <Header />
+      <SiteNav docked={navDocked} onDockedChange={setNavDocked} />
 
       <main id="conteudo" className="band-paper" tabIndex={-1}>
         {children}

@@ -34,8 +34,14 @@
   background: var(--ink);
 }
 
+/**
+ * Três colunas: marca à esquerda, nome da página exatamente no centro e ações
+ * à direita. As laterais são `1fr` para o título não ser empurrado pela
+ * largura das ações.
+ */
 .app-header-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
   align-items: center;
   gap: var(--space-4);
   min-height: var(--header-height);
@@ -46,7 +52,8 @@
  * espaçado, sem símbolo. O nome em tamanho grande fica reservado ao hero.
  */
 .brand {
-  margin-right: auto;
+  justify-self: start;
+  white-space: nowrap;
   text-decoration: none;
   color: var(--color-text);
 }
@@ -63,11 +70,36 @@
   color: var(--color-accent-text);
 }
 
-.nav-desktop {
+.header-section {
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--color-text);
+}
+
+.header-actions {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+/* ============================================= navegação principal (desktop) */
+
+.site-nav-slot {
   display: none;
 }
 
-.nav-desktop ul {
+.site-nav {
+  background: var(--ink);
+}
+
+.site-nav ul {
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -76,7 +108,7 @@
   padding: 0;
 }
 
-.nav-desktop a {
+.site-nav a {
   display: inline-block;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-pill);
@@ -89,22 +121,22 @@
     background-color var(--dur-fast) var(--ease-out);
 }
 
-.nav-desktop a:hover {
+.site-nav a:hover {
   color: var(--color-text);
   background: rgba(244, 242, 240, 0.08);
 }
 
-.nav-desktop a.active {
+.site-nav a.active {
   color: var(--color-text);
   background: rgba(244, 242, 240, 0.12);
 }
 
 /* Sinais de alerta precisa ser encontrável de imediato, em qualquer página. */
-.nav-desktop a.nav-alert {
+.site-nav a.nav-alert {
   color: var(--alert-warning);
 }
 
-.nav-desktop a.nav-alert.active {
+.site-nav a.nav-alert.active {
   color: var(--alert-warning);
   background: var(--alert-warning-bg);
 }
@@ -443,11 +475,72 @@ main {
   color: rgba(244, 242, 240, 0.46);
 }
 
+@keyframes sidebar-in {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+}
+
 /* =============================================================== larguras */
 
 @media (min-width: 940px) {
-  .nav-desktop {
+  .app-shell {
+    --sidebar-width: 14rem;
+  }
+
+  /* A faixa guarda a altura da nav horizontal mesmo depois que ela vira
+     sidebar, para o conteúdo não subir no instante da troca. */
+  .site-nav-slot {
     display: block;
+    min-height: 3.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .site-nav:not([data-docked]) ul {
+    width: min(var(--content-width), calc(100% - 2rem));
+    min-height: 3.5rem;
+    margin-inline: auto;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .site-nav[data-docked] {
+    position: fixed;
+    top: var(--header-height);
+    bottom: 0;
+    left: 0;
+    z-index: var(--z-sticky);
+    width: var(--sidebar-width);
+    padding: var(--space-5) var(--space-3);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-right: 1px solid var(--color-border);
+    animation: sidebar-in var(--dur-base) var(--ease-out);
+  }
+
+  .site-nav[data-docked] ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-1);
+  }
+
+  .site-nav[data-docked] a {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+  }
+
+  /* Com a sidebar fixa, o conteúdo abre espaço à esquerda em vez de ficar
+     por baixo dela. */
+  .app-shell main,
+  .app-shell .app-footer {
+    transition: padding-left var(--dur-base) var(--ease-out);
+  }
+
+  .app-shell[data-nav-docked] main,
+  .app-shell[data-nav-docked] .app-footer {
+    padding-left: var(--sidebar-width);
   }
 
   .language-switcher-desktop {

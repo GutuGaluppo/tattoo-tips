@@ -7,6 +7,10 @@ import { pathFor, routeIdForPath, topNavItems } from '@/i18n/routes';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import './layout.css';
 
+/**
+ * Barra superior: marca à esquerda, nome da página no centro e ações à
+ * direita. A navegação principal no desktop fica em `SiteNav`, logo abaixo.
+ */
 export function Header() {
   const { pathname } = useLocation();
   const { locale, dict } = useLocale();
@@ -61,6 +65,8 @@ export function Header() {
   }, [open]);
 
   const emergencyHref = pathFor('emergency', locale);
+  const routeId = routeIdForPath(locale, pathname);
+  const sectionTitle = routeId && routeId !== 'home' ? dict.pageTitles[routeId] : null;
 
   return (
     <header className="app-header band-dark">
@@ -69,42 +75,38 @@ export function Header() {
           <span className="brand-name">{site.name}.</span>
         </Link>
 
-        <nav className="nav-desktop" aria-label={dict.mainNavLabel}>
-          <ul>
-            {topNavItems.map(({ id, navKey }) => (
-              <li key={id}>
-                <NavLink
-                  to={pathFor(id, locale)}
-                  className={id === 'warningSigns' ? 'nav-alert' : undefined}
-                >
-                  {dict.nav[navKey]}
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <p className="header-section">
+          {sectionTitle && (
+            <>
+              <span className="visually-hidden">{dict.currentSectionLabel}: </span>
+              {sectionTitle}
+            </>
+          )}
+        </p>
 
-        <LanguageSwitcher currentPathname={pathname} className="language-switcher-desktop" />
+        <div className="header-actions">
+          <LanguageSwitcher currentPathname={pathname} className="language-switcher-desktop" />
 
-        <Link to={emergencyHref} className="btn btn-danger header-emergency">
-          {dict.emergency}
-        </Link>
+          <Link to={emergencyHref} className="btn btn-danger header-emergency">
+            {dict.emergency}
+          </Link>
 
-        <button
-          ref={toggleRef}
-          type="button"
-          className="mobile-nav-toggle"
-          aria-expanded={open}
-          aria-controls="menu-principal"
-          onClick={() => setOpen(!open)}
-        >
-          <span className="visually-hidden">{open ? dict.closeMenu : dict.openMenu}</span>
-          <span className="burger" data-open={open || undefined} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
-        </button>
+          <button
+            ref={toggleRef}
+            type="button"
+            className="mobile-nav-toggle"
+            aria-expanded={open}
+            aria-controls="menu-principal"
+            onClick={() => setOpen(!open)}
+          >
+            <span className="visually-hidden">{open ? dict.closeMenu : dict.openMenu}</span>
+            <span className="burger" data-open={open || undefined} aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
       </div>
 
       {open && (

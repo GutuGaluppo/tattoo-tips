@@ -26,6 +26,7 @@ export const routeIds = [
   'equipmentPro',
   'sources',
   'about',
+  'skillsTest',
 ] as const;
 
 export type RouteId = (typeof routeIds)[number];
@@ -58,6 +59,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'equipamento/pro',
     sources: 'fontes',
     about: 'sobre',
+    skillsTest: 'teste-suas-habilidades',
   },
   en: {
     home: '',
@@ -80,6 +82,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'equipment/pro',
     sources: 'sources',
     about: 'about',
+    skillsTest: 'test-your-skills',
   },
   es: {
     home: '',
@@ -102,6 +105,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'equipo/pro',
     sources: 'fuentes',
     about: 'sobre',
+    skillsTest: 'pon-a-prueba-tus-habilidades',
   },
   de: {
     home: '',
@@ -124,6 +128,7 @@ const segments: Record<Locale, Record<RouteId, string>> = {
     equipmentPro: 'ausruestung/pro',
     sources: 'quellen',
     about: 'ueber-uns',
+    skillsTest: 'teste-deine-faehigkeiten',
   },
 };
 
@@ -161,7 +166,7 @@ export function localizeHref(ptPath: string, locale: Locale): string {
 }
 
 /**
- * Os cinco itens do topo (header e rodapé) — únicos com rótulo traduzido no
+ * Os itens do topo (header e rodapé) — únicos com rótulo traduzido no
  * dicionário. `navKey` bate com as chaves de `Dictionary['nav']`.
  */
 export const topNavItems: readonly { id: RouteId; navKey: keyof Dictionary['nav'] }[] = [
@@ -171,4 +176,5 @@ export const topNavItems: readonly { id: RouteId; navKey: keyof Dictionary['nav'
   { id: 'styles', navKey: 'styles' },
   { id: 'equipmentHub', navKey: 'equipment' },
   { id: 'about', navKey: 'about' },
+  { id: 'skillsTest', navKey: 'skillsTest' },
 ];

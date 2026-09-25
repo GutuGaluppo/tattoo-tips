@@ -65,4 +65,24 @@ describe('navegação', () => {
       'https://tattoo-tips.example/emergencias',
     );
   });
+
+  it('mostra o nome da página no centro do cabeçalho', async () => {
+    renderApp('/cliente/cuidados-depois');
+
+    await screen.findByRole('heading', { level: 1 });
+    expect(document.querySelector('.header-section')).toHaveTextContent('Cuidados depois');
+  });
+
+  it('publica a página de prática com o painel de desenho', async () => {
+    renderApp('/en/test-your-skills');
+
+    expect(
+      await screen.findByRole('heading', { level: 1, name: /test your skills/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole('img', { name: /drawing panel/i })).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /test your skills/i })[0]).toHaveAttribute(
+      'href',
+      '/en/test-your-skills',
+    );
+  });
 });

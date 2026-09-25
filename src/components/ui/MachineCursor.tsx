@@ -14,6 +14,8 @@ const CLICKABLE_SELECTOR = [
   '[role="button"]',
   '[role="link"]',
   '[contenteditable="true"]',
+  // Painel de desenho enquanto o traço está ativo.
+  '[data-cursor-running]',
 ].join(',');
 
 /**
